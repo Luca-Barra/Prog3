@@ -10,10 +10,11 @@
          <children>
             <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../com.email.images/account-default.png" />
+                  <Image url="@../images/account-default.png" />
                </image>
             </ImageView>
-            <Label fx:id="LabelUsername" prefHeight="80.0" prefWidth="717.0" />
+            <Label fx:id="LabelUsername" prefHeight="31.0" prefWidth="381.0" />
+            <Button fx:id="ButtonNuovaMail" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="Nuova Mail" />
          </children></HBox>
    </top>
    <center>
@@ -48,14 +49,14 @@
                   </GridPane>
                </top>
                <center>
-                  <Label fx:id="LabelTestoEmail" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <Label fx:id="LabelTestoEmail" prefHeight="144.0" prefWidth="277.0" BorderPane.alignment="CENTER" />
                </center>
                <bottom>
                   <ButtonBar prefHeight="86.0" prefWidth="244.0" BorderPane.alignment="CENTER">
                      <buttons>
-                        <Button mnemonicParsing="false" text="R. a tutti" />
-                        <Button mnemonicParsing="false" prefHeight="26.0" text="Rispondi" />
-                        <Button minWidth="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="318.0" text="Elimina" />
+                        <Button fx:id="ButtonRaTutti" mnemonicParsing="false" text="R. a tutti" />
+                        <Button fx:id="ButtonRispondi" mnemonicParsing="false" prefHeight="26.0" text="Rispondi" />
+                        <Button fx:id="ButtonElimina" minWidth="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="318.0" text="Elimina" />
                      </buttons>
                   </ButtonBar>
                </bottom>
@@ -63,4 +64,11 @@
          </children>
       </StackPane>
    </right>
+   <bottom>
+      <ButtonBar layoutX="10.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" prefHeight="29.0" text="Inoltra" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
 </BorderPane>

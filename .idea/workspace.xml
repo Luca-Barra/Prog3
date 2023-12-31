@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/UI/client-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/account-default.png" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add client view">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/UI/newmail-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/UI/server-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.email.UI/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/UI/client-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.email.images/account-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/images/account-default.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +77,14 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/email" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/email/" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/email/database" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -97,6 +107,11 @@
       <workItem from="1704044094857" duration="176000" />
       <workItem from="1704044275050" duration="324000" />
       <workItem from="1704044603840" duration="298000" />
+      <workItem from="1704052474457" duration="1072000" />
+      <workItem from="1704053551428" duration="60000" />
+      <workItem from="1704053615457" duration="2079000" />
+      <workItem from="1704055699538" duration="42000" />
+      <workItem from="1704055746161" duration="1671000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -114,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704041779486</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add client view">
+      <option name="closed" value="true" />
+      <created>1704052691848</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704052691848</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +191,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="add client view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add client view" />
   </component>
 </project>
