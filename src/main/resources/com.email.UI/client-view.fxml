@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../com.email.images/account-default.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="LabelUsername" prefHeight="80.0" prefWidth="717.0" />
+         </children></HBox>
+   </top>
+   <center>
+      <ListView prefHeight="375.0" prefWidth="305.0" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="372.0" prefWidth="232.0">
+               <top>
+                  <GridPane prefHeight="99.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="86.0" text="Mittente:" />
+                        <Label text="Destinatari:" GridPane.rowIndex="1" />
+                        <Label text="Oggetto:" GridPane.rowIndex="2" />
+                        <Label text="Data:" GridPane.rowIndex="3" />
+                        <Label fx:id="LabelMittente" prefHeight="44.0" prefWidth="119.0" GridPane.columnIndex="1" />
+                        <Label fx:id="LabelDestinatario" prefHeight="46.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="LabelOggetto" prefHeight="45.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="LabelData" prefHeight="62.0" prefWidth="119.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </top>
+               <center>
+                  <Label fx:id="LabelTestoEmail" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <ButtonBar prefHeight="86.0" prefWidth="244.0" BorderPane.alignment="CENTER">
+                     <buttons>
+                        <Button mnemonicParsing="false" text="R. a tutti" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" text="Rispondi" />
+                        <Button minWidth="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="318.0" text="Elimina" />
+                     </buttons>
+                  </ButtonBar>
+               </bottom>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </right>
+</BorderPane>
