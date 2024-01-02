@@ -4,11 +4,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.email.client.ClientController">
    <top>
       <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/account-default.png" />
+                  <Image url="@images/account-default.png" />
             </ImageView>
             <Label fx:id="LabelUsername" prefHeight="31.0" prefWidth="381.0" />
             <Button fx:id="ButtonNuovaMail" mnemonicParsing="false" prefHeight="35.0" prefWidth="87.0" text="Nuova Mail" />
