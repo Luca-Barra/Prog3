@@ -15,7 +15,7 @@
          </HBox>
    </top>
    <center>
-      <ListView prefHeight="375.0" prefWidth="305.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="emailListView" prefHeight="375.0" prefWidth="305.0" BorderPane.alignment="CENTER" />
    </center>
    <right>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -43,7 +43,7 @@
                   </GridPane>
                </top>
                <center>
-                  <Label fx:id="LabelTestoEmail" prefHeight="144.0" prefWidth="277.0" BorderPane.alignment="CENTER" />
+                  <TextArea fx:id="LabelTestoEmail" prefHeight="144.0" prefWidth="277.0" BorderPane.alignment="CENTER" />
                </center>
                <bottom>
                   <ButtonBar prefHeight="86.0" prefWidth="244.0" BorderPane.alignment="CENTER">
