@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 
 public class ClientModel {
     private ObservableList<Email> emailList;
+    private String user;
 
     public ClientModel() {
 
@@ -55,5 +56,13 @@ public class ClientModel {
     public void sendEmail(String destinatario, String oggetto, String testo) {
         Email email = new Email("mittente@example.com", destinatario, oggetto, testo);
         emailList.add(email);
+    }
+
+    public void setUser(String username) {
+        this.user = username;
+    }
+
+    public String getUser() {
+        return user;
     }
 }

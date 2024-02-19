@@ -15,6 +15,7 @@ public class LoginController {
     public javafx.scene.control.PasswordField PasswordField;
     public TextField UserField;
     public Label LabelError;
+    private ClientModel clientModel;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         String user = UserField.getText();
@@ -23,12 +24,20 @@ public class LoginController {
         if(tryLogin.check()){
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
+            clientModel.setUser(UserField.getText());
             FXMLLoader log = new FXMLLoader();
             log.setLocation(ClientApplication.class.getResource("client-view.fxml"));
             Scene logScene = new Scene(log.load(), 900, 600);
+            ClientController clientController = log.getController();
+            clientController.setClientModel(clientModel);
+            clientController.setLabelUsername(clientModel.getUser());
             stage.setTitle("Client");
             stage.setScene(logScene);
             stage.show();
         } else LoginView.negative(LabelError);
+    }
+
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 }

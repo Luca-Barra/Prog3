@@ -1,10 +1,7 @@
 package com.email.client;
 import com.email.email.Email;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 public class ClientController {
 
@@ -18,16 +15,16 @@ public class ClientController {
     private Button ButtonNuovaMail;
 
     @FXML
-    private Label LabelMittente;
+    private TextField LabelMittente;
 
     @FXML
-    private Label LabelDestinatario;
+    private TextField LabelDestinatario;
 
     @FXML
-    private Label LabelOggetto;
+    private TextField LabelOggetto;
 
     @FXML
-    private Label LabelData;
+    private TextField LabelData;
 
     @FXML
     private TextArea LabelTestoEmail;
@@ -44,13 +41,16 @@ public class ClientController {
     @FXML
     private Button ButtonInoltra;
 
-    private ClientModel clientModel;
+    private ClientModel clientModel = new ClientModel();
 
 
     @FXML
     public void initialize() {
-        // Inizializza il clientModel
-        clientModel = new ClientModel();
+
+        LabelMittente.setEditable(false);
+        LabelDestinatario.setEditable(false);
+        LabelOggetto.setEditable(false);
+        LabelData.setEditable(false);
         LabelTestoEmail.setEditable(false);
         LabelTestoEmail.setWrapText(true);
 
@@ -77,5 +77,11 @@ public class ClientController {
 
     }
 
+    public void setLabelUsername(String username){
+        LabelUsername.setText(username);
+    }
 
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
+    }
 }

@@ -36,10 +36,10 @@
                         <Label text="Destinatari:" GridPane.rowIndex="1" />
                         <Label text="Oggetto:" GridPane.rowIndex="2" />
                         <Label text="Data:" GridPane.rowIndex="3" />
-                        <Label fx:id="LabelMittente" prefHeight="44.0" prefWidth="119.0" GridPane.columnIndex="1" />
-                        <Label fx:id="LabelDestinatario" prefHeight="46.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="LabelOggetto" prefHeight="45.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="LabelData" prefHeight="62.0" prefWidth="119.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="LabelMittente" prefHeight="44.0" prefWidth="119.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="LabelDestinatario" prefHeight="46.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="LabelOggetto" prefHeight="45.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="LabelData" prefHeight="62.0" prefWidth="119.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   </GridPane>
                </top>
                <center>
