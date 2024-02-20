@@ -1,7 +1,11 @@
 package com.email.email;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class Email {
+public class Email implements Serializable {
     private String mittente;
     private String destinatario;
     private String oggetto;
@@ -35,5 +39,18 @@ public class Email {
 
     public String getData() {
         return data.toString();
+    }
+
+    public List<String> getDestinatari() {
+        // Dividi la stringa dei destinatari utilizzando la virgola come delimitatore
+        String[] destinatariArray = destinatario.split(",");
+
+        // Rimuovi eventuali spazi bianchi in eccesso dai destinatari
+        for (int i = 0; i < destinatariArray.length; i++) {
+            destinatariArray[i] = destinatariArray[i].trim();
+        }
+
+        // Converti l'array in una lista e restituisci
+        return new ArrayList<>(Arrays.asList(destinatariArray));
     }
 }
