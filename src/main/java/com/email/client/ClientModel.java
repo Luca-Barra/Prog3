@@ -3,9 +3,7 @@ import com.email.email.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -21,9 +19,31 @@ public class ClientModel {
 
     public ClientModel() {
 
+
         emailList = FXCollections.observableArrayList();
 
         loadEmailsFromServer();
+    }
+
+    private void loadEmailsFromLocal(String filePath) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(","); // Assuming comma-separated values
+                if (parts.length == 4) {
+                    String sender = parts[0].trim();
+                    String recipients = parts[1].trim();
+                    String subject = parts[2].trim();
+                    String body = parts[3].trim();
+                    emailList.add(new Email(sender, recipients, subject, body));
+                } else {
+                    // Handle incorrect format or missing data
+                    System.out.println("Skipping invalid line: " + line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadEmailsFromServer() {

@@ -24,7 +24,7 @@ public class LoginController {
         if(tryLogin.check()){
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
-            clientModel.setUser(UserField.getText());
+            clientModel = new ClientModel();
             FXMLLoader log = new FXMLLoader();
             log.setLocation(ClientApplication.class.getResource("client-view.fxml"));
             Scene logScene = new Scene(log.load(), 900, 600);

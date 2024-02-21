@@ -63,7 +63,6 @@ public class ClientController {
 
         emailListView.setItems(clientModel.getEmailList());
 
-
         emailListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 displayEmailDetails(newValue);

@@ -13,13 +13,10 @@ public class ClientApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ClientModel clientModel = new ClientModel();
         stage = new Stage();
         FXMLLoader log = new FXMLLoader();
         log.setLocation(ClientApplication.class.getResource("login-view.fxml"));
         Scene logScene = new Scene(log.load(), 900, 600);
-        LoginController loginController = log.getController();
-        loginController.setClientModel(clientModel);
         stage.setTitle("Login");
         stage.setScene(logScene);
         stage.show();
