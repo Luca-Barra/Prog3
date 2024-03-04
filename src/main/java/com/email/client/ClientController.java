@@ -1,10 +1,13 @@
 package com.email.client;
 import com.email.email.Email;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -14,6 +17,7 @@ import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +52,7 @@ public class ClientController {
     @FXML
     private TextArea LabelTestoEmail;
 
-    private ClientModel clientModel = new ClientModel();
+    private ClientModel clientModel = new ClientModel("");
 
 
     @FXML
@@ -60,8 +64,6 @@ public class ClientController {
         LabelData.setEditable(false);
         LabelTestoEmail.setEditable(false);
         LabelTestoEmail.setWrapText(true);
-
-        emailListView.setItems(clientModel.getEmailList());
 
         emailListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -131,7 +133,7 @@ public class ClientController {
                 alert.setContentText("Inserire un indirizzo email valido.");
                 alert.showAndWait();
             } else {
-                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo);
+                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
             }
         });
@@ -149,7 +151,7 @@ public class ClientController {
                 String oggetto = response.getValue().getKey();
                 String testo = response.getValue().getValue();
 
-                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo);
+                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
 
                 clientModel.sendEmail(email);
             });
@@ -296,9 +298,14 @@ public class ClientController {
 
     public void setLabelUsername(String username){
         LabelUsername.setText(username);
+        clientModel.loadEmailsFromLocal("/home/luna/IdeaProjects/Project-Prog-3/src/main/resources/com/email/client/localmailbox/" +
+                LabelUsername.getText() + ".txt");
+        emailListView.setItems(clientModel.getEmailList());
+        clientModel.updateLocalMailboxPeriodically(LabelUsername.getText());
     }
 
     public void setClientModel(ClientModel clientModel) {
-        this.clientModel = clientModel;
+        this.clientModel = new ClientModel(clientModel.getUser());
     }
+
 }

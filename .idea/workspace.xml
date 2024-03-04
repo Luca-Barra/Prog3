@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="update server">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -210,6 +208,14 @@
       <workItem from="1708511658499" duration="1674000" />
       <workItem from="1708513337353" duration="4000" />
       <workItem from="1708514013776" duration="157000" />
+      <workItem from="1708514181713" duration="20000" />
+      <workItem from="1708521196106" duration="8812000" />
+      <workItem from="1709131093827" duration="555000" />
+      <workItem from="1709471889795" duration="88000" />
+      <workItem from="1709557537162" duration="439000" />
+      <workItem from="1709558034709" duration="472000" />
+      <workItem from="1709562637448" duration="270000" />
+      <workItem from="1709562912260" duration="812000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -283,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708444323580</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update server">
+      <option name="closed" value="true" />
+      <created>1708514194294</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708514194294</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

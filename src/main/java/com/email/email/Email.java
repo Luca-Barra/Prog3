@@ -10,14 +10,14 @@ public class Email implements Serializable {
     private String destinatario;
     private String oggetto;
     private String testo;
-    private LocalDateTime data;
+    private String data;
 
-    public Email(String mittente, String destinatario, String oggetto, String testo) {
+    public Email(String mittente, String destinatario, String oggetto, String testo, String data) {
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.oggetto = oggetto;
         this.testo = testo;
-        this.data = LocalDateTime.now();
+        this.data = data;
     }
 
     // Metodi getter
@@ -39,6 +39,15 @@ public class Email implements Serializable {
 
     public String getData() {
         return data.toString();
+    }
+
+    @Override
+    public String toString() {
+        return  testo;
+    }
+
+    public String getDataOra() {
+        return data;
     }
 
     public List<String> getDestinatari() {

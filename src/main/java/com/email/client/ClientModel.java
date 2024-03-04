@@ -1,5 +1,6 @@
 package com.email.client;
 import com.email.email.Email;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,68 +18,34 @@ public class ClientModel {
     private final ObservableList<Email> emailList;
     private String user;
 
-    public ClientModel() {
+    public ClientModel(String username) {
 
 
         emailList = FXCollections.observableArrayList();
 
-        loadEmailsFromServer();
+        user = username;
+
     }
 
-    private void loadEmailsFromLocal(String filePath) {
+    public void loadEmailsFromLocal(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(","); // Assuming comma-separated values
-                if (parts.length == 4) {
+                String[] parts = line.split(";");
+                if (parts.length == 5) {
                     String sender = parts[0].trim();
                     String recipients = parts[1].trim();
                     String subject = parts[2].trim();
                     String body = parts[3].trim();
-                    emailList.add(new Email(sender, recipients, subject, body));
+                    String data = parts[4].trim();
+                    emailList.add(new Email(sender, recipients, subject, body, data));
                 } else {
-                    // Handle incorrect format or missing data
                     System.out.println("Skipping invalid line: " + line);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void loadEmailsFromServer() {
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com, destinatario2@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente1@example.com", "destinatario@example.com", "Oggetto 1", "Testo dell'email 1"));
-        emailList.add(new Email("mittente2@example.com", "destinatario@example.com", "Oggetto 2", "Testo dell'email 2"));
-        emailList.add(new Email("mittente3@example.com", "destinatario@example.com", "Oggetto 3", "Testo dell'email 3"));
-        emailList.add(new Email("mittente6@example.com", "destinatario@example.com", "Oggetto 3", "Arefdddddddddddddddddd" +
-                "fdddddddddddfdddddddddddddddddddddddddddddddddddddddddddddddddd" +
-                "dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" +
-                "dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" +
-                "dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" +
-                "dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" +
-                "rwewerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" +
-                "3e4rrtrtrtrtrtrtrtrtrtrtrttsdddddddddddddddd" +
-                "sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" +
-                "sssssssssssssssssssssss3ewwerweerer" +
-                "erer4e"));
     }
 
     public ObservableList<Email> getEmailList() {
@@ -135,8 +102,54 @@ public class ClientModel {
     }
 
     public void forwardEmail(Email email, List<String> newRecipients) {
-        Email forwardedEmail = new Email(email.getMittente(), String.join(",", newRecipients), email.getOggetto(), email.getTesto());
+        Email forwardedEmail = new Email(email.getMittente(), String.join(",", newRecipients), email.getOggetto(), email.getTesto(), email.getData());
 
         sendEmail(forwardedEmail);
+    }
+
+    public void updateLocalMailboxPeriodically(String filepath) {
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        System.out.println("2323232323");
+        Runnable task = () -> {
+            try (Socket socket = new Socket()) {
+                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
+                System.out.println("ferreer");
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                System.out.println("erfferefererererer");
+                out.writeObject(user);
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+
+                System.out.println("ferreer");
+                in.readLine();
+                System.out.println("jddjdfjdd");
+
+                out.writeObject("GET_MAILBOX_FILE");
+
+
+                String line;
+                try (BufferedWriter localMailboxWriter = new BufferedWriter(new FileWriter(filepath))) {
+                    while ((line = in.readLine()) != null) {
+                        localMailboxWriter.write(line + "\n");
+                    }
+                }
+
+            } catch (IOException e) {
+
+                System.out.println("Impossibile connettersi al server. Verifica che sia in esecuzione.");
+            }
+        };
+
+        executor.scheduleAtFixedRate(task, 0, 30, TimeUnit.SECONDS);
+    }
+
+
+    public void saveEmailsToLocal(String s) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(s))) {
+            for (Email email : emailList) {
+                writer.write(email.getMittente() + ";" + email.getDestinatario() + ";" + email.getOggetto() + ";" + email.getTesto() + ";" + email.getData() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
