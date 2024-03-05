@@ -9,6 +9,7 @@ import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -54,32 +55,35 @@ public class ClientModel {
 
     public void sendEmail(Email email) {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-        Runnable task = () -> {
-                try {
-                    Socket socket = new Socket();
-                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
 
-                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        Runnable task = () -> {
+            try {
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                out.writeObject("SEND_EMAIL");
+                String serverResponse = in.readObject().toString();
+                out.flush();
+                if(serverResponse.equals("OK")) {
+                    System.out.println("Risposta dal server: " + serverResponse);
+                    Platform.runLater(() -> emailList.add(email));
                     out.writeObject(email);
-                    System.out.println("2sdsd");
-                    try {
-                        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                        Object serverResponse = in.readObject();
-                        System.out.println("Risposta dal server: " + serverResponse);
-                    } catch (SocketTimeoutException e) {
-                        System.out.println("Nessuna risposta dal server entro 30 secondi.");
-                    }
-                    socket.close();
-                } catch (ConnectException e) {
-                    System.out.println("Impossibile connettersi al server.");
-                } catch (IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
                 }
+                in.close();
+                out.close();
+                socket.close();
+            } catch (ConnectException e) {
+                System.out.println("Impossibile connettersi al server.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         };
 
-            executor.schedule(task, 30, TimeUnit.SECONDS);
+        executor.execute(task);
 
-        emailList.add(email);
     }
 
     public void setUser(String username) {
@@ -102,40 +106,46 @@ public class ClientModel {
     }
 
     public void forwardEmail(Email email, List<String> newRecipients) {
-        Email forwardedEmail = new Email(email.getMittente(), String.join(",", newRecipients), email.getOggetto(), email.getTesto(), email.getData());
-
+        Email forwardedEmail = dataEmail(email);
         sendEmail(forwardedEmail);
     }
 
+    private Email dataEmail(Email email) {
+        return new Email(email.getMittente(), email.getDestinatario(), email.getOggetto(), email.getTesto(), email.getData());
+    }
+
     public void updateLocalMailboxPeriodically(String filepath) {
+
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-        System.out.println("2323232323");
+
         Runnable task = () -> {
-            try (Socket socket = new Socket()) {
+            try {
+                Socket socket = new Socket();
                 socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                System.out.println("ferreer");
                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                System.out.println("erfferefererererer");
-                out.writeObject(user);
                 ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-
-                System.out.println("ferreer");
-                in.readLine();
-                System.out.println("jddjdfjdd");
-
-                out.writeObject("GET_MAILBOX_FILE");
-
-
-                String line;
-                try (BufferedWriter localMailboxWriter = new BufferedWriter(new FileWriter(filepath))) {
-                    while ((line = in.readLine()) != null) {
-                        localMailboxWriter.write(line + "\n");
-                    }
+                out.writeObject("RETRIEVE_EMAILS");
+                String serverResponse = in.readObject().toString();
+                out.writeObject(user);
+                if(serverResponse.equals("OK")) {
+                    System.out.println("Risposta dal server: " + serverResponse);
+                    List<Email> emails = (ArrayList<Email>) in.readObject();
+                    Platform.runLater(() -> {
+                        emailList.addAll(emails);
+                        saveEmailsToLocal(filepath);
+                    });
                 }
-
+                in.close();
+                out.close();
+                socket.close();
+            } catch (ConnectException e) {
+                System.out.println("Impossibile connettersi al server.");
+            } catch (SocketTimeoutException e) {
+                System.out.println("Timeout di connessione al server.");
             } catch (IOException e) {
-
-                System.out.println("Impossibile connettersi al server. Verifica che sia in esecuzione.");
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         };
 
@@ -144,9 +154,14 @@ public class ClientModel {
 
 
     public void saveEmailsToLocal(String s) {
+        System.out.println("Salvataggio su file locale");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(s))) {
             for (Email email : emailList) {
-                writer.write(email.getMittente() + ";" + email.getDestinatario() + ";" + email.getOggetto() + ";" + email.getTesto() + ";" + email.getData() + "\n");
+                writer.write(email.getMittente() + ";"
+                        + email.getDestinatario() + ";"
+                        + email.getOggetto() + ";"
+                        + email.getTesto() + ";"
+                        + email.getData() + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

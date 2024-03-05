@@ -30,24 +30,46 @@ public class ServerModel {
 
     private static void handleClient(Socket clientSocket) {
         System.out.println("fdgfgr");
-        try (
-                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()))
-        ) {
-            String clientName = in.readLine();
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
-            System.out.println("Nome del client: " + clientName);
+            String command = in.readLine();
+            System.out.println("Comando ricevuto: " + command);
 
-            String mailboxFileName = getMailboxFileName(clientName);
-            out.write(mailboxFileName + "\n");
-            out.flush();
+            switch (command) {
+                case "SEND_EMAIL":
+                    caseSendEmail(in, out);
+                    break;
+                case "RETRIEVE_EMAILS":
 
-            addClientEntry(clientName, "aggiornamento");
-
+                    break;
+                default:
+                    System.out.println("Comando non riconosciuto: " + command);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("3445554");
+    }
+
+    private static void caseSendEmail(BufferedReader in, BufferedWriter out) throws IOException {
+        String mittente = in.readLine();
+        String destinatario = in.readLine();
+        String oggetto = in.readLine();
+        String testo = in.readLine();
+        String data = in.readLine();
+
+        Email email = new Email(mittente, destinatario, oggetto, testo, data);
+        String[] destinatari = destinatario.split(",");
+
+        for (String destinatarioAttuale : destinatari) {
+            String destinatarioTrimmed = destinatarioAttuale.trim();
+            String destinatarioFileName = getMailboxFileName(destinatarioTrimmed);
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(destinatarioFileName, true))) {
+                writer.write(email.toString() + "\n");
+            }
+        }
     }
 
     static String getMailboxFileName(String user) {

@@ -40,4 +40,8 @@ public class ServerController {
         );
     }
 
+    public void addLogEntry(LogEntry logEntry) {
+        logEntries.add(logEntry);
+    }
+
 }

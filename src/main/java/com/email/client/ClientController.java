@@ -114,8 +114,7 @@ public class ClientController {
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
-                Pair<String, String> destinatarioOggetto = new Pair<>(destinatarioField.getText(), oggettoField.getText());
-                return new Pair<String, Pair<String, String>>(LabelMittente.getText(), destinatarioOggetto);
+                return new Pair<>(destinatarioField.getText(), new Pair<>(oggettoField.getText(), testoArea.getText()));
             }
             return null;
         });
@@ -133,7 +132,8 @@ public class ClientController {
                 alert.setContentText("Inserire un indirizzo email valido.");
                 alert.showAndWait();
             } else {
-                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
+                System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
                 clientModel.sendEmail(email);
             }
         });
@@ -141,35 +141,11 @@ public class ClientController {
 
     public void rispondi() {
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
+
         if (selectedEmail != null) {
             Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
             dialog.setTitle("Rispondi");
             dialog.setHeaderText("Rispondi all'email selezionata");
-
-            dialog.showAndWait().ifPresent(response -> {
-                String destinatario = response.getKey();
-                String oggetto = response.getValue().getKey();
-                String testo = response.getValue().getValue();
-
-                Email email = new Email(LabelMittente.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
-
-                clientModel.sendEmail(email);
-            });
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Nessuna email selezionata");
-            alert.setHeaderText("Seleziona un'email da rispondere.");
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    public void rispondiATutti() {
-        Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
-        if (selectedEmail != null) {
-            Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
-            dialog.setTitle("Rispondi a tutti");
-            dialog.setHeaderText("Rispondi a tutti i destinatari dell'email selezionata");
 
             ButtonType confermaButton = new ButtonType("Conferma", ButtonBar.ButtonData.OK_DONE);
             dialog.getDialogPane().getButtonTypes().addAll(confermaButton, ButtonType.CANCEL);
@@ -185,7 +161,7 @@ public class ClientController {
             TextArea testoArea = new TextArea();
             testoArea.setPromptText("Rispondi all'email qui...");
 
-            grid.add(new Label("Destinatari:"), 0, 0);
+            grid.add(new Label("Destinatario:"), 0, 0);
             grid.add(destinatarioField, 1, 0);
             grid.add(new Label("Oggetto:"), 0, 1);
             grid.add(oggettoField, 1, 1);
@@ -204,42 +180,78 @@ public class ClientController {
             });
 
             dialog.showAndWait().ifPresent(response -> {
-                String mittente = response.getKey();
-                String oggetto = response.getValue().getKey();
-                String testo = response.getValue().getValue();
-                ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-                Runnable task = () -> {
-                    try {
-                        Socket socket = new Socket();
-                        socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-
-                        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                        out.writeObject(selectedEmail);
-
-                        try {
-                            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                            Object serverResponse = in.readObject();
-                            System.out.println("Risposta dal server: " + serverResponse);
-                        } catch (SocketTimeoutException e) {
-                            System.out.println("Nessuna risposta dal server entro 30 secondi.");
-                        }
-
-                        socket.close();
-                    } catch (ConnectException e) {
-                        System.out.println("Impossibile connettersi al server.");
-                    } catch (IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                };
-
-                ((ScheduledExecutorService) executor).schedule(task, 30, TimeUnit.SECONDS);
-                clientModel.sendEmailToAll(selectedEmail.getDestinatario(), mittente, oggetto, testo);
+                if (!parseDestinatari(selectedEmail.getMittente())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Errore");
+                    alert.setHeaderText("Email non valida");
+                    alert.setContentText("Inserire un indirizzo email valido.");
+                    alert.showAndWait();
+                } else {
+                    Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                    clientModel.sendEmail(email);
+                }
             });
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Nessuna email selezionata");
-            alert.setHeaderText("Seleziona un'email da rispondere a tutti.");
+            alert.setHeaderText("Seleziona un'email da rispondere.");
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void rispondiATutti() {
+
+        Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
+        if (selectedEmail != null) {
+            Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
+            dialog.setTitle("Rispondi a tutti");
+            dialog.setHeaderText("Rispondi a tutti i destinatari dell'email selezionata");
+
+            ButtonType confermaButton = new ButtonType("Conferma", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(confermaButton, ButtonType.CANCEL);
+
+            GridPane grid = new GridPane();
+            grid.setHgap(10);
+            grid.setVgap(10);
+            grid.setPadding(new Insets(20, 150, 10, 10));
+
+            TextField destinatarioField = new TextField(selectedEmail.getMittente() + "," + selectedEmail.getDestinatario());
+            destinatarioField.setDisable(true);
+            TextField oggettoField = new TextField("R: " + selectedEmail.getOggetto());
+            TextArea testoArea = new TextArea();
+            testoArea.setPromptText("Rispondi all'email qui...");
+
+            grid.add(new Label("Destinatario:"), 0, 0);
+            grid.add(destinatarioField, 1, 0);
+            grid.add(new Label("Oggetto:"), 0, 1);
+            grid.add(oggettoField, 1, 1);
+            grid.add(new Label("Testo:"), 0, 2);
+            grid.add(testoArea, 1, 2);
+
+            dialog.getDialogPane().setContent(grid);
+
+            Platform.runLater(testoArea::requestFocus);
+
+            dialog.setResultConverter(dialogButton -> {
+                if (dialogButton == confermaButton) {
+                    return new Pair<>(selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), new Pair<>(oggettoField.getText(), testoArea.getText()));
+                }
+                return null;
+            });
+
+            dialog.showAndWait().ifPresent(response -> {
+                if (!parseDestinatari(selectedEmail.getMittente())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Errore");
+                    alert.setHeaderText("Email non valida");
+                    alert.setContentText("Inserire un indirizzo email valido.");
+                    alert.showAndWait();
+                } else {
+                    Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                    clientModel.sendEmail(email);
+                }
+            });
         }
     }
 

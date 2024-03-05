@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="update server">
-      <change afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mario.rossi@gmail.com" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/andrea.neri@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +116,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectprog.HelloApplication" />
       <module name="Project-Prog-3" />
@@ -216,6 +219,9 @@
       <workItem from="1709558034709" duration="472000" />
       <workItem from="1709562637448" duration="270000" />
       <workItem from="1709562912260" duration="812000" />
+      <workItem from="1709632478060" duration="1565000" />
+      <workItem from="1709638645792" duration="1180000" />
+      <workItem from="1709645189000" duration="10974000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
