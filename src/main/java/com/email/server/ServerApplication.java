@@ -111,7 +111,7 @@ public class ServerApplication extends Application {
         }
     }
 
-    private static void caseSendEmail(ObjectInputStream in) {
+    private static synchronized void caseSendEmail(ObjectInputStream in) {
         try {
             Email email = (Email) in.readObject();
             System.out.println("Email ricevuta: " + email);
