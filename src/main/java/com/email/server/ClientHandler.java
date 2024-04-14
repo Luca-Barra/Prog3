@@ -3,9 +3,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.logging.Logger;
+
 
 public class ClientHandler implements Runnable {
-    private Socket clientSocket;
+    private final Socket clientSocket;
+    private static final Logger logger = Logger.getLogger(ClientHandler.class.getName());
 
     public ClientHandler(Socket socket) {
         this.clientSocket = socket;
@@ -17,22 +20,19 @@ public class ClientHandler implements Runnable {
                 ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
                 ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
         ) {
-            // Leggi la richiesta dal client
             Object request = in.readObject();
 
-            // Gestisci la richiesta e genera la risposta
             Object response = handleRequest(request);
 
-            // Invia la risposta al client
             out.writeObject(response);
-            out.flush(); // Assicurati che tutti i dati siano stati inviati
+            out.flush();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
         } finally {
             try {
                 clientSocket.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.severe("Errore durante la chiusura del socket: " + e.getMessage());
             }
         }
     }

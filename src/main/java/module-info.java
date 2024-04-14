@@ -2,6 +2,7 @@ module com.email {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.logging;
+    requires java.net.http;
 
     opens com.example.projectprog to javafx.fxml;
     opens com.email.client to javafx.fxml;

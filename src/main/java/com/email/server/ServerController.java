@@ -11,7 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ServerController {
 
     private ServerModel serverModel;
-    private ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
+    private static final ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
 
     @FXML
     private TableView<LogEntry> emailTableView;
@@ -40,8 +40,8 @@ public class ServerController {
         );
     }
 
-    public void addLogEntry(LogEntry logEntry) {
-        logEntries.add(logEntry);
+    public static void addLogEntry(String utente, String messaggio) {
+        logEntries.add(new LogEntry(utente, messaggio));
     }
 
 }

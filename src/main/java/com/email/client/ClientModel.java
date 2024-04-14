@@ -14,9 +14,12 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
 
 public class ClientModel {
     private final ObservableList<Email> emailList;
+    private static final Logger logger = Logger.getLogger(ClientModel.class.getName());
     private String user;
 
     public ClientModel(String username) {
@@ -45,7 +48,7 @@ public class ClientModel {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante il caricamento delle email dal file locale: " + e.getMessage());
         }
     }
 
@@ -76,7 +79,7 @@ public class ClientModel {
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -143,7 +146,7 @@ public class ClientModel {
             } catch (SocketTimeoutException e) {
                 System.out.println("Timeout di connessione al server.");
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.severe("Errore durante il recupero delle email: " + e.getMessage());
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -164,7 +167,7 @@ public class ClientModel {
                         + email.getData() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante il salvataggio delle email su file locale: " + e.getMessage());
         }
     }
 }

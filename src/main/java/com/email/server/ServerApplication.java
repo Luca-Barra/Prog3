@@ -2,14 +2,10 @@ package com.email.server;
 
 import com.email.email.Email;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -18,6 +14,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 import static com.email.server.ServerModel.addClientEntry;
 import static com.email.server.ServerModel.getMailboxFileName;
@@ -26,6 +23,7 @@ public class ServerApplication extends Application {
 
     private ServerSocket serverSocket;
     private static final int PORT = 12345;
+    private static final Logger logger = Logger.getLogger(ServerApplication.class.getName());
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -51,7 +49,7 @@ public class ServerApplication extends Application {
                 clientHandlerThread.start();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante l'avvio del server: " + e.getMessage());
         }
     }
 
@@ -77,7 +75,7 @@ public class ServerApplication extends Application {
                     System.out.println("Comando non riconosciuto: " + command);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -102,12 +100,13 @@ public class ServerApplication extends Application {
             }
 
             out.writeObject(emailList);
+            ServerController.addLogEntry(username, "Aggiornamento della casella di posta");
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
                 writer.write("");
             }
 
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante il recupero delle email: " + e.getMessage());
         }
     }
 
@@ -128,9 +127,10 @@ public class ServerApplication extends Application {
                             + email.getData() + "\n");
                 }
                 addClientEntry(destinatario.trim(), "Nuova email da " + email.getMittente());
+                ServerController.addLogEntry(email.getMittente(), "Email inviata a " + destinatario);
             }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
         }
     }
 
@@ -150,7 +150,7 @@ public class ServerApplication extends Application {
             try {
                 serverSocket.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.severe("Errore durante la chiusura del server: " + e.getMessage());
             }
         }
     }
