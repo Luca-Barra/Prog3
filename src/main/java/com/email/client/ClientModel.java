@@ -71,7 +71,6 @@ public class ClientModel {
                 out.flush();
                 if(serverResponse.equals("OK")) {
                     System.out.println("Risposta dal server: " + serverResponse);
-                    Platform.runLater(() -> emailList.add(email));
                     out.writeObject(email);
                 }
                 serverResponse = in.readObject().toString();
@@ -87,6 +86,8 @@ public class ClientModel {
                 } else {
                     System.out.println(serverResponse);
                     Platform.runLater(() -> {
+                        emailList.add(email);
+                        saveEmailsToLocal();
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Email inviata");
                         alert.setHeaderText("Email inviata con successo");
@@ -154,7 +155,8 @@ public class ClientModel {
                     List<Email> emails = (ArrayList<Email>) in.readObject();
                     Platform.runLater(() -> {
                         emailList.addAll(emails);
-                        saveEmailsToLocal(filepath);
+                        System.out.println(emailList.size());
+                        saveEmailsToLocal();
                     });
                 }
                 if(serverResponse.equals("Errore durante il recupero delle email")) {
@@ -178,16 +180,21 @@ public class ClientModel {
     }
 
 
-    public void saveEmailsToLocal(String s) {
+    public void saveEmailsToLocal() {
         System.out.println("Salvataggio su file locale");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(s))) {
+        System.out.println(user);
+        System.out.println(emailList.size());
+        String filename = "src/main/resources/com/email/client/localmailbox/" + user + ".txt";
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
             for (Email email : emailList) {
-                writer.write(email.getMittente() + ";"
-                        + email.getDestinatario() + ";"
-                        + email.getOggetto() + ";"
-                        + email.getTesto() + ";"
-                        + email.getData() + "\n");
+                bw.write(email.getMittente() + ";");
+                bw.write(email.getDestinatario() + ";");
+                bw.write(email.getOggetto() + ";");
+                bw.write(email.getTesto() + ";");
+                bw.write(email.getData() + "\n");
             }
+            bw.close();
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio delle email su file locale: " + e.getMessage());
         }

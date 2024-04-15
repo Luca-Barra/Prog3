@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,7 +36,7 @@ public class ServerController {
 
     private static final Logger logger = Logger.getLogger(ServerController.class.getName());
 
-    private static String registeredUsers;
+    private static ArrayList<String> registeredUsers;
 
     public void initialize() {
 
@@ -43,6 +44,7 @@ public class ServerController {
         columnMessaggio.setCellValueFactory(new PropertyValueFactory<>("messaggio"));
         data.setCellValueFactory(new PropertyValueFactory<>("data"));
 
+        registeredUsers = new ArrayList<>();
         loadRegisteredUsers();
 
         emailTableView.setItems(logEntries);
@@ -65,7 +67,9 @@ public class ServerController {
                 Files.createDirectories(path.getParent());
             }
             BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-            writer.write("\n");
+            writer.write("\n------------------------------------------------------------\n");
+            writer.write("Logs salvato il " + LocalDateTime.now());
+            writer.write("\n------------------------------------------------------------\n");
             for (LogEntry logEntry : logEntries) {
                 writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
                 writer.newLine();
@@ -82,7 +86,7 @@ public class ServerController {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        registeredUsers = line;
+                        registeredUsers.add(line);
                     }
                 }
             } else {
