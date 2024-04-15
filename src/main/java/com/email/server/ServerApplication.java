@@ -32,7 +32,14 @@ public class ServerApplication extends Application {
         primaryStage.setTitle("Server");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
-        primaryStage.setOnCloseRequest(event -> System.exit(0));
+        primaryStage.setOnCloseRequest(event -> {
+            try {
+                stop();
+                System.exit(0);
+            } catch (Exception e) {
+                logger.severe("Errore durante la chiusura del server: " + e.getMessage());
+            }
+        });
         new Thread(this::startServer).start();
     }
 
@@ -40,7 +47,7 @@ public class ServerApplication extends Application {
         try {
             serverSocket = new ServerSocket(PORT);
             System.out.println("Server avviato sulla porta " + PORT);
-            while (true) {
+            while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
                 ServerController.addLogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().toString());
                 System.out.println("Connessione accettata da " + clientSocket);
@@ -49,7 +56,11 @@ public class ServerApplication extends Application {
                 clientHandlerThread.start();
             }
         } catch (IOException e) {
-            logger.severe("Errore durante l'avvio del server: " + e.getMessage());
+            if(serverSocket.isClosed()) {
+                System.out.println("Server was closed successfully.");
+            } else {
+                logger.severe("Errore durante l'avvio del server: " + e.getMessage());
+            }
         }
     }
 
@@ -145,7 +156,6 @@ public class ServerApplication extends Application {
         }
     }
 
-
     @Override
     public void stop() throws Exception {
         super.stop();
@@ -160,6 +170,8 @@ public class ServerApplication extends Application {
         if (serverSocket != null && !serverSocket.isClosed()) {
             try {
                 serverSocket.close();
+                ServerController.addLogEntry("Server", "Server chiuso", LocalDateTime.now().toString());
+                ServerController.saveLogs();
             } catch (IOException e) {
                 logger.severe("Errore durante la chiusura del server: " + e.getMessage());
                 ServerController.addLogEntry("Server", "Errore durante la chiusura del server: " + e.getMessage(), LocalDateTime.now().toString());

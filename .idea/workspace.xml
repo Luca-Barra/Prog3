@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change to error management and server entry">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor correction">
+      <change afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/andrea.neri@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mario.rossi@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/mario.rossi@gmail.com" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/LogEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
     </list>
@@ -59,6 +53,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -120,7 +117,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectprog.HelloApplication" />
       <module name="Project-Prog-3" />
@@ -280,7 +277,9 @@
       <workItem from="1713171358440" duration="1173000" />
       <workItem from="1713174333736" duration="411000" />
       <workItem from="1713174814655" duration="243000" />
-      <workItem from="1713175075114" duration="1870000" />
+      <workItem from="1713175075114" duration="2217000" />
+      <workItem from="1713180269734" duration="1735000" />
+      <workItem from="1713182181775" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -410,7 +409,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713135599558</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="change to error management and server entry">
+      <option name="closed" value="true" />
+      <created>1713177179957</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713177179957</updated>
+    </task>
+    <task id="LOCAL-00018" summary="minor correction">
+      <option name="closed" value="true" />
+      <created>1713177285164</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713177285164</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +489,8 @@
     <MESSAGE value="up" />
     <MESSAGE value="division view" />
     <MESSAGE value="change to error management and server entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="change to error management and server entry" />
+    <MESSAGE value="minor correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor correction" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
