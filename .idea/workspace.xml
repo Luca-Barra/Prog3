@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="local saving">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/andrea.neri@gmail.com.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

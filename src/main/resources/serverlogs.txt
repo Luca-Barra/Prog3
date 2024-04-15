@@ -1,0 +1,42 @@
+
+-------------------------------------------------
+| Logs salvato il 2024-04-15T16:35:09.047702194 |
+-------------------------------------------------
+Server;Server avviato;2024-04-15T16:34:14.029417162
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=39798,localport=12345];2024-04-15T16:34:35.837108704
+andrea.neri@gmail.com;Aggiornamento della casella di posta;2024-04-15T16:34:35.844965674
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-15T16:34:35.845194945
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=39798,localport=12345];2024-04-15T16:34:35.845235485
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=46762,localport=12345];2024-04-15T16:34:47.183268540
+andrea.neri@gmail.com;Email inviata a andrea.neri@gmail.com;2024-04-15T16:34:47.227277547
+Server;Comando SEND_EMAIL gestito con successo;2024-04-15T16:34:47.227350527
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=46762,localport=12345];2024-04-15T16:34:47.227380057
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55010,localport=12345];2024-04-15T16:34:56.872025761
+andrea.neri@gmail.com;Aggiornamento della casella di posta;2024-04-15T16:34:56.875016355
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-15T16:34:56.875095835
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55010,localport=12345];2024-04-15T16:34:56.875123585
+Server;Server chiuso;2024-04-15T16:35:09.046419373
+
+-------------------------------------------------
+| Logs salvato il 2024-04-15T16:36:38.149202692 |
+-------------------------------------------------
+Server;Server avviato;2024-04-15T16:36:29.847309102
+Server;Server chiuso;2024-04-15T16:36:38.148630621
+
+-------------------------------------------------
+| Logs salvato il 2024-04-15T16:36:47.906295917 |
+-------------------------------------------------
+Server;Server avviato;2024-04-15T16:36:44.818851455
+Server;Server chiuso;2024-04-15T16:36:47.905734266
+
+-------------------------------------------------
+| Logs salvato il 2024-04-15T16:37:02.933586286 |
+-------------------------------------------------
+Server;Server avviato;2024-04-15T16:36:58.173332050
+Server;Server chiuso;2024-04-15T16:37:02.932951686
+
+-------------------------------------------------
+| Logs salvato il 2024-04-15T16:37:22.696795480 |
+-------------------------------------------------
+Server;Server avviato;2024-04-15T16:37:10.100182302
+Server;Server chiuso;2024-04-15T16:37:22.696198969

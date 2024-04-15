@@ -8,7 +8,7 @@
         <columns>
             <TableColumn fx:id="columnUtente" prefWidth="142.0" text="Utente" />
             <TableColumn fx:id="columnMessaggio" prefWidth="457.0" text="Messaggio" />
-         <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
+         <TableColumn fx:id="data" prefWidth="350.0" text="Data" />
         </columns>
     </TableView>
 </AnchorPane>

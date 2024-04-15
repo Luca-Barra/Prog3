@@ -84,6 +84,9 @@ public class ServerApplication extends Application {
                 case "RETRIEVE_EMAILS":
                     caseRetrieveEmails(in, out);
                     break;
+                case "DELETE_EMAIL":
+                    caseDeleteEmail(in);
+                    break;
                 default:
                     System.out.println("Comando non riconosciuto: " + command);
             }
@@ -165,6 +168,10 @@ public class ServerApplication extends Application {
             ServerController.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().toString());
         }
         return false;
+    }
+
+    private static void caseDeleteEmail(ObjectInputStream in) {
+
     }
 
     @Override
