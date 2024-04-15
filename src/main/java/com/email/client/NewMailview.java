@@ -65,14 +65,14 @@ public class NewMailview {
                 alert.setContentText("Inserire un indirizzo email valido.");
                 alert.showAndWait();
             } else {
+                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
+                System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
+                clientModel.sendEmail(email);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Email inviata");
                 alert.setHeaderText("Email inviata con successo");
                 alert.setContentText("L'email è stata inviata con successo.");
                 alert.showAndWait();
-                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
-                System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
-                clientModel.sendEmail(email);
             }
         });
     }
@@ -114,18 +114,7 @@ public class NewMailview {
             return null;
         });
 
-        dialog.showAndWait().ifPresent(response -> {
-            if (!parseDestinatari(selectedEmail.getMittente())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore");
-                alert.setHeaderText("Email non valida");
-                alert.setContentText("Inserire un indirizzo email valido.");
-                alert.showAndWait();
-            } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
-                clientModel.sendEmail(email);
-            }
-        });
+        dialogIfPresent(selectedEmail, clientModel, LabelUsername, dialog);
     }
 
     public static void RispostaATutti(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
@@ -164,6 +153,11 @@ public class NewMailview {
             return null;
         });
 
+        dialogIfPresent(selectedEmail, clientModel, LabelUsername, dialog);
+
+    }
+
+    private static void dialogIfPresent(Email selectedEmail, ClientModel clientModel, Label LabelUsername, Dialog<Pair<String, Pair<String, String>>> dialog) {
         dialog.showAndWait().ifPresent(response -> {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -172,16 +166,23 @@ public class NewMailview {
                 alert.setContentText("Inserire un indirizzo email valido.");
                 alert.showAndWait();
             } else {
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                clientModel.sendEmail(email);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Email inviata");
                 alert.setHeaderText("Email inviata con successo");
                 alert.setContentText("L'email è stata inviata con successo.");
                 alert.showAndWait();
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
-                clientModel.sendEmail(email);
             }
         });
+    }
 
+    public static void serverDown() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Errore");
+        alert.setHeaderText("Impossibile connettersi al server.");
+        alert.setContentText("Il server è down.");
+        alert.showAndWait();
     }
 
 }

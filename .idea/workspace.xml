@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change to error management and server entry" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change to error management and server entry">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/andrea.neri@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mario.rossi@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/mario.rossi@gmail.com" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +82,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/luna/IdeaProjects/Project-Prog-3/src/main/resources/com/email/server/servermailbox&quot;,
@@ -75,9 +91,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -104,7 +120,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectprog.HelloApplication" />
       <module name="Project-Prog-3" />
@@ -119,6 +135,9 @@
       </method>
     </configuration>
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="NO_AT_BRIDGE" value="1" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.email.server.ServerApplication" />
       <module name="Project-Prog-3" />
       <extension name="coverage">
@@ -132,8 +151,12 @@
       </method>
     </configuration>
     <configuration name="client" type="Application" factoryName="Application" singleton="false">
+      <envs>
+        <env name="NO_AT_BRIDGE" value="1" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.email.client.ClientApplication" />
       <module name="Project-Prog-3" />
+      <option name="PROGRAM_PARAMETERS" value="NO_AT_BRIDGE=1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -250,7 +273,14 @@
       <workItem from="1712934941518" duration="256000" />
       <workItem from="1712935204714" duration="217000" />
       <workItem from="1713118793644" duration="28000" />
-      <workItem from="1713133458020" duration="2115000" />
+      <workItem from="1713133458020" duration="2236000" />
+      <workItem from="1713135704004" duration="5000" />
+      <workItem from="1713135895942" duration="402000" />
+      <workItem from="1713136307684" duration="743000" />
+      <workItem from="1713171358440" duration="1173000" />
+      <workItem from="1713174333736" duration="411000" />
+      <workItem from="1713174814655" duration="243000" />
+      <workItem from="1713175075114" duration="1870000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -372,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713135572033</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="change to error management and server entry">
+      <option name="closed" value="true" />
+      <created>1713135599558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713135599558</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

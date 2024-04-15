@@ -3,6 +3,7 @@ import com.email.email.Email;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.io.*;
 import java.net.ConnectException;
@@ -76,8 +77,14 @@ public class ClientModel {
                 in.close();
                 out.close();
                 socket.close();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Email inviata");
+                alert.setHeaderText("Email inviata con successo");
+                alert.setContentText("L'email è stata inviata con successo.");
+                alert.showAndWait();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
+                NewMailview.serverDown();
             } catch (IOException e) {
                 logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
             } catch (ClassNotFoundException e) {
@@ -105,10 +112,7 @@ public class ClientModel {
         }
     }
 
-    public void sendEmailToAll(String destinatario, String mittente, String oggetto, String testo) {
-    }
-
-    public void forwardEmail(Email email, List<String> newRecipients) {
+    public void forwardEmail(Email email) {
         Email forwardedEmail = dataEmail(email);
         sendEmail(forwardedEmail);
     }

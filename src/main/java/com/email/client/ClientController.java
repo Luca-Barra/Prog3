@@ -27,7 +27,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import static com.email.email.EmailParser.parseDestinatari;
-import static com.email.email.EmailParser.parser;
 
 public class ClientController {
 
@@ -93,7 +92,7 @@ public class ClientController {
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Nessuna email selezionata");
-            alert.setHeaderText("Seleziona un'email da rispondere.");
+            alert.setHeaderText("Seleziona un'email a cui rispondere.");
             alert.showAndWait();
         }
     }
@@ -114,15 +113,13 @@ public class ClientController {
         if (selectedEmail != null) {
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Inoltra Email");
-            dialog.setHeaderText("Inserisci i nuovi destinatari separati da virgola");
+            dialog.setHeaderText("Inserisci i nuovi destinatari (separati da virgola)");
             dialog.setContentText("Destinatari:");
 
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(destinatari -> {
                 if (parseDestinatari(destinatari)) {
-                    String[] destinatariArray = destinatari.split(",");
-                    List<String> destinatariList = Arrays.asList(destinatariArray);
-                    clientModel.forwardEmail(selectedEmail, destinatariList);
+                    clientModel.forwardEmail(selectedEmail);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Errore nell'inoltro dell'email");
