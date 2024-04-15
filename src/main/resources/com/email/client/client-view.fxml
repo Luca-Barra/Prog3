@@ -61,6 +61,7 @@
       <ButtonBar layoutX="10.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="29.0" text="Inoltra" />
+            <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" text="Aggiornamento" />
         </buttons>
       </ButtonBar>
    </bottom>

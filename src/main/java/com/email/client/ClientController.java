@@ -1,30 +1,9 @@
 package com.email.client;
 import com.email.email.Email;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import javafx.util.Pair;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ConnectException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import static com.email.email.EmailParser.parseDestinatari;
 
@@ -158,6 +137,10 @@ public class ClientController {
         }
     }
 
+    public void refresh() {
+        clientModel.refreshEmails();
+    }
+
     public void setLabelUsername(String username){
         LabelUsername.setText(username);
         clientModel.loadEmailsFromLocal("/home/luna/IdeaProjects/Project-Prog-3/src/main/resources/com/email/client/localmailbox/" +
@@ -165,7 +148,7 @@ public class ClientController {
         System.out.println("/home/luna/IdeaProjects/Project-Prog-3/src/main/resources/com/email/client/localmailbox/" +
                 LabelUsername.getText() + ".txt");
         emailListView.setItems(clientModel.getEmailList());
-        clientModel.updateLocalMailboxPeriodically(LabelUsername.getText());
+        clientModel.updateLocalMailboxPeriodically();
     }
 
     public void setClientModel(ClientModel clientModel) {

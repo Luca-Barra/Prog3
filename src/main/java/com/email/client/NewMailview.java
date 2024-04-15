@@ -86,7 +86,6 @@ public class NewMailview {
         grid.setPadding(new Insets(20, 150, 10, 10));
 
         TextField destinatarioField = new TextField(selectedEmail.getMittente());
-        destinatarioField.setDisable(true);
         TextField oggettoField = new TextField("R: " + selectedEmail.getOggetto());
         TextArea testoArea = new TextArea();
         testoArea.setPromptText("Rispondi all'email qui...");
@@ -115,7 +114,7 @@ public class NewMailview {
     public static void RispostaATutti(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Rispondi a tutti");
-        dialog.setHeaderText("Rispondi a tutti i destinatari dell'email selezionata");
+        dialog.setHeaderText("Rispondi a tutti i destinatari");
 
         ButtonType confermaButton = new ButtonType("Conferma", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(confermaButton, ButtonType.CANCEL);
@@ -163,11 +162,6 @@ public class NewMailview {
             } else {
                 Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Email inviata");
-                alert.setHeaderText("Email inviata con successo");
-                alert.setContentText("L'email è stata inviata con successo.");
-                alert.showAndWait();
             }
         });
     }
