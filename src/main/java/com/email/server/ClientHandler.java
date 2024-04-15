@@ -22,7 +22,7 @@ public class ClientHandler implements Runnable {
         ) {
             Object request = in.readObject();
 
-            Object response = handleRequest(request);
+            Object response = handleRequest();
 
             out.writeObject(response);
             out.flush();
@@ -38,7 +38,7 @@ public class ClientHandler implements Runnable {
     }
 
     // Metodo per gestire la richiesta e generare la risposta
-    private Object handleRequest(Object request) {
+    private Object handleRequest() {
         // Implementa la logica per gestire la richiesta e generare la risposta qui
         return "Response to the client";
     }

@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 
 public class ServerController {
 
-    private ServerModel serverModel;
     private static final ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
 
     @FXML
@@ -25,10 +24,6 @@ public class ServerController {
 
     @FXML
     private TableColumn<LogEntry, String> data;
-
-    public void setServerModel(ServerModel serverModel) {
-        this.serverModel = serverModel;
-    }
 
     public void initialize() {
         // Inizializza la tabella e le colonne
