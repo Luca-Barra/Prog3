@@ -34,7 +34,7 @@ public class LoginController {
             stage.setTitle("Client");
             stage.setScene(logScene);
             stage.show();
-        } else LoginView.negative(LabelError);
+        } else LoginView.negative();
     }
 
 }
