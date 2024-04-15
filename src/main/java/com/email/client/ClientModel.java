@@ -74,17 +74,33 @@ public class ClientModel {
                     Platform.runLater(() -> emailList.add(email));
                     out.writeObject(email);
                 }
+                serverResponse = in.readObject().toString();
+                if(serverResponse.equals("Errore durante l'invio dell'email")) {
+                    System.out.println(serverResponse);
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Errore");
+                        alert.setHeaderText("Email non valida");
+                        alert.setContentText("Inserire un indirizzo email valido.");
+                        alert.showAndWait();
+                    });
+                } else {
+                    System.out.println(serverResponse);
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Email inviata");
+                        alert.setHeaderText("Email inviata con successo");
+                        alert.setContentText("L'email è stata inviata con successo.");
+                        alert.showAndWait();
+                    });
+                }
                 in.close();
                 out.close();
                 socket.close();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Email inviata");
-                alert.setHeaderText("Email inviata con successo");
-                alert.setContentText("L'email è stata inviata con successo.");
-                alert.showAndWait();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
-                NewMailview.serverDown();
+                Platform.runLater(NewMailview::serverDown);
+
             } catch (IOException e) {
                 logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
             } catch (ClassNotFoundException e) {
@@ -93,7 +109,6 @@ public class ClientModel {
         };
 
         executor.execute(task);
-
     }
 
     public void setUser(String username) {
@@ -106,7 +121,7 @@ public class ClientModel {
 
     public void deleteEmail(Email selectedEmail) {
         synchronized (emailList) {
-            System.out.println("elim");
+            System.out.println("eliminazione");
             emailList.remove(selectedEmail);
             emailList.notifyAll();
         }
@@ -141,6 +156,9 @@ public class ClientModel {
                         emailList.addAll(emails);
                         saveEmailsToLocal(filepath);
                     });
+                }
+                if(serverResponse.equals("Errore durante il recupero delle email")) {
+                    System.out.println("Errore durante il recupero delle email");
                 }
                 in.close();
                 out.close();

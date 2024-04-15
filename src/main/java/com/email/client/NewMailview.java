@@ -68,11 +68,6 @@ public class NewMailview {
                 Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
                 System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
                 clientModel.sendEmail(email);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Email inviata");
-                alert.setHeaderText("Email inviata con successo");
-                alert.setContentText("L'email è stata inviata con successo.");
-                alert.showAndWait();
             }
         });
     }

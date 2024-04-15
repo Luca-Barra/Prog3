@@ -7,13 +7,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ServerController {
@@ -34,11 +35,15 @@ public class ServerController {
 
     private static final Logger logger = Logger.getLogger(ServerController.class.getName());
 
+    private static String registeredUsers;
+
     public void initialize() {
 
         columnUtente.setCellValueFactory(new PropertyValueFactory<>("utente"));
         columnMessaggio.setCellValueFactory(new PropertyValueFactory<>("messaggio"));
         data.setCellValueFactory(new PropertyValueFactory<>("data"));
+
+        loadRegisteredUsers();
 
         emailTableView.setItems(logEntries);
 
@@ -69,6 +74,28 @@ public class ServerController {
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio dei log: " + e.getMessage());
         }
+    }
+
+    public static void loadRegisteredUsers() {
+        try(InputStream inputStream = ServerController.class.getClassLoader().getResourceAsStream("registeredUsers.txt")) {
+            if (inputStream != null) {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        registeredUsers = line;
+                    }
+                }
+            } else {
+                logger.severe("registeredUsers.txt non trovato o non accessibile");
+            }
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Errore durante la lettura di registeredUsers.txt", e);
+        }
+
+    }
+
+    public static boolean checkUser(String user){
+        return registeredUsers.contains(user);
     }
 
 }

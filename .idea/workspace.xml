@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor correction">
-      <change afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add logs for server">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/registeredUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/andrea.neri@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/andrea.neri@gmail.com" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mario.rossi@gmail.com" beforeDir="false" afterPath="$PROJECT_DIR$/mario.rossi@gmail.com" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +118,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectprog.HelloApplication" />
       <module name="Project-Prog-3" />
@@ -279,7 +280,7 @@
       <workItem from="1713174814655" duration="243000" />
       <workItem from="1713175075114" duration="2217000" />
       <workItem from="1713180269734" duration="1735000" />
-      <workItem from="1713182181775" duration="303000" />
+      <workItem from="1713182181775" duration="2369000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -425,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713177285164</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add logs for server">
+      <option name="closed" value="true" />
+      <created>1713182630601</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713182630601</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +499,8 @@
     <MESSAGE value="division view" />
     <MESSAGE value="change to error management and server entry" />
     <MESSAGE value="minor correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor correction" />
+    <MESSAGE value="add logs for server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add logs for server" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
