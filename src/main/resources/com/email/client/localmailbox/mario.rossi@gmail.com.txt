@@ -1,5 +1,8 @@
-mario.rossi@gmail.com;mario.rossi@gmail.com;sdddddddddddd;dssddssdds;2024-04-15T15:49:07.520498624
-andrea.neri@gmail.com;mario.rossi@gmail.com;test;test;2024-04-15T18:18:55.521820678
-mario.rossi@gmail.com;andrea.neri@gmail.com;test;saasasasas;2024-04-15T18:25:31.794197992
-mario.rossi@gmail.com;andrea.neri@gmail.com;test;saasasasas;2024-04-15T18:25:31.794197992
-mario.rossi@gmail.com;andrea.neri@gmail.com;test;saasasasas;2024-04-15T18:25:31.794197992
+mario.rossi@gmail.com;mario.rossi@gmail.it;ddd;ddd;2024-04-15T19:55:43.031075808;READ
+mario.rossi@gmail.com;andrea.neri@gmail.com;ss;sss;2024-04-15T19:56:03.663299801;READ
+mario.rossi@gmail.com;andrea.neri@gmail.com;dsdsd;ssddssdds;2024-04-15T19:56:23.807427615;READ
+andrea.neri@gmail.com;mario.rossi@gmail.com;aaa;aaaa;2024-04-15T19:57:12.723789470;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;ssssssssss;ssssssssssssssss;2024-04-15T20:04:19.021192344;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;test;sssssssssssssss;2024-04-15T20:04:50.777714364;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;Test off;ddddddddd;2024-04-15T20:05:15.086056673;READ
+mario.rossi@gmail.com;mario.rossi@gmail.com;df;fff;2024-04-15T20:06:33.402447040;READ

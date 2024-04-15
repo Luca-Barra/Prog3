@@ -37,13 +37,18 @@ public class ClientModel {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length == 5) {
+                if (parts.length == 6) {
                     String sender = parts[0].trim();
                     String recipients = parts[1].trim();
                     String subject = parts[2].trim();
                     String body = parts[3].trim();
                     String data = parts[4].trim();
-                    emailList.add(new Email(sender, recipients, subject, body, data));
+                    String read = parts[5].trim();
+                    Email email = new Email(sender, recipients, subject, body, data);
+                    emailList.add(email);
+                    if(read.equals("READ")) {
+                        email.setRead(true);
+                    }
                 } else {
                     System.out.println("Skipping invalid line: " + line);
                 }
@@ -189,18 +194,28 @@ public class ClientModel {
         System.out.println(emailList.size());
         String filename = "src/main/resources/com/email/client/localmailbox/" + user + ".txt";
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
-            for (Email email : emailList) {
-                bw.write(email.getMittente() + ";");
-                bw.write(email.getDestinatario() + ";");
-                bw.write(email.getOggetto() + ";");
-                bw.write(email.getTesto() + ";");
-                bw.write(email.getData() + "\n");
-            }
+            BufferedWriter bw = getBufferedWriter(filename);
             bw.close();
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio delle email su file locale: " + e.getMessage());
         }
+    }
+
+    private BufferedWriter getBufferedWriter(String filename) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+        for (Email email : emailList) {
+            bw.write(email.getMittente() + ";");
+            bw.write(email.getDestinatario() + ";");
+            bw.write(email.getOggetto() + ";");
+            bw.write(email.getTesto() + ";");
+            bw.write(email.getData() + ";");
+            if(email.isRead()) {
+                bw.write("READ\n");
+            } else {
+                bw.write("UNREAD\n");
+            }
+        }
+        return bw;
     }
 
     public void refreshEmails() {
@@ -245,4 +260,10 @@ public class ClientModel {
             throw new RuntimeException(e);
         }
     }
+
+    public void markAsRead(Email email) {
+        email.setRead(true);
+        saveEmailsToLocal();
+    }
+
 }

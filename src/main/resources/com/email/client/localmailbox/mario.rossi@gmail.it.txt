@@ -1,9 +1,4 @@
-mario.rossi@gmail.it;mario.rossi@gmail.it;R: saasas;eeeee;2024-04-12T17:14:11.140163436
-mario.rossi@gmail.com;mario.rossi@gmail.it;ciao;ciao;2024-04-15T00:55:54.504340011
-mario.rossi@gmail.com;mario.rossi@gmail.it;yo;yoooo;2024-04-15T01:19:16.316013665
-mario.rossi@gmail.com;mario.rossi@gmail.it;yooooooooo;yooooooo;2024-04-15T01:19:57.140931187
-andrea.neri@gmail.com;mario.rossi@gmail.it;ciao;ciao;2024-04-15T13:50:12.589939299
-mario.rossi@gmail.com;mario.rossi@gmail.it;yooo;yo;2024-04-15T13:53:04.387578912
-mario.rossi@gmail.com;mario.rossi@gmail.it;sas;asaaa;2024-04-15T15:37:42.803621768
-mario.rossi@gmail.it;mario.rossi@gmail.com;Prova;Prova;2024-04-15T19:01:11.659854480
-mario.rossi@gmail.it;mario.rossi@gmail.com;Test - 00;Test;2024-04-15T19:03:11.045978948
+mario.rossi@gmail.com;mario.rossi@gmail.it;ddd;ddd;2024-04-15T19:55:43.031075808;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;ssssssssss;ssssssssssssssss;2024-04-15T20:04:19.021192344;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;test;sssssssssssssss;2024-04-15T20:04:50.777714364;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;Test off;ddddddddd;2024-04-15T20:05:15.086056673;UNREAD

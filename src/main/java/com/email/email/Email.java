@@ -11,6 +11,7 @@ public class Email implements Serializable {
     private String oggetto;
     private String testo;
     private String data;
+    private boolean isRead = false;
 
     public Email(String mittente, String destinatario, String oggetto, String testo, String data) {
         this.mittente = mittente;
@@ -46,8 +47,12 @@ public class Email implements Serializable {
         return  testo;
     }
 
-    public String getDataOra() {
-        return data;
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
     }
 
     public List<String> getDestinatari() {

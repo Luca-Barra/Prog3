@@ -48,9 +48,29 @@ public class ClientController {
                 displayEmailDetails(newValue);
             }
         });
+        emailListView.setCellFactory(param -> new ListCell<Email>() {
+            @Override
+            protected void updateItem(Email item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null) {
+                    setText(null);
+                    setStyle(null);
+                } else {
+                    setText(item.getTesto()); // Display the subject of the email
+
+                    if (item.isRead()) {
+                        setStyle("-fx-font-weight: normal;"); // Normal text for read emails
+                    } else {
+                        setStyle("-fx-font-weight: bold;"); // Bold text for unread emails
+                    }
+                }
+            }
+        });
     }
 
     private void displayEmailDetails(Email email) {
+        clientModel.markAsRead(email);
         LabelMittente.setText(email.getMittente());
         LabelDestinatario.setText(email.getDestinatario());
         LabelOggetto.setText(email.getOggetto());

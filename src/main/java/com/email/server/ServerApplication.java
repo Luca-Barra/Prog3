@@ -143,9 +143,10 @@ public class ServerApplication extends Application {
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
-                if(ServerController.checkUser(destinatario) && !Objects.equals(email.getMittente(), destinatario.trim())) {
+                if(ServerController.checkUser(destinatario)) {
 
                     String mailboxFileName = getMailboxFileName(destinatario.trim());
+                    if(!email.getMittente().equals(email.getDestinatario())){
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName, true))) {
                         writer.write(email.getMittente() + ";"
                                 + destinatario.trim() + ";"
@@ -155,7 +156,7 @@ public class ServerApplication extends Application {
                     }
                     addClientEntry(destinatario.trim(), "Nuova email da " + email.getMittente());
                     ServerController.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
-                    return true;
+                    }
                 } else {
                     ServerController.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
                     return false;
@@ -164,8 +165,9 @@ public class ServerApplication extends Application {
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
             ServerController.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().toString());
+            return false;
         }
-        return false;
+        return true;
     }
 
     private static void caseDeleteEmail(ObjectInputStream in) {
