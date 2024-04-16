@@ -1,5 +1,7 @@
-#ButtonLogin{
-    -fx-graphic: url('/com/email/client/images/login-button.png');
-    -fx-background-image: url('/com/email/client/images/login-button.svg');
-    -fx-background-size: contain;
+.button {
+    -fx-background-radius: 50%;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
 }

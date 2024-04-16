@@ -3,21 +3,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.email.client.ClientController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@client.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.email.client.ClientController">
    <top>
-      <HBox prefHeight="28.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+      <HBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="47.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@images/account-default.png" />
             </ImageView>
-            <Label fx:id="LabelUsername" prefHeight="31.0" prefWidth="381.0" />
+            <Label fx:id="LabelUsername" prefHeight="48.0" prefWidth="381.0">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font></Label>
 
           <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="32.0">
               <graphic>
                   <ImageView fitHeight="33.0" fitWidth="36.0">
-                      <image>
-                          <Image url="@images/mail-update.png" />
-                      </image>
+                      <Image url="@images/mail-update.png" />
                   </ImageView>
               </graphic>
               <tooltip>
@@ -27,7 +29,7 @@
          </HBox>
    </top>
    <center>
-      <ListView fx:id="emailListView" prefHeight="375.0" prefWidth="305.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="emailListView" prefHeight="307.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
    </center>
    <right>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -63,9 +65,7 @@
                          <Button fx:id="ButtonRaTutti" mnemonicParsing="false" onAction="#rispondiATutti" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31" fitWidth="31.0">
-                                     <image>
-                                         <Image url="@images/mail-replyall.png" />
-                                     </image>
+                                     <Image url="@images/mail-replyall.png"/>
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -75,9 +75,7 @@
                          <Button fx:id="ButtonRispondi" minWidth="79.0" mnemonicParsing="false" onAction="#rispondi" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31.0" fitWidth="31.0">
-                                     <image>
-                                         <Image url="@images/mail-reply.png" />
-                                     </image>
+                                     <Image url="@images/mail-reply.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -87,9 +85,7 @@
                          <Button fx:id="ButtonElimina" minWidth="25.0" mnemonicParsing="false" onAction="#elimina" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31" fitWidth="31">
-                                     <image>
-                                         <Image url="@images/mail-delete.png" />
-                                     </image>
+                                     <Image url="@images/mail-delete.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -108,7 +104,7 @@
             <Button fx:id="ButtonNuovaMail" mnemonicParsing="false" onAction="#nuovaMail" prefHeight="39.0" prefWidth="82.0" ButtonBar.buttonData="RIGHT">
                 <graphic>
                     <ImageView fitHeight="31.0" fitWidth="39.0">
-                        <Image url="@images/mail-send.png"/>
+                        <Image url="@images/mail-send.png" />
                     </ImageView>
                 </graphic>
                 <tooltip>
@@ -118,7 +114,7 @@
             <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="32.0" ButtonBar.buttonData="LEFT">
                 <graphic>
                     <ImageView fitHeight="31" fitWidth="31">
-                        <Image url="@images/mail-forward.png"/>
+                        <Image url="@images/mail-forward.png" />
                     </ImageView>
                 </graphic>
                 <tooltip>
