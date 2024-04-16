@@ -102,9 +102,9 @@ public class NewMailview {
         Platform.runLater(testoArea::requestFocus);
 
         String reply = selectedEmail.getMittente() + " ha scritto:" +
-                "\n\n----------------------------------------------------------------\n"
+                "\n\n----------------------------------------\n"
                         + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
-                "\n----------------------------------------------------------------\n\n";
+                "\n------------------------------------------\n\n";
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
@@ -144,9 +144,9 @@ public class NewMailview {
         dialog.getDialogPane().setContent(grid);
 
         String reply = selectedEmail.getMittente() + " ha scritto:" +
-                "\n\n----------------------------------------------------------------\n"
-                        + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
-                "\n----------------------------------------------------------------\n\n";
+                "\n\n----------------------------------------\n"
+                + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
+                "\n------------------------------------------\n\n";
 
         Platform.runLater(testoArea::requestFocus);
 
@@ -165,7 +165,7 @@ public class NewMailview {
                 alert.setContentText("Inserire un indirizzo email valido.");
                 alert.showAndWait();
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
             }
         });

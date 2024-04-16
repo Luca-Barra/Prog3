@@ -75,6 +75,19 @@ public class ClientController {
                         setGraphic(imageView);
                         setStyle("-fx-font-weight: bold;");
                     }
+                    setOnMouseClicked(event -> {
+                        if(event.getClickCount() == 2) { // Check if it's a double-click
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Dettagli Email");
+                            alert.setHeaderText("Dettagli Email");
+                            alert.setContentText("Mittente: " + item.getMittente() + "\n"
+                                    + "Destinatario: " + item.getDestinatario() + "\n"
+                                    + "Oggetto: " + item.getOggetto() + "\n"
+                                    + "Data: " + item.getData() + "\n"
+                                    + "Testo: " + item.getTesto());
+                            alert.showAndWait();
+                        }
+                    });
                 }
             }
         });

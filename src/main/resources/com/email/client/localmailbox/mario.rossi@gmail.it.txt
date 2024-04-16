@@ -29,9 +29,7 @@ Multi
 
 
 Line;2024-04-16T14:54:05.127154355;READ
-mario.rossi@gmail.com;mario.rossi@gmail.it;R: Test;
-
-----------------------------------------------------------------
+mario.rossi@gmail.com;mario.rossi@gmail.it;R: Test;----------------------------------------------------------------
 mario.rossi@gmail.it ha scritto:
 Test
 
@@ -49,3 +47,29 @@ Risposta
 su più
 
 righe;2024-04-16T14:54:37.846846109;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it;R: Test;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------------------------------
+Test
+
+
+Multi
+
+
+
+Line
+In data: 2024-04-16T14:54:05.127154355
+----------------------------------------------------------------
+
+Test di risposta;2024-04-16T15:02:38.143853857;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;R: Multi line;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------------------------------
+multi
+
+
+lines
+In data: 2024-04-16T14:28:16.708472677
+----------------------------------------------------------------
+
+Risposta;2024-04-16T15:03:27.129814215;READ
