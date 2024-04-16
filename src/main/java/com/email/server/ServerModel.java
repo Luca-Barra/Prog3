@@ -1,11 +1,13 @@
 package com.email.server;
 
+import com.email.client.support.MyAlert;
 import com.email.server.support.LogEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -20,9 +22,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ServerController {
+public class ServerModel {
 
-    private static final ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
+    public static final ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
 
     @FXML
     private TableView<LogEntry> emailTableView;
@@ -36,7 +38,7 @@ public class ServerController {
     @FXML
     private TableColumn<LogEntry, String> data;
 
-    private static final Logger logger = Logger.getLogger(ServerController.class.getName());
+    private static final Logger logger = Logger.getLogger(ServerModel.class.getName());
 
     private static ArrayList<String> registeredUsers;
 
@@ -74,6 +76,22 @@ public class ServerController {
             }
         });
 
+        emailTableView.setRowFactory(tv -> {
+            TableRow<LogEntry> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    LogEntry rowData = row.getItem();
+                    MyAlert.info("Dettagli messaggio",
+                            "Messaggio di " + rowData.getUtente(),
+                            "Data: " + rowData.getData() +
+                            "\n\n------------------------------------------------------------------\n" +
+                            rowData.getMessaggio() +
+                                    "\n------------------------------------------------------------------\n\n");
+
+                }
+            });
+            return row;
+        });
 
         registeredUsers = new ArrayList<>();
         loadRegisteredUsers();
@@ -112,7 +130,7 @@ public class ServerController {
     }
 
     public static void loadRegisteredUsers() {
-        try(InputStream inputStream = ServerController.class.getClassLoader().getResourceAsStream("registeredUsers.txt")) {
+        try(InputStream inputStream = ServerModel.class.getClassLoader().getResourceAsStream("registeredUsers.txt")) {
             if (inputStream != null) {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                     String line;

@@ -46,11 +46,11 @@ public class ClientHandler implements Runnable {
                 default:
                     System.out.println("Comando non riconosciuto: " + command);
             }
-            ServerController.addLogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().toString());
-            ServerController.addLogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().toString());
         } catch (IOException e) {
             logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().toString());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -63,14 +63,14 @@ public class ClientHandler implements Runnable {
             List<Email> emailList = getEmails(mailboxFileName);
 
             out.writeObject(emailList);
-            ServerController.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().toString());
+            ServerModel.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().toString());
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
                 writer.write("");
             }
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante il recupero delle email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().toString());
         }
     }
 
@@ -82,7 +82,7 @@ public class ClientHandler implements Runnable {
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
-                if(ServerController.checkUser(destinatario.trim())) {
+                if(ServerModel.checkUser(destinatario.trim())) {
 
                     String mailboxFileName = getMailboxFileName(destinatario.trim());
                     if(!email.getMittente().equals(email.getDestinatario())){
@@ -93,16 +93,16 @@ public class ClientHandler implements Runnable {
                                     + email.getTesto() + ";"
                                     + email.getData() + "\n");
                         }
-                        ServerController.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
+                        ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
                     }
                 } else {
-                    ServerController.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
+                    ServerModel.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
                     return false;
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().toString());
             return false;
         }
         return true;
@@ -117,10 +117,10 @@ public class ClientHandler implements Runnable {
             List<Email> emailList = getEmails(mailboxFileName);
             emailList.remove(email);
 
-            ServerController.addLogEntry(email.getMittente(), "Email eliminata", LocalDateTime.now().toString());
+            ServerModel.addLogEntry(email.getMittente(), "Email eliminata", LocalDateTime.now().toString());
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().toString());
+            ServerModel.addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().toString());
         }
 
     }

@@ -86,3 +86,7 @@ In data: 2024-04-16T15:05:23.938150152
 Risposta alla risposta;2024-04-16T15:05:55.767576898;READ
 mario.rossi@gmail.com;mario.rossi@gmail.com;Self mail;Self mail;2024-04-16T23:49:07.656367253;READ
 mario.rossi@gmail.it;mario.rossi@gmail.com;sdsdsdsd;sddsddddd;2024-04-17T00:02:12.290255635;READ
+andrea.neri@gmail.com;mario.rossi@gmail.com;TEST 02;TEST INVIO MAIL,
+
+SALUTI
+;2024-04-17T00:43:21.736794763;READ

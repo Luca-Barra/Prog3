@@ -37,5 +37,6 @@ public class LogEntry {
     public StringProperty dataProperty() {
         return data;
     }
+
 }
 
