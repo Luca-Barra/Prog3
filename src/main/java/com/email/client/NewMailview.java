@@ -101,9 +101,14 @@ public class NewMailview {
 
         Platform.runLater(testoArea::requestFocus);
 
+        String reply = selectedEmail.getMittente() + " ha scritto:" +
+                "\n\n----------------------------------------------------------------\n"
+                        + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
+                "\n----------------------------------------------------------------\n\n";
+
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
-                return new Pair<>(selectedEmail.getMittente(), new Pair<>(oggettoField.getText(), testoArea.getText()));
+                return new Pair<>(selectedEmail.getMittente(), new Pair<>(oggettoField.getText(), reply + testoArea.getText()));
             }
             return null;
         });
@@ -138,11 +143,16 @@ public class NewMailview {
 
         dialog.getDialogPane().setContent(grid);
 
+        String reply = selectedEmail.getMittente() + " ha scritto:" +
+                "\n\n----------------------------------------------------------------\n"
+                        + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
+                "\n----------------------------------------------------------------\n\n";
+
         Platform.runLater(testoArea::requestFocus);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
-                return new Pair<>(selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), new Pair<>(oggettoField.getText(), testoArea.getText()));
+                return new Pair<>(selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), new Pair<>(oggettoField.getText(), reply + testoArea.getText()));
             }
             return null;
         });

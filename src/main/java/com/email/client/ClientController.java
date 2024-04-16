@@ -61,6 +61,7 @@ public class ClientController {
                     setStyle(null);
                 } else {
                     setText(item.getTesto());
+                    setMaxHeight(20);
                     ImageView imageView = new ImageView();
                     imageView.setFitWidth(20); // adjust the value as needed
                     imageView.setFitHeight(20); // adjust the value as needed

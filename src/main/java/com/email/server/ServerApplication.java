@@ -123,13 +123,17 @@ public class ServerApplication extends Application {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(mailboxFileName))) {
             String line;
+            StringBuilder sb = new StringBuilder();
             while ((line = reader.readLine()) != null) {
-                if (line.isEmpty()) {
-                    continue;
+                sb.append(line);
+                String[] parts = sb.toString().split(";");
+                if (parts.length == 5) {
+                    Email email = new Email(parts[0], parts[1], parts[2], parts[3], parts[4]);
+                    emailList.add(email);
+                    sb = new StringBuilder(); // Reset the StringBuilder for the next email
+                } else {
+                    sb.append("\n"); // Add the newline back, as it was removed by readLine()
                 }
-                String[] parts = line.split(";");
-                Email email = new Email(parts[0], parts[1], parts[2], parts[3], parts[4]);
-                emailList.add(email);
             }
         }
         return emailList;

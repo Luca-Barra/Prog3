@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add css">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change to the UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/client-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/login-button.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,34 +69,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.ClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Local.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luna/IdeaProjects/Project-Prog-3/src/main/resources&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.ClientApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.Local.executor": "Run",
+    "Application.ServerApplication.executor": "Run",
+    "Application.client.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/luna/.m2/repository/org/openjfx/javafx-web",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -122,7 +120,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectprog.HelloApplication" />
       <module name="Project-Prog-3" />
@@ -302,6 +300,7 @@
       <workItem from="1713264159404" duration="380000" />
       <workItem from="1713265586039" duration="83000" />
       <workItem from="1713265674396" duration="1699000" />
+      <workItem from="1713271071987" duration="901000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />

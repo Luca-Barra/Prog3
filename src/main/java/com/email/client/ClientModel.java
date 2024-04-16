@@ -35,8 +35,10 @@ public class ClientModel {
     public void loadEmailsFromLocal(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
+            StringBuilder sb = new StringBuilder();
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(";");
+                sb.append(line);
+                String[] parts = sb.toString().split(";");
                 if (parts.length == 6) {
                     String sender = parts[0].trim();
                     String recipients = parts[1].trim();
@@ -49,8 +51,9 @@ public class ClientModel {
                     if(read.equals("READ")) {
                         email.setRead(true);
                     }
+                    sb = new StringBuilder();
                 } else {
-                    System.out.println("Skipping invalid line: " + line);
+                    sb.append("\n");
                 }
             }
         } catch (IOException e) {
