@@ -80,7 +80,8 @@ public class ClientController {
     }
 
     private void displayEmailDetails(Email email) {
-        clientModel.markAsRead(email);
+        if(!email.isRead())
+            clientModel.markAsRead(email);
         LabelMittente.setText(email.getMittente());
         LabelDestinatario.setText(email.getDestinatario());
         LabelOggetto.setText(email.getOggetto());

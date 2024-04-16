@@ -3,6 +3,7 @@ package com.email.server;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,8 +42,37 @@ public class ServerController {
     public void initialize() {
 
         columnUtente.setCellValueFactory(new PropertyValueFactory<>("utente"));
+        columnUtente.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item);
+                    setStyle("-fx-font-weight: bold;");
+                }
+            }
+        });
         columnMessaggio.setCellValueFactory(new PropertyValueFactory<>("messaggio"));
         data.setCellValueFactory(new PropertyValueFactory<>("data"));
+        data.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item);
+                    setStyle("-fx-font-style: italic;");
+                }
+            }
+        });
+
 
         registeredUsers = new ArrayList<>();
         loadRegisteredUsers();

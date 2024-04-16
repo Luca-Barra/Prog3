@@ -65,7 +65,7 @@
                          <Button fx:id="ButtonRaTutti" mnemonicParsing="false" onAction="#rispondiATutti" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31" fitWidth="31.0">
-                                     <Image url="@images/mail-replyall.png"/>
+                                     <Image url="@images/mail-replyall.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -113,7 +113,7 @@
             </Button>
             <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="32.0" ButtonBar.buttonData="LEFT">
                 <graphic>
-                    <ImageView fitHeight="31" fitWidth="31">
+                    <ImageView fitHeight="31.0" fitWidth="31.0">
                         <Image url="@images/mail-forward.png" />
                     </ImageView>
                 </graphic>

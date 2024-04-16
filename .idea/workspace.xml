@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add images">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/client-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/client.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-forward.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/login-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,6 +301,7 @@
       <workItem from="1713264035775" duration="119000" />
       <workItem from="1713264159404" duration="380000" />
       <workItem from="1713265586039" duration="83000" />
+      <workItem from="1713265674396" duration="1699000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -506,7 +511,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713225646873</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="add css">
+      <option name="closed" value="true" />
+      <created>1713265721796</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713265721796</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +591,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="add READ abd UNREAD" />
     <MESSAGE value="add images" />
-    <option name="LAST_COMMIT_MESSAGE" value="add images" />
+    <MESSAGE value="add css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add css" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
