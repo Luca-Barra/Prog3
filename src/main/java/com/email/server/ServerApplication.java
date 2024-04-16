@@ -1,6 +1,5 @@
 package com.email.server;
 
-import com.email.email.Email;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -12,13 +11,8 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
-
-import static com.email.server.ServerModel.addClientEntry;
-import static com.email.server.ServerModel.getMailboxFileName;
 
 public class ServerApplication extends Application {
 
@@ -52,7 +46,9 @@ public class ServerApplication extends Application {
                 ServerController.addLogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().toString());
                 System.out.println("Connessione accettata da " + clientSocket);
 
-                Thread clientHandlerThread = new Thread(() -> handleClient(clientSocket));
+                ClientHandler clientHandler = new ClientHandler(clientSocket);
+
+                Thread clientHandlerThread = new Thread(clientHandler);
                 clientHandlerThread.start();
             }
         } catch (IOException e) {
@@ -62,133 +58,6 @@ public class ServerApplication extends Application {
                 logger.severe("Errore durante l'avvio del server: " + e.getMessage());
             }
         }
-    }
-
-    private static void handleClient(Socket clientSocket) {
-        try {
-            ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
-            ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
-            String command = in.readObject().toString();
-
-            System.out.println("Comando ricevuto: " + command);
-
-            out.writeObject("OK");
-
-            switch (command) {
-                case "SEND_EMAIL":
-                    if(caseSendEmail(in))
-                        out.writeObject("Email inviata con successo");
-                    else
-                        out.writeObject("Errore durante l'invio dell'email");
-                    break;
-                case "RETRIEVE_EMAILS":
-                    caseRetrieveEmails(in, out);
-                    break;
-                case "DELETE_EMAIL":
-                    caseDeleteEmail(in);
-                    break;
-                default:
-                    System.out.println("Comando non riconosciuto: " + command);
-            }
-            ServerController.addLogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().toString());
-            ServerController.addLogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().toString());
-        } catch (IOException e) {
-            logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().toString());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void caseRetrieveEmails(ObjectInputStream in, ObjectOutputStream out) {
-        try {
-            String username = (String) in.readObject();
-            String mailboxFileName = getMailboxFileName(username);
-            List<Email> emailList = getEmails(mailboxFileName);
-
-            out.writeObject(emailList);
-            ServerController.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().toString());
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
-                writer.write("");
-            }
-
-        } catch (IOException | ClassNotFoundException e) {
-            logger.severe("Errore durante il recupero delle email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().toString());
-        }
-    }
-
-    private static List<Email> getEmails(String mailboxFileName) throws IOException {
-        List<Email> emailList = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(mailboxFileName))) {
-            String line;
-            StringBuilder sb = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-                String[] parts = sb.toString().split(";");
-                if (parts.length == 5) {
-                    Email email = new Email(parts[0], parts[1], parts[2], parts[3], parts[4]);
-                    emailList.add(email);
-                    sb = new StringBuilder(); // Reset the StringBuilder for the next email
-                } else {
-                    sb.append("\n"); // Add the newline back, as it was removed by readLine()
-                }
-            }
-        }
-        return emailList;
-    }
-
-    private static synchronized boolean caseSendEmail(ObjectInputStream in) {
-        try {
-            Email email = (Email) in.readObject();
-            System.out.println("Email ricevuta: " + email);
-
-            String[] destinatari = email.getDestinatario().split(",");
-
-            for (String destinatario : destinatari) {
-                if(ServerController.checkUser(destinatario.trim())) {
-
-                    String mailboxFileName = getMailboxFileName(destinatario.trim());
-                    if(!email.getMittente().equals(email.getDestinatario())){
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName, true))) {
-                        writer.write(email.getMittente() + ";"
-                                + email.getDestinatario() + ";"
-                                + email.getOggetto() + ";"
-                                + email.getTesto() + ";"
-                                + email.getData() + "\n");
-                    }
-                    addClientEntry(destinatario.trim(), "Nuova email da " + email.getMittente());
-                    ServerController.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
-                    }
-                } else {
-                    ServerController.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
-                    return false;
-                }
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().toString());
-            return false;
-        }
-        return true;
-    }
-
-    private static void caseDeleteEmail(ObjectInputStream in) {
-        try {
-           Email email = (Email) in.readObject();
-            System.out.println("Email da eliminare: " + email);
-
-            String mailboxFileName = getMailboxFileName(email.getDestinatario());
-            List<Email> emailList = getEmails(mailboxFileName);
-            emailList.remove(email);
-
-            ServerController.addLogEntry(email.getMittente(), "Email eliminata", LocalDateTime.now().toString());
-        } catch (IOException | ClassNotFoundException e) {
-            logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
-            ServerController.addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().toString());
-        }
-
     }
 
     @Override

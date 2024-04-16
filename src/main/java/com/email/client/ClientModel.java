@@ -1,9 +1,9 @@
 package com.email.client;
+import com.email.client.support.MyAlert;
 import com.email.email.Email;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 
 import java.io.*;
 import java.net.ConnectException;
@@ -84,23 +84,13 @@ public class ClientModel {
                 serverResponse = in.readObject().toString();
                 if(serverResponse.equals("Errore durante l'invio dell'email")) {
                     System.out.println(serverResponse);
-                    Platform.runLater(() -> {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Errore");
-                        alert.setHeaderText("Email non valida");
-                        alert.setContentText("Inserire un indirizzo email valido.");
-                        alert.showAndWait();
-                    });
+                    Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
                 } else {
                     System.out.println(serverResponse);
                     Platform.runLater(() -> {
                         emailList.add(email);
                         saveEmailsToLocal();
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Email inviata");
-                        alert.setHeaderText("Email inviata con successo");
-                        alert.setContentText("L'email è stata inviata con successo.");
-                        alert.showAndWait();
+                        MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
                     });
                 }
                 in.close();
@@ -108,7 +98,7 @@ public class ClientModel {
                 socket.close();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
-                Platform.runLater(NewMailview::serverDown);
+                Platform.runLater(NewMailView::serverDown);
 
             } catch (IOException e) {
                 logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
@@ -139,6 +129,7 @@ public class ClientModel {
                 if(serverResponse.equals("OK")) {
                     System.out.println("Risposta dal server: " + serverResponse);
                     Platform.runLater(() -> {
+                        MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
                         emailList.remove(selectedEmail);
                         saveEmailsToLocal();
                     });
@@ -166,11 +157,7 @@ public class ClientModel {
     public void forwardEmail(Email email) {
 
         if(email.getDestinatario().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore");
-            alert.setHeaderText("Non sono stati inseriti destinatari validi.");
-            alert.setContentText("Inserire uno o più indirizzi email validi.");
-            alert.showAndWait();
+            MyAlert.error("Errore nell'inoltro dell'email", "Uno o più indirizzi email inseriti non sono validi.", "Inserire uno o più indirizzi email validi.");
         } else {
             for(String destinatario : email.getDestinatario().split(",")) {
                 if(!Objects.equals(destinatario, user)) {
@@ -232,6 +219,7 @@ public class ClientModel {
             out.writeObject(user);
             if(serverResponse.equals("OK")) {
                 System.out.println("Risposta dal server: " + serverResponse);
+                @SuppressWarnings("unchecked")
                 List<Email> emails = (ArrayList<Email>) in.readObject();
                 Platform.runLater(() -> {
                     int size = emailList.size();
@@ -239,11 +227,7 @@ public class ClientModel {
                     System.out.println(emailList.size());
                     if (size != emailList.size()) {
                         saveEmailsToLocal();
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Aggiornamento casella di posta");
-                        alert.setHeaderText("Casella di posta aggiornata");
-                        alert.setContentText("Ci sono dei nuovi messaggi nella tua casella di posta.");
-                        alert.showAndWait();
+                        MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
                     }
                 });
             }

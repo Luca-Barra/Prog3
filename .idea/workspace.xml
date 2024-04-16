@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change to support multi line input and new reply style">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add double click to visualize mail">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/email/client/support/MyAlert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/email/server/support/MailSupport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/client.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/TryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/client/support/TryLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/email/support/EmailParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/support/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/email/server/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" afterDir="false" />
@@ -22,9 +35,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -142,7 +155,7 @@
       <module name="Project-Prog-3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.email.server.*" />
+          <option name="PATTERN" value="com.email.server.support.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -306,7 +319,9 @@
       <workItem from="1713273643844" duration="533000" />
       <workItem from="1713274206377" duration="507000" />
       <workItem from="1713284478312" duration="312000" />
-      <workItem from="1713295813113" duration="368000" />
+      <workItem from="1713295813113" duration="468000" />
+      <workItem from="1713302610555" duration="1581000" />
+      <workItem from="1713304196701" duration="1431000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -532,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713272256951</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add double click to visualize mail">
+      <option name="closed" value="true" />
+      <created>1713296251136</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1713296251136</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +629,8 @@
     <MESSAGE value="add images" />
     <MESSAGE value="add css" />
     <MESSAGE value="change to support multi line input and new reply style" />
-    <option name="LAST_COMMIT_MESSAGE" value="change to support multi line input and new reply style" />
+    <MESSAGE value="add double click to visualize mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="add double click to visualize mail" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

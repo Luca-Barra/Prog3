@@ -1,5 +1,6 @@
 package com.email.server;
 
+import com.email.server.support.LogEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

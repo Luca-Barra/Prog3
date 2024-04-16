@@ -12,4 +12,10 @@ module com.email {
     exports com.email.email;
     exports com.email.server;
     exports com.email.client;
+    exports com.email.client.support;
+    opens com.email.client.support to javafx.fxml;
+    exports com.email.email.support;
+    opens com.email.email.support to javafx.fxml;
+    exports com.email.server.support;
+    opens com.email.server.support to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package com.email.server;
+package com.email.server.support;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

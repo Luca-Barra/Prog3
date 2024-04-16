@@ -1,4 +1,4 @@
-package com.email.client;
+package com.email.client.support;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

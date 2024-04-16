@@ -1,5 +1,7 @@
 package com.email.client;
 
+import com.email.client.support.MyAlert;
+import com.email.client.support.TryLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,7 +38,7 @@ public class LoginController {
             stage.setTitle("Client");
             stage.setScene(logScene);
             stage.show();
-        } else LoginView.negative();
+        } else MyAlert.error("Errore", "Errore di autenticazione", "Username o password errati.");
     }
 
 }

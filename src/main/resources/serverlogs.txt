@@ -1525,3 +1525,108 @@ mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T15:07:02.3
 Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T15:07:02.304005391
 Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=33686,localport=12345];2024-04-16T15:07:02.304035101
 Server;Server chiuso;2024-04-16T15:07:29.501331957
+
+-------------------------------------------------
+| Logs salvato il 2024-04-16T23:39:39.384881985 |
+-------------------------------------------------
+Server;Server avviato;2024-04-16T23:38:12.559075820
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=38710,localport=12345];2024-04-16T23:38:30.254323058
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:38:30.261344648
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:38:30.261535388
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=38710,localport=12345];2024-04-16T23:38:30.261571158
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34192,localport=12345];2024-04-16T23:38:49.828821090
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:38:49.829576300
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:38:49.829652740
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34192,localport=12345];2024-04-16T23:38:49.829671520
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34198,localport=12345];2024-04-16T23:38:54.668318591
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:38:54.669236291
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:38:54.669323901
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34198,localport=12345];2024-04-16T23:38:54.669342541
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51680,localport=12345];2024-04-16T23:39:00.252835629
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:39:00.253819259
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:00.253922719
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51680,localport=12345];2024-04-16T23:39:00.253958169
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=53936,localport=12345];2024-04-16T23:39:11.362636374
+mario.rossi@gmail.it;Aggiornamento della casella di posta;2024-04-16T23:39:11.367491635
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:11.367597065
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=53936,localport=12345];2024-04-16T23:39:11.367615755
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34158,localport=12345];2024-04-16T23:39:30.253036928
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:39:30.253927178
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:30.254019848
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34158,localport=12345];2024-04-16T23:39:30.254051518
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34166,localport=12345];2024-04-16T23:39:36.413262695
+mario.rossi@gmail.it;Aggiornamento della casella di posta;2024-04-16T23:39:36.414240556
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:36.414335766
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34166,localport=12345];2024-04-16T23:39:36.414359306
+Server;Server chiuso;2024-04-16T23:39:39.378380445
+
+-------------------------------------------------
+| Logs salvato il 2024-04-16T23:39:51.759899486 |
+-------------------------------------------------
+Server;Server avviato;2024-04-16T23:39:41.740498225
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=41604,localport=12345];2024-04-16T23:39:43.461009285
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:39:43.466742095
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:43.466910255
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=41604,localport=12345];2024-04-16T23:39:43.466945445
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=41608,localport=12345];2024-04-16T23:39:46.765210086
+mario.rossi@gmail.it;Aggiornamento della casella di posta;2024-04-16T23:39:46.765998856
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:39:46.766076476
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=41608,localport=12345];2024-04-16T23:39:46.766095236
+Server;Server chiuso;2024-04-16T23:39:51.759446456
+
+-------------------------------------------------
+| Logs salvato il 2024-04-16T23:40:06.823049702 |
+-------------------------------------------------
+Server;Server avviato;2024-04-16T23:39:54.088522695
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=45418,localport=12345];2024-04-16T23:40:03.304335992
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:40:03.311979013
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:40:03.312168443
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=45418,localport=12345];2024-04-16T23:40:03.312205223
+Server;Server chiuso;2024-04-16T23:40:06.822636822
+
+-------------------------------------------------
+| Logs salvato il 2024-04-16T23:49:21.266850211 |
+-------------------------------------------------
+Server;Server avviato;2024-04-16T23:48:39.638010008
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=40994,localport=12345];2024-04-16T23:48:49.157396956
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:48:49.165405117
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:48:49.165638087
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=40994,localport=12345];2024-04-16T23:48:49.165685537
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=60244,localport=12345];2024-04-16T23:49:07.658527214
+Server;Comando SEND_EMAIL gestito con successo;2024-04-16T23:49:07.704903385
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=60244,localport=12345];2024-04-16T23:49:07.704940975
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=44976,localport=12345];2024-04-16T23:49:14.067955581
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:49:14.068703602
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:49:14.068781182
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=44976,localport=12345];2024-04-16T23:49:14.068803922
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=44992,localport=12345];2024-04-16T23:49:17.291853464
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:49:17.292726084
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:49:17.292820784
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=44992,localport=12345];2024-04-16T23:49:17.292857704
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=44994,localport=12345];2024-04-16T23:49:19.156107707
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-16T23:49:19.157201037
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-16T23:49:19.157278387
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=44994,localport=12345];2024-04-16T23:49:19.157295337
+Server;Server chiuso;2024-04-16T23:49:21.265559221
+
+-------------------------------------------------
+| Logs salvato il 2024-04-17T00:02:52.991976176 |
+-------------------------------------------------
+Server;Server avviato;2024-04-17T00:02:00.065094996
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57590,localport=12345];2024-04-17T00:02:02.021519206
+mario.rossi@gmail.it;Aggiornamento della casella di posta;2024-04-17T00:02:02.029137856
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T00:02:02.029313696
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57590,localport=12345];2024-04-17T00:02:02.029354506
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=36510,localport=12345];2024-04-17T00:02:12.292411605
+mario.rossi@gmail.it;Email inviata a mario.rossi@gmail.com;2024-04-17T00:02:12.342819797
+Server;Comando SEND_EMAIL gestito con successo;2024-04-17T00:02:12.342896287
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=36510,localport=12345];2024-04-17T00:02:12.342918977
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57538,localport=12345];2024-04-17T00:02:24.926354368
+mario.rossi@gmail.it;Aggiornamento della casella di posta;2024-04-17T00:02:24.927298318
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T00:02:24.927392588
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57538,localport=12345];2024-04-17T00:02:24.927418528
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=41620,localport=12345];2024-04-17T00:02:32.415840086
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-17T00:02:32.419900136
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T00:02:32.420019596
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=41620,localport=12345];2024-04-17T00:02:32.420041736
+Server;Server chiuso;2024-04-17T00:02:52.990696906

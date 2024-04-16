@@ -1,5 +1,6 @@
 package com.email.client;
 
+import com.email.client.support.MyAlert;
 import com.email.email.Email;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -10,9 +11,9 @@ import javafx.util.Pair;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static com.email.email.EmailParser.parseDestinatari;
+import static com.email.email.support.EmailParser.parseDestinatari;
 
-public class NewMailview {
+public class NewMailView {
 
     public static void NuovaMail(ClientModel clientModel, Label LabelUsername){
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
@@ -59,11 +60,7 @@ public class NewMailview {
             String oggetto = destinatarioOggettoTesto.getValue().getKey();
             String testo = destinatarioOggettoTesto.getValue().getValue();
             if (!parseDestinatari(destinatarioField.getText())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore");
-                alert.setHeaderText("Email non valida");
-                alert.setContentText("Inserire un indirizzo email valido.");
-                alert.showAndWait();
+                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
                 Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
                 System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
@@ -159,11 +156,7 @@ public class NewMailview {
 
         dialog.showAndWait().ifPresent(response -> {
             if (!parseDestinatari(selectedEmail.getMittente())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore");
-                alert.setHeaderText("Email non valida");
-                alert.setContentText("Inserire un indirizzo email valido.");
-                alert.showAndWait();
+                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
                 Email email = new Email(LabelUsername.getText(), selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
@@ -175,11 +168,7 @@ public class NewMailview {
     private static void dialogIfPresent(Email selectedEmail, ClientModel clientModel, Label LabelUsername, Dialog<Pair<String, Pair<String, String>>> dialog) {
         dialog.showAndWait().ifPresent(response -> {
             if (!parseDestinatari(selectedEmail.getMittente())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore");
-                alert.setHeaderText("Email non valida");
-                alert.setContentText("Inserire un indirizzo email valido.");
-                alert.showAndWait();
+                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
                 Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
@@ -188,11 +177,7 @@ public class NewMailview {
     }
 
     public static void serverDown() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Errore");
-        alert.setHeaderText("Impossibile connettersi al server.");
-        alert.setContentText("Il server è down.");
-        alert.showAndWait();
+        MyAlert.error("Errore", "Impossibile connettersi al server.", "Il server è down.");
     }
 
 }

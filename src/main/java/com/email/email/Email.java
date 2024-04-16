@@ -1,8 +1,5 @@
 package com.email.email;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Email implements Serializable {
     private final String mittente;
@@ -20,7 +17,6 @@ public class Email implements Serializable {
         this.data = data;
     }
 
-    // Metodi getter
     public String getMittente() {
         return mittente;
     }
@@ -54,13 +50,4 @@ public class Email implements Serializable {
         isRead = read;
     }
 
-    public List<String> getDestinatari() {
-        String[] destinatariArray = destinatario.split(",");
-
-        for (int i = 0; i < destinatariArray.length; i++) {
-            destinatariArray[i] = destinatariArray[i].trim();
-        }
-
-        return new ArrayList<>(Arrays.asList(destinatariArray));
-    }
 }
