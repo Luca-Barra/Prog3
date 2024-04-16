@@ -1736,3 +1736,9 @@ mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-17T00:44:00.1
 Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T00:44:00.124997271
 Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=42970,localport=12345];2024-04-17T00:44:00.125021001
 Server;Server chiuso;2024-04-17T00:44:34.583404670
+
+-------------------------------------------------
+| Logs salvato il 2024-04-17T00:46:22.471230313 |
+-------------------------------------------------
+Server;Server avviato;2024-04-17T00:46:17.415340628
+Server;Server chiuso;2024-04-17T00:46:22.469827853

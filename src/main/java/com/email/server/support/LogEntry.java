@@ -18,24 +18,12 @@ public class LogEntry {
         return utente.get();
     }
 
-    public StringProperty utenteProperty() {
-        return utente;
-    }
-
     public String getMessaggio() {
         return messaggio.get();
     }
 
-    public StringProperty messaggioProperty() {
-        return messaggio;
-    }
-
     public String getData() {
         return data.get();
-    }
-
-    public StringProperty dataProperty() {
-        return data;
     }
 
 }

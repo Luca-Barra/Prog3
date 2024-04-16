@@ -123,7 +123,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
