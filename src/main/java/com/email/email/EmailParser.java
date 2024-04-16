@@ -1,8 +1,5 @@
 package com.email.email;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EmailParser {
 
     public static boolean parser(String email){

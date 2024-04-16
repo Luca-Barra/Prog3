@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class LoginController {
@@ -27,6 +28,7 @@ public class LoginController {
             FXMLLoader log = new FXMLLoader();
             log.setLocation(ClientApplication.class.getResource("client-view.fxml"));
             Scene logScene = new Scene(log.load(), 900, 600);
+            logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("client.css")).toExternalForm());
             ClientController clientController = log.getController();
             clientController.setClientModel(clientModel);
             clientController.setLabelUsername(clientModel.getUser());

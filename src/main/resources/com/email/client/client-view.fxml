@@ -11,7 +11,19 @@
                   <Image url="@images/account-default.png" />
             </ImageView>
             <Label fx:id="LabelUsername" prefHeight="31.0" prefWidth="381.0" />
-            <Button fx:id="ButtonNuovaMail" mnemonicParsing="false" onAction="#nuovaMail" prefHeight="35.0" prefWidth="87.0" text="Nuova Mail" />
+
+          <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="32.0">
+              <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="36.0">
+                      <image>
+                          <Image url="@images/mail-update.png" />
+                      </image>
+                  </ImageView>
+              </graphic>
+              <tooltip>
+                  <Tooltip text="Aggiornamento" />
+              </tooltip>
+          </Button>
          </HBox>
    </top>
    <center>
@@ -46,11 +58,44 @@
                   <TextArea fx:id="LabelTestoEmail" prefHeight="144.0" prefWidth="277.0" BorderPane.alignment="CENTER" />
                </center>
                <bottom>
-                  <ButtonBar prefHeight="86.0" prefWidth="244.0" BorderPane.alignment="CENTER">
+                  <ButtonBar prefHeight="77.0" prefWidth="295.0" BorderPane.alignment="CENTER">
                      <buttons>
-                        <Button fx:id="ButtonRaTutti" mnemonicParsing="false" onAction="#rispondiATutti" text="R. a tutti" />
-                        <Button fx:id="ButtonRispondi" mnemonicParsing="false" onAction="#rispondi" prefHeight="26.0" text="Rispondi" />
-                        <Button fx:id="ButtonElimina" minWidth="25.0" mnemonicParsing="false" onAction="#elimina" prefHeight="26.0" prefWidth="318.0" text="Elimina" />
+                         <Button fx:id="ButtonRaTutti" mnemonicParsing="false" onAction="#rispondiATutti" prefHeight="32.0">
+                             <graphic>
+                                 <ImageView fitHeight="31" fitWidth="31.0">
+                                     <image>
+                                         <Image url="@images/mail-replyall.png" />
+                                     </image>
+                                 </ImageView>
+                             </graphic>
+                             <tooltip>
+                                 <Tooltip text="Rispondi a tutti" />
+                             </tooltip>
+                         </Button>
+                         <Button fx:id="ButtonRispondi" minWidth="79.0" mnemonicParsing="false" onAction="#rispondi" prefHeight="32.0">
+                             <graphic>
+                                 <ImageView fitHeight="31.0" fitWidth="31.0">
+                                     <image>
+                                         <Image url="@images/mail-reply.png" />
+                                     </image>
+                                 </ImageView>
+                             </graphic>
+                             <tooltip>
+                                 <Tooltip text="Rispondi" />
+                             </tooltip>
+                         </Button>
+                         <Button fx:id="ButtonElimina" minWidth="25.0" mnemonicParsing="false" onAction="#elimina" prefHeight="32.0">
+                             <graphic>
+                                 <ImageView fitHeight="31" fitWidth="31">
+                                     <image>
+                                         <Image url="@images/mail-delete.png" />
+                                     </image>
+                                 </ImageView>
+                             </graphic>
+                             <tooltip>
+                                 <Tooltip text="Elimina mail" />
+                             </tooltip>
+                         </Button>
                      </buttons>
                   </ButtonBar>
                </bottom>
@@ -60,8 +105,26 @@
    <bottom>
       <ButtonBar layoutX="10.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="29.0" text="Inoltra" />
-            <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" text="Aggiornamento" />
+            <Button fx:id="ButtonNuovaMail" mnemonicParsing="false" onAction="#nuovaMail" prefHeight="39.0" prefWidth="82.0" ButtonBar.buttonData="RIGHT">
+                <graphic>
+                    <ImageView fitHeight="31.0" fitWidth="39.0">
+                        <Image url="@images/mail-send.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Invia una nuova mail" />
+                </tooltip>
+            </Button>
+            <Button fx:id="ButtonInoltra" minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="32.0" ButtonBar.buttonData="LEFT">
+                <graphic>
+                    <ImageView fitHeight="31" fitWidth="31">
+                        <Image url="@images/mail-forward.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Inoltra una mail" />
+                </tooltip>
+            </Button>
         </buttons>
       </ButtonBar>
    </bottom>

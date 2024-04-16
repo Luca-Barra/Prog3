@@ -1,14 +1,11 @@
 package com.email.server;
 
-import com.email.email.Email;
-import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ServerModel {
-    private static Map<String, String> clientMailboxMap = new HashMap<>();
+    private static final Map<String, String> clientMailboxMap = new HashMap<>();
 
 
     static String getMailboxFileName(String user) {

@@ -2,6 +2,8 @@ package com.email.client;
 import com.email.email.Email;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.Optional;
 
@@ -48,21 +50,29 @@ public class ClientController {
                 displayEmailDetails(newValue);
             }
         });
-        emailListView.setCellFactory(param -> new ListCell<Email>() {
+        emailListView.setCellFactory(param -> new ListCell<>() {
             @Override
             protected void updateItem(Email item, boolean empty) {
                 super.updateItem(item, empty);
 
                 if (empty || item == null) {
                     setText(null);
+                    setGraphic(null);
                     setStyle(null);
                 } else {
-                    setText(item.getTesto()); // Display the subject of the email
-
+                    setText(item.getTesto());
+                    ImageView imageView = new ImageView();
+                    imageView.setFitWidth(20); // adjust the value as needed
+                    imageView.setFitHeight(20); // adjust the value as needed
+                    imageView.setPreserveRatio(true);
                     if (item.isRead()) {
-                        setStyle("-fx-font-weight: normal;"); // Normal text for read emails
+                        imageView.setImage(new Image("read.png"));
+                        setGraphic(imageView);
+                        setStyle("-fx-font-weight: normal;");
                     } else {
-                        setStyle("-fx-font-weight: bold;"); // Bold text for unread emails
+                        imageView.setImage(new Image("unread.png"));
+                        setGraphic(imageView);
+                        setStyle("-fx-font-weight: bold;");
                     }
                 }
             }
@@ -102,7 +112,11 @@ public class ClientController {
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
         if (selectedEmail != null) {
             NewMailview.RispostaATutti(selectedEmail, clientModel, LabelUsername);
-
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Nessuna email selezionata");
+            alert.setHeaderText("Seleziona un'email a cui rispondere.");
+            alert.showAndWait();
         }
     }
 

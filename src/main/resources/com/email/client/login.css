@@ -1,0 +1,5 @@
+#ButtonLogin{
+    -fx-graphic: url('/com/email/client/images/login-button.png');
+    -fx-background-image: url('/com/email/client/images/login-button.svg');
+    -fx-background-size: contain;
+}

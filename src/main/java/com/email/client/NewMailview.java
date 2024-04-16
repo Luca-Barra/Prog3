@@ -147,7 +147,18 @@ public class NewMailview {
             return null;
         });
 
-        dialogIfPresent(selectedEmail, clientModel, LabelUsername, dialog);
+        dialog.showAndWait().ifPresent(response -> {
+            if (!parseDestinatari(selectedEmail.getMittente())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Errore");
+                alert.setHeaderText("Email non valida");
+                alert.setContentText("Inserire un indirizzo email valido.");
+                alert.showAndWait();
+            } else {
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                clientModel.sendEmail(email);
+            }
+        });
 
     }
 

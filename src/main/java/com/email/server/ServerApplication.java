@@ -143,13 +143,13 @@ public class ServerApplication extends Application {
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
-                if(ServerController.checkUser(destinatario)) {
+                if(ServerController.checkUser(destinatario.trim())) {
 
                     String mailboxFileName = getMailboxFileName(destinatario.trim());
                     if(!email.getMittente().equals(email.getDestinatario())){
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName, true))) {
                         writer.write(email.getMittente() + ";"
-                                + destinatario.trim() + ";"
+                                + email.getDestinatario() + ";"
                                 + email.getOggetto() + ";"
                                 + email.getTesto() + ";"
                                 + email.getData() + "\n");

@@ -99,6 +99,7 @@ public class ServerController {
     }
 
     public static boolean checkUser(String user){
+        System.out.println("User: " + user);
         return registeredUsers.contains(user);
     }
 
