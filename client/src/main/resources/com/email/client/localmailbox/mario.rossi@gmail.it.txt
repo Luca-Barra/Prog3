@@ -1,0 +1,85 @@
+mario.rossi@gmail.com;mario.rossi@gmail.it, andrea.neri@gmail.com;TEST;MULTIPLI DESTINATARI;2024-04-16T01:58:21.975117778;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it, andrea.neri@gmail.com;R: TEST;RISPOSTA;2024-04-16T01:58:39.535412724;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it, andrea.neri@gmail.com;R: TEST;RISPOSTA;2024-04-16T01:58:39.535412724;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;R: TEST;RISPOSTA A mario.rossi@gmail.com;2024-04-16T01:59:25.556414012;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it;TEST LETTURA 1;TEST;2024-04-16T13:18:52.061859932;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;aAAa;sdwsd;2024-04-16T14:02:59.610476098;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;Ciao;Ciao;2024-04-16T14:07:30.214981551;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it,mario.rossi@gmail.com;R: Ciao;dssddsds;2024-04-16T14:13:28.629650916;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it,mario.rossi@gmail.com;R: Ciao;dssddsds;2024-04-16T14:13:28.629650916;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;Multi line;multi
+
+
+lines;2024-04-16T14:28:16.708472677;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it;R: Multi line;mario.rossi@gmail.it ha scritto:
+multi
+
+
+lines
+In data: 2024-04-16T14:28:16.708472677
+
+Test
+
+risposta;2024-04-16T14:33:44.890169955;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;Test;Test
+
+
+Multi
+
+
+
+Line;2024-04-16T14:54:05.127154355;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;R: Test;----------------------------------------------------------------
+mario.rossi@gmail.it ha scritto:
+Test
+
+
+Multi
+
+
+
+Line
+In data: 2024-04-16T14:54:05.127154355
+----------------------------------------------------------------
+
+Risposta
+
+su più
+
+righe;2024-04-16T14:54:37.846846109;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it;R: Test;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------------------------------
+Test
+
+
+Multi
+
+
+
+Line
+In data: 2024-04-16T14:54:05.127154355
+----------------------------------------------------------------
+
+Test di risposta;2024-04-16T15:02:38.143853857;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;R: Multi line;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------------------------------
+multi
+
+
+lines
+In data: 2024-04-16T14:28:16.708472677
+----------------------------------------------------------------
+
+Risposta;2024-04-16T15:03:27.129814215;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;R: Ciao;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------
+Ciao
+In data: 2024-04-16T14:07:30.214981551
+------------------------------------------
+
+Test;2024-04-16T15:05:23.938150152;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;sdsdsdsd;sddsddddd;2024-04-17T00:02:12.290255635;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;wewe;eeeeeeeeeeeee;2024-04-17T01:08:16.563022721;READ
