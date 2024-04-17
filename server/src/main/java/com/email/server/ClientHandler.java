@@ -33,7 +33,10 @@ public class ClientHandler implements Runnable {
             switch (command) {
                 case "LOGIN":
                     String username = (String) in.readObject();
-                    ServerModel.addLogEntry(username, "Tentativo di login", LocalDateTime.now().toString());
+                    if(ServerModel.checkUser(username))
+                        ServerModel.addLogEntry(username, "Tentativo di login", LocalDateTime.now().toString());
+                    else
+                        ServerModel.addLogEntry("Sconosciuto", "Tentativo di login fallito: utente non esistente", LocalDateTime.now().toString());
                     break;
                 case "SEND_EMAIL":
                     if(caseSendEmail(in))

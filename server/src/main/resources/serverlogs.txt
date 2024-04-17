@@ -2021,3 +2021,25 @@ andrea.neri@gmail.com;Aggiornamento della casella di posta;2024-04-17T13:56:48.1
 Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T13:56:48.152467330
 Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=50210,localport=12345];2024-04-17T13:56:48.152491260
 Server;Server chiuso;2024-04-17T13:56:56.942044673
+
+-------------------------------------------------
+| Logs salvato il 2024-04-17T14:08:34.421298673 |
+-------------------------------------------------
+Server;Server avviato;2024-04-17T14:07:35.274165853
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51364,localport=12345];2024-04-17T14:07:57.070809115
+Sconosciuto;Tentativo di login fallito: utente non esistente;2024-04-17T14:07:57.077846005
+Server;Comando LOGIN gestito con successo;2024-04-17T14:07:57.077932565
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51364,localport=12345];2024-04-17T14:07:57.077966265
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=43344,localport=12345];2024-04-17T14:08:08.748609100
+mario.rossi@gmail.com;Tentativo di login;2024-04-17T14:08:08.749326241
+Server;Comando LOGIN gestito con successo;2024-04-17T14:08:08.749363901
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=43344,localport=12345];2024-04-17T14:08:08.749381711
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55930,localport=12345];2024-04-17T14:08:18.180269095
+mario.rossi@gmail.com;Tentativo di login;2024-04-17T14:08:18.181103746
+Server;Comando LOGIN gestito con successo;2024-04-17T14:08:18.181149166
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55930,localport=12345];2024-04-17T14:08:18.181172296
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55932,localport=12345];2024-04-17T14:08:18.225792614
+mario.rossi@gmail.com;Aggiornamento della casella di posta;2024-04-17T14:08:18.227524066
+Server;Comando RETRIEVE_EMAILS gestito con successo;2024-04-17T14:08:18.227697236
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55932,localport=12345];2024-04-17T14:08:18.227724376
+Server;Server chiuso;2024-04-17T14:08:34.419952821
