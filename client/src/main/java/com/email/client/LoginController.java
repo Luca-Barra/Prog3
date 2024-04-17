@@ -23,7 +23,7 @@ public class LoginController {
         String user = UserField.getText();
         String password = PasswordField.getText();
         TryLogin tryLogin = new TryLogin(user, password);
-        if(tryLogin.check()){
+        if(tryLogin.check && tryLogin.check()){
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
             ClientModel clientModel = new ClientModel(user);
@@ -38,7 +38,7 @@ public class LoginController {
             stage.setTitle("Client");
             stage.setScene(logScene);
             stage.show();
-        } else MyAlert.error("Errore", "Errore di autenticazione", "Username o password errati.");
+        }
     }
 
 }

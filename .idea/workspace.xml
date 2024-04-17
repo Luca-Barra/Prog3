@@ -4,49 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="total refactoring for management and order purposes">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="delete">
+      <change afterPath="$PROJECT_DIR$/email/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/NewMailView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/support/MyAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/MyAlert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/client/support/TryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/src/main/java/com/email/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/email/support/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/src/main/java/com/email/support/EmailParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/support/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/email/server/support/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/client.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/account-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/account-default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/login-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/login-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/login-button.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-delete.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-reply.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-reply.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-replyall.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-replyall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-send.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-send.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/mail-update.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-update.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/images/new-mail.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/client/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/server-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/email/server/servermailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logininfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/logininfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/read.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/read.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/registeredUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/registeredUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/serverlogs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/unread.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/unread.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/serverlogs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +25,8 @@
         <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="package-info" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -103,34 +71,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.ClientApplication.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.Local.executor": "Run",
-    "Application.ServerApplication.executor": "Run",
-    "Application.client.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/luna/IdeaProjects/Project-Prog-3/src/main/java/com/email/client",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.ClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Local.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/luna/IdeaProjects/Project-Prog-3/src/main/java/com/email/client&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/email/client" />
@@ -155,7 +123,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -329,7 +297,8 @@
       <workItem from="1713295813113" duration="468000" />
       <workItem from="1713302610555" duration="1581000" />
       <workItem from="1713304196701" duration="3721000" />
-      <workItem from="1713307925185" duration="4248000" />
+      <workItem from="1713307925185" duration="4327000" />
+      <workItem from="1713351376773" duration="3359000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -587,7 +556,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713307624979</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="total refactoring for management and order purposes">
+      <option name="closed" value="true" />
+      <created>1713312193558</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1713312193558</updated>
+    </task>
+    <task id="LOCAL-00034" summary="delete">
+      <option name="closed" value="true" />
+      <created>1713312219147</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713312219147</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add client view" />
     <MESSAGE value="minor change to client view, add newmail-view and server-view" />
     <MESSAGE value="update" />
     <MESSAGE value="username visible" />
@@ -665,7 +649,8 @@
     <MESSAGE value="refactor, add interaction for the server, remove default hello world project" />
     <MESSAGE value="minor change" />
     <MESSAGE value="total refactoring for management and order purposes" />
-    <option name="LAST_COMMIT_MESSAGE" value="total refactoring for management and order purposes" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

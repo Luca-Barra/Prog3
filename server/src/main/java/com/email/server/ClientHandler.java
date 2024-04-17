@@ -31,6 +31,10 @@ public class ClientHandler implements Runnable {
             out.writeObject("OK");
 
             switch (command) {
+                case "LOGIN":
+                    String username = (String) in.readObject();
+                    ServerModel.addLogEntry(username, "Tentativo di login", LocalDateTime.now().toString());
+                    break;
                 case "SEND_EMAIL":
                     if(caseSendEmail(in))
                         out.writeObject("Email inviata con successo");
