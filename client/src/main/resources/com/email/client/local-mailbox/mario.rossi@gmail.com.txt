@@ -98,3 +98,48 @@ andrea.neri@gmail.com;mario.rossi@gmail.com;PROVA;PROVA,
 
 PROVA;2024-04-17T01:59:00.040403433;READ
 mario.rossi@gmail.com;mario.rossi@gmail.com;dssddssd;sdsddssddwsdsds;2024-04-17T13:06:07.711001736;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;sdwd;ddddd;2024-04-17T15:32:34.799599785;READ
+mario.rossi@gmail.com;mario.rossi@gmail.com;R: TEST 02;andrea.neri@gmail.com ha scritto:
+
+----------------------------------------
+TEST INVIO MAIL,
+
+SALUTI
+In data: 2024-04-17T00:43:21.736794763
+------------------------------------------
+
+Risposta a tutti;2024-04-17T16:00:46.830026970;READ
+mario.rossi@gmail.com;mario.rossi@gmail.com;R: PROVA;andrea.neri@gmail.com ha scritto:
+
+----------------------------------------
+PROVA,
+
+PROVA
+In data: 2024-04-17T01:59:00.040403433
+------------------------------------------
+
+mario.rossi@gmail.com;2024-04-17T16:01:31.850894080;READ
+mario.rossi@gmail.com;andrea.neri@gmail.com,mario.rossi@gmail.com;R: PROVA;andrea.neri@gmail.com ha scritto:
+
+----------------------------------------
+PROVA,
+
+PROVA
+In data: 2024-04-17T01:59:00.040403433
+------------------------------------------
+
+Risposta a tutti;2024-04-17T16:05:41.210080003;READ
+mario.rossi@gmail.com;andrea.neri@gmail.com,mario.rossi@gmail.com;R: PROVA;andrea.neri@gmail.com ha scritto:
+
+----------------------------------------
+PROVA,
+
+PROVA
+In data: 2024-04-17T01:59:00.040403433
+------------------------------------------
+
+Risposta a tutti;2024-04-17T16:05:41.210080003;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;ssdsdsdsd;sdssdsdsdsd;2024-04-17T16:08:45.748794061;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;TEST 02;TEST 02
+
+ssss;2024-04-17T16:15:25.961475062;READ

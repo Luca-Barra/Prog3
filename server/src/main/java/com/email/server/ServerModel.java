@@ -108,7 +108,7 @@ public class ServerModel {
     }
 
     public static void saveLogs() {
-        String filename = "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/serverlogs.txt";
+        String filename = "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/server-logs.txt";
         try {
             System.out.println("Salvataggio dei log in corso...");
             Path path = Paths.get(filename);

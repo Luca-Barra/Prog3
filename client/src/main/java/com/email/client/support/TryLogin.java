@@ -37,7 +37,7 @@ public class TryLogin {
                 System.out.println(serverResponse);
                 if (serverResponse.equals("OK")) {
                     check = true;
-                    try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("logininfo.txt")) {
+                    try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("login-info.txt")) {
                         if (inputStream != null) {
                             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                                 String line;
@@ -53,10 +53,10 @@ public class TryLogin {
                                 }
                             }
                         } else {
-                            logger.severe("logininfo.txt not found or not accessible");
+                            logger.severe("login-info.txt not found or not accessible");
                         }
                     } catch (IOException e) {
-                        logger.log(Level.SEVERE, "Error reading logininfo.txt", e);
+                        logger.log(Level.SEVERE, "Error reading login-info.txt", e);
                     }
                 }
                 in.close();

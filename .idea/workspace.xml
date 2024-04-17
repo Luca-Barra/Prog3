@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add connection for login">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/localmailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/logininfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/login-info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/src/main/java/com/email/support/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/src/main/java/com/email/support/EmailParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/serverlogs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/server-logs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,11 +119,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/email/client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/servermailbox/SENT" />
       <recent name="$PROJECT_DIR$/server/src/main" />
       <recent name="$PROJECT_DIR$/server/src/main/java" />
-      <recent name="$PROJECT_DIR$/client/src/main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.email.client" />
@@ -292,7 +309,8 @@
       <workItem from="1713302610555" duration="1581000" />
       <workItem from="1713304196701" duration="3721000" />
       <workItem from="1713307925185" duration="4327000" />
-      <workItem from="1713351376773" duration="4272000" />
+      <workItem from="1713351376773" duration="4363000" />
+      <workItem from="1713360613209" duration="2654000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -574,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713355053708</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1713355732490</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1713355732490</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,11 +674,11 @@
     <MESSAGE value="add double click to visualize mail" />
     <MESSAGE value="general refactor" />
     <MESSAGE value="refactor, add interaction for the server, remove default hello world project" />
-    <MESSAGE value="minor change" />
     <MESSAGE value="total refactoring for management and order purposes" />
     <MESSAGE value="delete" />
     <MESSAGE value="add connection for login" />
-    <option name="LAST_COMMIT_MESSAGE" value="add connection for login" />
+    <MESSAGE value="minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

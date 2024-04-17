@@ -88,7 +88,6 @@ public class ClientModel {
                 } else {
                     System.out.println(serverResponse);
                     Platform.runLater(() -> {
-                        emailList.add(email);
                         saveEmailsToLocal();
                         MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
                     });
@@ -182,7 +181,7 @@ public class ClientModel {
         System.out.println("Salvataggio su file locale");
         System.out.println(user);
         System.out.println(emailList.size());
-        String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/localmailbox/" + user + ".txt";
+        String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
         try {
             BufferedWriter bw = getBufferedWriter(filename);
             bw.close();

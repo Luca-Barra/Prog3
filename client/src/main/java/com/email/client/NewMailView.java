@@ -158,7 +158,7 @@ public class NewMailView {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
                 clientModel.sendEmail(email);
             }
         });

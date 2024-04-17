@@ -7,8 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static com.email.server.support.MailSupport.getEmails;
-import static com.email.server.support.MailSupport.getMailboxFileName;
+import static com.email.server.support.MailSupport.*;
 
 
 public class ClientHandler implements Runnable {
@@ -84,24 +83,16 @@ public class ClientHandler implements Runnable {
     private static synchronized boolean caseSendEmail(ObjectInputStream in) {
         try {
             Email email = (Email) in.readObject();
+            String mailboxFileName = getMailboxFileName(email.getMittente());
+            writeMail(mailboxFileName, email);
             System.out.println("Email ricevuta: " + email);
-
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
                 if(ServerModel.checkUser(destinatario.trim())) {
-
-                    String mailboxFileName = getMailboxFileName(destinatario.trim());
-                    if(!email.getMittente().equals(email.getDestinatario())){
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName, true))) {
-                            writer.write(email.getMittente() + ";"
-                                    + email.getDestinatario() + ";"
-                                    + email.getOggetto() + ";"
-                                    + email.getTesto() + ";"
-                                    + email.getData() + "\n");
-                        }
-                        ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
-                    }
+                    mailboxFileName = getMailboxFileName(destinatario.trim());
+                    writeMail(mailboxFileName, email);
+                    ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
                 } else {
                     ServerModel.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
                     return false;

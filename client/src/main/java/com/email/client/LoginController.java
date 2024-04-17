@@ -1,6 +1,5 @@
 package com.email.client;
 
-import com.email.client.support.MyAlert;
 import com.email.client.support.TryLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
