@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,8 @@ public class ServerModel {
     private static final Logger logger = Logger.getLogger(ServerModel.class.getName());
 
     private static ArrayList<String> registeredUsers;
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public void initialize() {
 
@@ -99,7 +102,7 @@ public class ServerModel {
         emailTableView.setItems(logEntries);
 
         logEntries.addAll(
-                new LogEntry("Server", "Server avviato", LocalDateTime.now().toString())
+                new LogEntry("Server", "Server avviato", LocalDateTime.now().format(formatter))
         );
     }
 

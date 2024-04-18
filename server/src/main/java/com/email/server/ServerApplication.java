@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -19,6 +20,7 @@ public class ServerApplication extends Application {
     private ServerSocket serverSocket;
     private static final int PORT = 12345;
     private static final Logger logger = Logger.getLogger(ServerApplication.class.getName());
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     /**
      * Metodo per avviare l'applicazione server
@@ -54,7 +56,7 @@ public class ServerApplication extends Application {
             System.out.println("Server avviato sulla porta " + PORT);
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
-                ServerModel.addLogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().toString());
+                ServerModel.addLogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().format(formatter));
                 System.out.println("Connessione accettata da " + clientSocket);
 
                 ClientHandler clientHandler = new ClientHandler(clientSocket);
@@ -95,11 +97,11 @@ public class ServerApplication extends Application {
         if (serverSocket != null && !serverSocket.isClosed()) {
             try {
                 serverSocket.close();
-                ServerModel.addLogEntry("Server", "Server chiuso", LocalDateTime.now().toString());
+                ServerModel.addLogEntry("Server", "Server chiuso", LocalDateTime.now().format(formatter));
                 ServerModel.saveLogs();
             } catch (IOException e) {
                 logger.severe("Errore durante la chiusura del server: " + e.getMessage());
-                ServerModel.addLogEntry("Server", "Errore durante la chiusura del server: " + e.getMessage(), LocalDateTime.now().toString());
+                ServerModel.addLogEntry("Server", "Errore durante la chiusura del server: " + e.getMessage(), LocalDateTime.now().format(formatter));
             }
         }
     }
