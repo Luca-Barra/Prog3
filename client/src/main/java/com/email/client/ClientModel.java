@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 
 
@@ -69,46 +70,52 @@ public class ClientModel {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
         Runnable task = () -> {
-            try {
-                Socket socket = new Socket();
-                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                out.writeObject("SEND_EMAIL");
-                String serverResponse = in.readObject().toString();
-                out.flush();
-                if(serverResponse.equals("OK")) {
-                    System.out.println("Risposta dal server: " + serverResponse);
-                    out.writeObject(email);
+            for (int i = 0; i < 3; i++) {
+                try {
+                    Socket socket = new Socket();
+                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
+                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out.writeObject("SEND_EMAIL");
+                    String serverResponse = in.readObject().toString();
+                    out.flush();
+                    if(serverResponse.equals("OK")) {
+                        System.out.println("Risposta dal server: " + serverResponse);
+                        out.writeObject(email);
+                    }
+                    serverResponse = in.readObject().toString();
+                    if(serverResponse.equals("Errore durante l'invio dell'email")) {
+                        System.out.println(serverResponse);
+                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
+                    } else {
+                        System.out.println(serverResponse);
+                        Platform.runLater(() -> {
+                            saveEmailsToLocal();
+                            MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
+                        });
+                    }
+                    in.close();
+                    out.close();
+                    socket.close();
+                    break;
+                } catch (ConnectException e) {
+                    System.out.println("Impossibile connettersi al server.");
+                    Platform.runLater(NewMailView::serverDown);
+                } catch (IOException e) {
+                    logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
-                serverResponse = in.readObject().toString();
-                if(serverResponse.equals("Errore durante l'invio dell'email")) {
-                    System.out.println(serverResponse);
-                    Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
-                } else {
-                    System.out.println(serverResponse);
-                    Platform.runLater(() -> {
-                        saveEmailsToLocal();
-                        MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
-                    });
+                try {
+                    TimeUnit.SECONDS.sleep(30);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
                 }
-                in.close();
-                out.close();
-                socket.close();
-            } catch (ConnectException e) {
-                System.out.println("Impossibile connettersi al server.");
-                Platform.runLater(NewMailView::serverDown);
-
-            } catch (IOException e) {
-                logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
             }
         };
 
         executor.execute(task);
     }
-
     public String getUser() {
         return user;
     }

@@ -89,13 +89,15 @@ public class ClientHandler implements Runnable {
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
-                if(ServerModel.checkUser(destinatario.trim())) {
-                    mailboxFileName = getMailboxFileName(destinatario.trim());
-                    writeMail(mailboxFileName, email);
-                    ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
-                } else {
-                    ServerModel.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
-                    return false;
+                if(!destinatario.trim().equals(email.getMittente())) {
+                    if (ServerModel.checkUser(destinatario.trim())) {
+                        mailboxFileName = getMailboxFileName(destinatario.trim());
+                        writeMail(mailboxFileName, email);
+                        ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
+                    } else {
+                        ServerModel.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
+                        return false;
+                    }
                 }
             }
         } catch (IOException | ClassNotFoundException e) {

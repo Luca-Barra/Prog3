@@ -87,3 +87,30 @@ mario.rossi@gmail.com;mario.rossi@gmail.it;sdwd;ddddd;2024-04-17T15:32:34.799599
 mario.rossi@gmail.it;mario.rossi@gmail.com;TEST 02;TEST 02
 
 ssss;2024-04-17T16:15:25.961475062;READ
+mario.rossi@gmail.it;mario.rossi@gmail.it;dssdsd;sddsds;2024-04-18T13:24:12.523011251;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;ewrwew;wwwwww;2024-04-18T13:26:14.937168313;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;R: ewrwew;mario.rossi@gmail.com ha scritto:
+
+----------------------------------------
+wwwwww
+In data: 2024-04-18T13:26:14.937168313
+------------------------------------------
+
+Risposta;2024-04-18T13:26:35.260533514;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it,mario.rossi@gmail.com;R: R: ewrwew;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------
+mario.rossi@gmail.com ha scritto:
+
+----------------------------------------
+wwwwww
+In data: 2024-04-18T13:26:14.937168313
+------------------------------------------
+
+Risposta
+In data: 2024-04-18T13:26:35.260533514
+------------------------------------------
+
+Risposta a tutti;2024-04-18T13:27:15.490029870;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;ssssss;ddddddddddddddddd;2024-04-18T13:28:05.562404336;READ
+mario.rossi@gmail.com;mario.rossi@gmail.it;TEST SERVER DOWN;TEST;2024-04-18T13:28:57.682532293;READ
