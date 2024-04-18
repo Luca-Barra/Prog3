@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add server persistence">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add comment and solve minor bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/server-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/server-logs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +298,7 @@
       <workItem from="1713441545868" duration="47000" />
       <workItem from="1713441598023" duration="1383000" />
       <workItem from="1713443541662" duration="2263000" />
-      <workItem from="1713445810881" duration="1515000" />
+      <workItem from="1713445810881" duration="1959000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -638,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713445180873</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="add comment and solve minor bugs">
+      <option name="closed" value="true" />
+      <created>1713447753319</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447753319</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +689,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update project" />
     <MESSAGE value="add synchronized to send email" />
     <MESSAGE value="up" />
     <MESSAGE value="division view" />
@@ -716,7 +713,8 @@
     <MESSAGE value="optimization" />
     <MESSAGE value="add comments and unique ID" />
     <MESSAGE value="add server persistence" />
-    <option name="LAST_COMMIT_MESSAGE" value="add server persistence" />
+    <MESSAGE value="add comment and solve minor bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comment and solve minor bugs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
