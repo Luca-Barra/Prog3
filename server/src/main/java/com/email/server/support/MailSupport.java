@@ -11,6 +11,14 @@ public class MailSupport {
 
     private static final Logger logger = Logger.getLogger(MailSupport.class.getName());
 
+    /**
+     * Metodo per leggere le email presenti nel file mailbox
+     * <p>
+     * @param mailboxFileName nome del file mailbox
+     * @return lista di email presenti nel file mailbox
+     * @throws IOException se si verifica un errore durante la lettura del file
+     */
+
     public synchronized static List<Email> getEmails(String mailboxFileName) throws IOException {
         List<Email> emailList = new ArrayList<>();
 
@@ -32,9 +40,23 @@ public class MailSupport {
         return emailList;
     }
 
+    /**
+     * Metodo per ottenere il percorso del file mailbox SENT
+     * <p>
+     * @param user nome dell'utente
+     * @return percorso del file mailbox SENT
+     */
+
     public static String getMailboxSent(String user) {
         return "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/com/email/server/server-mailbox/SENT/" + user + ".txt";
     }
+
+    /**
+     * Metodo per ottenere il percorso del file mailbox RECEIVED
+     * <p>
+     * @param user nome dell'utente
+     * @return percorso del file mailbox RECEIVED
+     */
 
     public static String getMailboxReceived(String user){
         return "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/" + user + ".txt";
@@ -52,6 +74,13 @@ public class MailSupport {
         }
     }
 
+    /**
+     * Metodo per salvare le nuove email ricevute nel file mailbox RECEIVED
+     * <p>
+     * @param mailboxFileNameReceived nome del file mailbox RECEIVED
+     * @param emailList lista di email da salvare
+     */
+
     public synchronized static void saveNewEmails(String mailboxFileNameReceived, List<Email> emailList) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileNameReceived, true))) {
             for (Email email : emailList) {
@@ -65,6 +94,13 @@ public class MailSupport {
             logger.severe("Errore durante il salvataggio delle email: " + e.getMessage());
         }
     }
+
+    /**
+     * Metodo per eliminare un'email dal file mailbox
+     * <p>
+     * @param mailboxFileName nome del file mailbox
+     * @param email email da eliminare
+     */
 
     public synchronized static void deleteEmail(String mailboxFileName, Email email) {
         try (BufferedReader reader = new BufferedReader(new FileReader(mailboxFileName)) ) {

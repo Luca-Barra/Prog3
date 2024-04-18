@@ -20,6 +20,13 @@ public class ServerApplication extends Application {
     private static final int PORT = 12345;
     private static final Logger logger = Logger.getLogger(ServerApplication.class.getName());
 
+    /**
+     * Metodo per avviare l'applicazione server
+     * <p>
+     * @param primaryStage Stage dell'applicazione
+     * @throws Exception Eccezione generica
+     */
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("UI/server-view.fxml")));
@@ -36,6 +43,10 @@ public class ServerApplication extends Application {
         });
         new Thread(this::startServer).start();
     }
+
+    /**
+     * Metodo per avviare il server
+     */
 
     private void startServer() {
         try {
@@ -60,6 +71,12 @@ public class ServerApplication extends Application {
         }
     }
 
+    /**
+     * Metodo per fermare il server
+     * <p>
+     * @throws Exception Eccezione generica
+     */
+
     @Override
     public void stop() throws Exception {
         super.stop();
@@ -69,6 +86,10 @@ public class ServerApplication extends Application {
             System.out.println("Server chiuso.");
         }
     }
+
+    /**
+     * Metodo per fermare il server e salvare i log
+     */
 
     private void stopServer() {
         if (serverSocket != null && !serverSocket.isClosed()) {
@@ -82,6 +103,12 @@ public class ServerApplication extends Application {
             }
         }
     }
+
+    /**
+     * Metodo main per avviare l'applicazione
+     * <p>
+     * @param args Argomenti passati da riga di comando
+     */
 
     public static void main(String[] args) {
         launch(args);

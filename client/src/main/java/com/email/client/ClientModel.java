@@ -90,6 +90,7 @@ public class ClientModel {
                         System.out.println(serverResponse);
                         Platform.runLater(() -> {
                             saveEmailsToLocal();
+                            refreshEmails();
                             MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
                         });
                     }
@@ -138,8 +139,9 @@ public class ClientModel {
                         out.flush();
                         out.writeObject(user);
                         Platform.runLater(() -> {
-                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
                             emailList.remove(selectedEmail);
+                            refreshEmails();
+                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
                             saveEmailsToLocal();
                         });
                     }
@@ -152,9 +154,11 @@ public class ClientModel {
                 socket.close();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
-                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Controllare la connessione di rete.");
+                Platform.runLater(() ->
+                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
             } catch (SocketTimeoutException e) {
                 System.out.println("Timeout di connessione al server.");
+                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
             } catch (IOException e) {
                 logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
             } catch (ClassNotFoundException e) {
@@ -174,6 +178,7 @@ public class ClientModel {
                 if(!Objects.equals(destinatario, user)) {
                     Email emailForwarded = new Email(user, destinatario, email.getOggetto(), email.getTesto(), email.getData());
                     sendEmail(emailForwarded);
+                    refreshEmails();
                 }
             }
         }

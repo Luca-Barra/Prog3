@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add comments and unique ID">
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add server persistence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/MyAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/MyAlert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/TryLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/server-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/server-logs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -310,7 +307,8 @@
       <workItem from="1713439154732" duration="2385000" />
       <workItem from="1713441545868" duration="47000" />
       <workItem from="1713441598023" duration="1383000" />
-      <workItem from="1713443541662" duration="1432000" />
+      <workItem from="1713443541662" duration="2263000" />
+      <workItem from="1713445810881" duration="1515000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -632,7 +630,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713441516641</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="add server persistence">
+      <option name="closed" value="true" />
+      <created>1713445180873</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713445180873</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +691,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update server" />
     <MESSAGE value="update project" />
     <MESSAGE value="add synchronized to send email" />
     <MESSAGE value="up" />
@@ -710,7 +715,8 @@
     <MESSAGE value="minor change" />
     <MESSAGE value="optimization" />
     <MESSAGE value="add comments and unique ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="add comments and unique ID" />
+    <MESSAGE value="add server persistence" />
+    <option name="LAST_COMMIT_MESSAGE" value="add server persistence" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -210,8 +210,6 @@ public class ClientController {
                 Optional<ButtonType> result = MyAlert.confirmation("Conferma eliminazione", "Sei sicuro di voler eliminare questa email?", "L'eliminazione dell'email sarà definitiva.");
                 if (result.isPresent() && result.get() == ButtonType.OK) {
                     clientModel.deleteEmail(selectedEmail);
-                    emailListView.getItems().remove(selectedEmail);
-                    emailListView.refresh();
                 }
         } else {
             MyAlert.warning("Nessuna email selezionata", "Seleziona un'email da eliminare.", "");
