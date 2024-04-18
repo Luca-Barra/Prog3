@@ -95,9 +95,9 @@ public class ClientHandler implements Runnable {
                     if (ServerModel.checkUser(destinatario.trim())) {
                         mailboxFileName = getMailboxSent(destinatario.trim());
                         writeMail(mailboxFileName, email);
-                        ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
+                        ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " inviata a " + destinatario.trim(), LocalDateTime.now().toString());
                     } else {
-                        ServerModel.addLogEntry(email.getMittente(), "Email non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
+                        ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() +" non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().toString());
                         return false;
                     }
                 }
@@ -122,7 +122,7 @@ public class ClientHandler implements Runnable {
             String mailboxFileName = getMailboxReceived(username);
             deleteEmail(mailboxFileName, email);
 
-            ServerModel.addLogEntry(email.getMittente(), "Email eliminata", LocalDateTime.now().toString());
+            ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " eliminata", LocalDateTime.now().toString());
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
             ServerModel.addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().toString());

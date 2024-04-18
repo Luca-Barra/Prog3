@@ -62,7 +62,7 @@ public class NewMailView {
             if (!parseDestinatari(destinatarioField.getText())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString(), "null");
                 System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
                 clientModel.sendEmail(email);
             }
@@ -158,7 +158,7 @@ public class NewMailView {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString(), selectedEmail.getId());
                 clientModel.sendEmail(email);
             }
         });
@@ -170,7 +170,7 @@ public class NewMailView {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString(), selectedEmail.getId());
                 clientModel.sendEmail(email);
             }
         });

@@ -39,14 +39,15 @@ public class ClientModel {
             while ((line = br.readLine()) != null) {
                 sb.append(line);
                 String[] parts = sb.toString().split(";");
-                if (parts.length == 6) {
+                if (parts.length == 7) {
                     String sender = parts[0].trim();
                     String recipients = parts[1].trim();
                     String subject = parts[2].trim();
                     String body = parts[3].trim();
                     String data = parts[4].trim();
                     String read = parts[5].trim();
-                    Email email = new Email(sender, recipients, subject, body, data);
+                    String id = parts[6].trim();
+                    Email email = new Email(sender, recipients, subject, body, data, id);
                     emailList.add(email);
                     if(read.equals("READ")) {
                         email.setRead(true);
@@ -176,7 +177,7 @@ public class ClientModel {
         } else {
             for(String destinatario : email.getDestinatario().split(",")) {
                 if(!Objects.equals(destinatario, user)) {
-                    Email emailForwarded = new Email(user, destinatario, email.getOggetto(), email.getTesto(), email.getData());
+                    Email emailForwarded = new Email(user, destinatario, email.getOggetto(), email.getTesto(), email.getData(), email.getId());
                     sendEmail(emailForwarded);
                     refreshEmails();
                 }
@@ -216,10 +217,11 @@ public class ClientModel {
             bw.write(email.getTesto() + ";");
             bw.write(email.getData() + ";");
             if(email.isRead()) {
-                bw.write("READ\n");
+                bw.write("READ ;");
             } else {
-                bw.write("UNREAD\n");
+                bw.write("UNREAD ;");
             }
+            bw.write(email.getId() + "\n");
         }
         return bw;
     }

@@ -5,6 +5,7 @@ import com.email.Email;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public class MailSupport {
@@ -28,8 +29,8 @@ public class MailSupport {
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
                 String[] parts = sb.toString().split(";");
-                if (parts.length == 5) {
-                    Email email = new Email(parts[0], parts[1], parts[2], parts[3], parts[4]);
+                if (parts.length == 6) {
+                    Email email = new Email(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
                     emailList.add(email);
                     sb = new StringBuilder();
                 } else {
@@ -68,7 +69,8 @@ public class MailSupport {
                     + email.getDestinatario() + ";"
                     + email.getOggetto() + ";"
                     + email.getTesto() + ";"
-                    + email.getData() + "\n");
+                    + email.getData() + ";" + email.getId() +
+                    "\n");
         } catch (IOException e) {
             logger.severe("Errore durante la scrittura dell'email: " + e.getMessage());
         }
@@ -88,7 +90,8 @@ public class MailSupport {
                         + email.getDestinatario() + ";"
                         + email.getOggetto() + ";"
                         + email.getTesto() + ";"
-                        + email.getData() + "\n");
+                        + email.getData() + ";"
+                        + email.getId() +"\n");
             }
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio delle email: " + e.getMessage());
@@ -103,24 +106,33 @@ public class MailSupport {
      */
 
     public synchronized static void deleteEmail(String mailboxFileName, Email email) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(mailboxFileName)) ) {
+        List<Email> emailList = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(mailboxFileName))) {
             String line;
-            StringBuilder sb = new StringBuilder();
             while ((line = reader.readLine()) != null) {
-                sb.append(line);
-                String[] parts = sb.toString().split(";");
-                if (parts.length == 5) {
-                    Email emailInMailbox = new Email(parts[0], parts[1], parts[2], parts[3], parts[4]);
-                    if (!email.equals(emailInMailbox)) {
-                        writeMail(mailboxFileName, emailInMailbox);
-                    }
-                    sb = new StringBuilder();
-                } else {
-                    sb.append("\n");
+                String[] parts = line.split(";");
+                if (parts.length == 6) {
+                    Email emailInMailbox = new Email(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+                    emailList.add(emailInMailbox);
                 }
             }
         } catch (IOException e) {
-            logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
+            logger.severe("Errore durante la lettura dell'email: " + e.getMessage());
+        }
+
+        emailList.removeIf(e -> Objects.equals(e.getId(), email.getId()));
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName, false))) {
+            for (Email e : emailList) {
+                writer.write(e.getMittente() + ";"
+                        + e.getDestinatario() + ";"
+                        + e.getOggetto() + ";"
+                        + e.getTesto() + ";"
+                        + e.getData() + ";"
+                        + e.getId() + "\n");
+            }
+        } catch (IOException e) {
+            logger.severe("Errore durante la scrittura dell'email: " + e.getMessage());
         }
     }
 

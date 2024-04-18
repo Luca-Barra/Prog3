@@ -1,6 +1,7 @@
 package com.email;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Email implements Serializable {
@@ -22,8 +23,11 @@ public class Email implements Serializable {
      * @param data data di invio dell'email
      */
 
-    public Email(String mittente, String destinatario, String oggetto, String testo, String data) {
-        this.id = UUID.randomUUID().toString();
+    public Email(String mittente, String destinatario, String oggetto, String testo, String data, String id) {
+        if(!Objects.equals(id, "null"))
+            this.id = id;
+        else
+            this.id = UUID.randomUUID().toString();
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.oggetto = oggetto;
