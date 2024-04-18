@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add ID attribute to mail">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change data format for the server">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/NewMailView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -660,7 +660,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713464923347</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="change data format for the server">
+      <option name="closed" value="true" />
+      <created>1713482084310</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1713482084310</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,7 +721,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="division view" />
     <MESSAGE value="change to error management and server entry" />
     <MESSAGE value="minor correction" />
     <MESSAGE value="add logs for server" />
@@ -738,7 +745,8 @@
     <MESSAGE value="add comment and solve minor bugs" />
     <MESSAGE value="login-info is a server responsibility" />
     <MESSAGE value="add ID attribute to mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ID attribute to mail" />
+    <MESSAGE value="change data format for the server" />
+    <option name="LAST_COMMIT_MESSAGE" value="change data format for the server" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

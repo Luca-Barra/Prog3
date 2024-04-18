@@ -85,11 +85,10 @@ public class ClientModel {
                         out.writeObject(email);
                     }
                     serverResponse = in.readObject().toString();
+                    System.out.println(serverResponse);
                     if(serverResponse.equals("Errore durante l'invio dell'email")) {
-                        System.out.println(serverResponse);
                         Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
                     } else {
-                        System.out.println(serverResponse);
                         Platform.runLater(() -> {
                             saveEmailsToLocal();
                             refreshEmails();
@@ -150,6 +149,7 @@ public class ClientModel {
                 }
                 if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
                     System.out.println("Errore durante l'eliminazione dell'email");
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
                 }
                 in.close();
                 out.close();
@@ -198,8 +198,6 @@ public class ClientModel {
 
     public void saveEmailsToLocal() {
         System.out.println("Salvataggio su file locale");
-        System.out.println(user);
-        System.out.println(emailList.size());
         String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
         try {
             BufferedWriter bw = getBufferedWriter(filename);

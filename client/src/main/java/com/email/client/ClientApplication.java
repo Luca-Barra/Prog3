@@ -28,6 +28,7 @@ public class ClientApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        System.out.println("ClientApplication started");
         stage = new Stage();
         FXMLLoader log = new FXMLLoader();
         log.setLocation(ClientApplication.class.getResource("UI/login-view.fxml"));

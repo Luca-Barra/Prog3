@@ -9,11 +9,14 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import static com.email.support.EmailParser.parseDestinatari;
 
 public class NewMailView {
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public static void NuovaMail(ClientModel clientModel, Label LabelUsername){
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
@@ -62,7 +65,7 @@ public class NewMailView {
             if (!parseDestinatari(destinatarioField.getText())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().toString(), "null");
+                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().format(formatter), "null");
                 System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
                 clientModel.sendEmail(email);
             }
@@ -158,7 +161,7 @@ public class NewMailView {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString(), selectedEmail.getId());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().format(formatter), selectedEmail.getId());
                 clientModel.sendEmail(email);
             }
         });
@@ -170,7 +173,7 @@ public class NewMailView {
             if (!parseDestinatari(selectedEmail.getMittente())) {
                 MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
             } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().toString(), selectedEmail.getId());
+                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().format(formatter), selectedEmail.getId());
                 clientModel.sendEmail(email);
             }
         });
