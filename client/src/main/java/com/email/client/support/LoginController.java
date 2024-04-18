@@ -1,6 +1,8 @@
-package com.email.client;
+package com.email.client.support;
 
-import com.email.client.support.TryLogin;
+import com.email.client.ClientApplication;
+import com.email.client.ClientController;
+import com.email.client.ClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,7 +23,7 @@ public class LoginController {
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         String user = UserField.getText();
         String password = PasswordField.getText();
-        TryLogin tryLogin = new TryLogin(user, password);
+        LoginModel tryLogin = new LoginModel(user, password);
         if(tryLogin.check && tryLogin.check()){
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();

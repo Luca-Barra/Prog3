@@ -1,7 +1,7 @@
-package com.email.client;
+package com.email.client.support;
 
-import com.email.client.support.MyAlert;
 import com.email.Email;
+import com.email.client.ClientModel;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;

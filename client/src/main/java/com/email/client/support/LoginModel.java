@@ -5,27 +5,27 @@ import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class TryLogin {
-    private static final Logger logger = Logger.getLogger(TryLogin.class.getName());
+public class LoginModel {
+    private static final Logger logger = Logger.getLogger(LoginModel.class.getName());
     String user;
     String password;
     public boolean check = false;
     HashMap<String, String> data = new HashMap<>();
 
     /**
-     * Costruttore della classe TryLogin
+     * Costruttore della classe LoginModel
      * <p>
      * @param user username
      * @param password password
      */
 
-    public TryLogin(String user, String password) {
+    public LoginModel(String user, String password) {
         this.user = user;
         this.password = password;
         this.fill();

@@ -1,6 +1,7 @@
 package com.email.client;
 import com.email.client.support.MyAlert;
 import com.email.Email;
+import com.email.client.support.NewMailView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
