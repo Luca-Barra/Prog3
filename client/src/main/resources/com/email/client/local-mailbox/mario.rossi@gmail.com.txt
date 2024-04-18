@@ -177,3 +177,7 @@ In data: 2024-04-18T13:26:35.260533514
 Risposta a tutti;2024-04-18T13:27:15.490029870;READ
 mario.rossi@gmail.com;mario.rossi@gmail.it;ssssss;ddddddddddddddddd;2024-04-18T13:28:05.562404336;READ
 mario.rossi@gmail.com;mario.rossi@gmail.it;TEST SERVER DOWN;TEST;2024-04-18T13:28:57.682532293;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com;TEST SENT/RECEIVED;TEST SENT/RECEIVED;2024-04-18T14:38:42.485289071;READ
+mario.rossi@gmail.com;mario.rossi@gmail.com;eweewwe;wwewewew;2024-04-18T14:54:53.761399728;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.it;dwddddd;dsdsdsdsds;2024-04-18T14:56:49.261934264;READ
+mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;wwwwwwwwwwwww;wwwww;2024-04-18T14:57:12.471437605;READ

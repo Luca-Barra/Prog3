@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 
 
@@ -134,11 +133,16 @@ public class ClientModel {
                 out.writeObject(selectedEmail);
                 if(serverResponse.equals("OK")) {
                     System.out.println("Risposta dal server: " + serverResponse);
-                    Platform.runLater(() -> {
-                        MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
-                        emailList.remove(selectedEmail);
-                        saveEmailsToLocal();
-                    });
+                    serverResponse = in.readObject().toString();
+                    if(serverResponse.equals("Identificarsi")) {
+                        out.flush();
+                        out.writeObject(user);
+                        Platform.runLater(() -> {
+                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
+                            emailList.remove(selectedEmail);
+                            saveEmailsToLocal();
+                        });
+                    }
                 }
                 if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
                     System.out.println("Errore durante l'eliminazione dell'email");
@@ -148,6 +152,7 @@ public class ClientModel {
                 socket.close();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
+                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Controllare la connessione di rete.");
             } catch (SocketTimeoutException e) {
                 System.out.println("Timeout di connessione al server.");
             } catch (IOException e) {

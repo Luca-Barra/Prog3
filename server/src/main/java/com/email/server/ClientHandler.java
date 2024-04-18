@@ -47,7 +47,7 @@ public class ClientHandler implements Runnable {
                     caseRetrieveEmails(in, out);
                     break;
                 case "DELETE_EMAIL":
-                    caseDeleteEmail(in);
+                    caseDeleteEmail(in, out);
                     break;
                 default:
                     System.out.println("Comando non riconosciuto: " + command);
@@ -65,8 +65,10 @@ public class ClientHandler implements Runnable {
     private static void caseRetrieveEmails(ObjectInputStream in, ObjectOutputStream out) {
         try {
             String username = (String) in.readObject();
-            String mailboxFileName = getMailboxFileName(username);
+            String mailboxFileName = getMailboxSent(username);
+            String mailboxFileNameReceived = getMailboxReceived(username);
             List<Email> emailList = getEmails(mailboxFileName);
+            saveNewEmails(mailboxFileNameReceived, emailList);
 
             out.writeObject(emailList);
             ServerModel.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().toString());
@@ -83,7 +85,7 @@ public class ClientHandler implements Runnable {
     private static synchronized boolean caseSendEmail(ObjectInputStream in) {
         try {
             Email email = (Email) in.readObject();
-            String mailboxFileName = getMailboxFileName(email.getMittente());
+            String mailboxFileName = getMailboxSent(email.getMittente());
             writeMail(mailboxFileName, email);
             System.out.println("Email ricevuta: " + email);
             String[] destinatari = email.getDestinatario().split(",");
@@ -91,7 +93,7 @@ public class ClientHandler implements Runnable {
             for (String destinatario : destinatari) {
                 if(!destinatario.trim().equals(email.getMittente())) {
                     if (ServerModel.checkUser(destinatario.trim())) {
-                        mailboxFileName = getMailboxFileName(destinatario.trim());
+                        mailboxFileName = getMailboxSent(destinatario.trim());
                         writeMail(mailboxFileName, email);
                         ServerModel.addLogEntry(email.getMittente(), "Email inviata a " + destinatario.trim(), LocalDateTime.now().toString());
                     } else {
@@ -108,14 +110,17 @@ public class ClientHandler implements Runnable {
         return true;
     }
 
-    private static void caseDeleteEmail(ObjectInputStream in) {
+    private static void caseDeleteEmail(ObjectInputStream in, ObjectOutputStream out) {
         try {
             Email email = (Email) in.readObject();
             System.out.println("Email da eliminare: " + email);
 
-            String mailboxFileName = getMailboxFileName(email.getDestinatario());
-            List<Email> emailList = getEmails(mailboxFileName);
-            emailList.remove(email);
+            out.writeObject("Identificarsi");
+
+            String username = (String) in.readObject();
+
+            String mailboxFileName = getMailboxReceived(username);
+            deleteEmail(mailboxFileName, email);
 
             ServerModel.addLogEntry(email.getMittente(), "Email eliminata", LocalDateTime.now().toString());
         } catch (IOException | ClassNotFoundException e) {

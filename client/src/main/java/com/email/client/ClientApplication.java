@@ -9,9 +9,22 @@ import java.util.Objects;
 
 public class ClientApplication extends Application {
 
+    /**
+     * Metodo per avviare l'applicazione
+     * <p>
+     * @param args argomenti passati da riga di comando
+     */
+
     public static void main(String[] args) {
         launch();
     }
+
+    /**
+     * Metodo per avviare la schermata di login
+     * <p>
+     * @param stage stage della schermata
+     * @throws Exception eccezione generata in caso di errore
+     */
 
     @Override
     public void start(Stage stage) throws Exception {

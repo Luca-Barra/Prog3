@@ -18,11 +18,25 @@ public class TryLogin {
     public boolean check = false;
     HashMap<String, String> data = new HashMap<>();
 
+    /**
+     * Costruttore della classe TryLogin
+     * <p>
+     * @param user username
+     * @param password password
+     */
+
     public TryLogin(String user, String password) {
         this.user = user;
         this.password = password;
         this.fill();
     }
+
+    /**
+     * Metodo per la connessione al server
+     * <p>
+     * Il metodo si connette al server e tenta di caricare i dati di login da un file.
+     * Se la risposta del server è "OK" allora i dati vengono caricati correttamente.
+     */
 
     private void fill() {
             try {
@@ -69,6 +83,14 @@ public class TryLogin {
                 logger.log(Level.SEVERE, "Error during login", e);
             }
     }
+
+    /**
+     * Metodo per il controllo dei dati di login
+     * <p>
+     * Il metodo controlla se l'utente esiste e se la password è corretta.
+     * <p>
+     * @return true se l'utente esiste e la password è corretta, false altrimenti
+     */
 
     public boolean check(){
         if (!data.containsKey(user)) {

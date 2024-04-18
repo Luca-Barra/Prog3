@@ -31,7 +31,7 @@ public class LoginController {
             Scene logScene = new Scene(log.load(), 900, 600);
             logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("UI/client.css")).toExternalForm());
             ClientController clientController = log.getController();
-            clientController.setClientModel(clientModel);
+            clientController.initModel(clientModel);
             clientController.setLabelUsername(clientModel.getUser());
             stage.setOnCloseRequest(event -> System.exit(0));
             stage.setTitle("Client");

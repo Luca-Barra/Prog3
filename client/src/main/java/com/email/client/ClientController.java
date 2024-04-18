@@ -35,6 +35,18 @@ public class ClientController {
 
     private ClientModel clientModel = new ClientModel("");
 
+    /**
+     * Metodo che inizializza la finestra di visualizzazione delle email.
+     * <p>
+     * Inizializza i campi di testo per la visualizzazione delle email e imposta il listener per la selezione delle email,
+     * usando i javafx.beans.property per aggiornare i campi di testo con i dettagli dell'email selezionata.
+     * <p>
+     * Imposta la cell factory per la ListView delle email, in modo da visualizzare le email con un'icona diversa e
+     * un font diverso (grassetto o normale) a seconda che siano state lette o meno.
+     * <p>
+     * Infine, imposta un listener per il doppio click su una email, che mostra una finestra di dialogo con i dettagli
+     * dell'email selezionata.
+     */
 
     @FXML
     public void initialize() {
@@ -91,6 +103,16 @@ public class ClientController {
         });
     }
 
+    /**
+     * Metodo che visualizza i dettagli dell'email selezionata.
+     * <p>
+     * Visualizza i dettagli dell'email selezionata nei campi di testo predisposti per la visualizzazione.
+     * <p>
+     * Se l'email non è stata letta, la marca come letta.
+     * <p>
+     * @param email l'email selezionata
+     */
+
     private void displayEmailDetails(Email email) {
         if(!email.isRead())
             clientModel.markAsRead(email);
@@ -101,10 +123,22 @@ public class ClientController {
         LabelTestoEmail.setText(email.getTesto());
     }
 
+    /**
+     * Metodo che permette di scrivere una nuova email.
+     * <p>
+     * Apre una finestra di dialogo per la scrittura di una nuova email.
+     */
+
     @FXML
     public void nuovaMail() {
         NewMailView.NuovaMail(clientModel, LabelUsername);
     }
+
+    /**
+     * Metodo che permette di rispondere a una email.
+     * <p>
+     * Seleziona l'email a cui rispondere e apre una finestra di dialogo per la scrittura di una risposta.
+     */
 
     public void rispondi() {
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
@@ -114,6 +148,12 @@ public class ClientController {
             MyAlert.warning("Nessuna email selezionata", "Seleziona un'email a cui rispondere.", "");
         }
     }
+
+    /**
+     * Metodo che permette di rispondere a tutti i destinatari di una email.
+     * <p>
+     * Seleziona l'email a cui rispondere e apre una finestra di dialogo per la scrittura di una risposta.
+     */
 
     @FXML
     public void rispondiATutti() {
@@ -125,6 +165,14 @@ public class ClientController {
             MyAlert.warning("Nessuna email selezionata", "Seleziona un'email a cui rispondere.", "");
         }
     }
+
+    /**
+     * Metodo che permette di inoltrare una email.
+     * <p>
+     * Seleziona l'email da inoltrare e apre una finestra di dialogo per l'inserimento dei nuovi destinatari.
+     * <p>
+     * Se gli indirizzi email inseriti non sono validi, mostra un messaggio di errore.
+     */
 
     @FXML
     public void inoltra() {
@@ -148,6 +196,13 @@ public class ClientController {
         }
     }
 
+    /**
+     * Metodo che permette di eliminare una email.
+     * <p>
+     * Seleziona l'email da eliminare e mostra una finestra di dialogo per la conferma dell'eliminazione.
+     * <p>
+     * Se l'eliminazione viene confermata, elimina l'email selezionata.
+     */
 
     public void elimina() {
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
@@ -163,9 +218,25 @@ public class ClientController {
         }
     }
 
+    /**
+     * Metodo che permette di aggiornare la lista delle email.
+     * <p>
+     * Aggiorna la lista delle email.
+     */
+
     public void refresh() {
         clientModel.refreshEmails();
     }
+
+    /**
+     * Metodo che permette di impostare il nome utente.
+     * <p>
+     * Imposta il nome utente e carica le email locali.
+     * <p>
+     * Fa partire il thread per l'aggiornamento periodico della casella di posta.
+     * <p>
+     * @param username il nome utente
+     */
 
     public void setLabelUsername(String username){
         LabelUsername.setText(username);
@@ -177,8 +248,20 @@ public class ClientController {
         clientModel.updateLocalMailboxPeriodically();
     }
 
-    public void setClientModel(ClientModel clientModel) {
-        this.clientModel = new ClientModel(clientModel.getUser());
+    /**
+     * Metodo che permette di inizializzare il model.
+     * <p>
+     * Inizializza il model.
+     * <p>
+     * @param clientModel il model
+     * @throws IllegalStateException se il model è già stato inizializzato
+     */
+
+    public void initModel(ClientModel clientModel) {
+        if(this.clientModel == null) {
+            throw new IllegalStateException("Model can only be initialized once");
+        }
+        this.clientModel = clientModel;
     }
 
 }
