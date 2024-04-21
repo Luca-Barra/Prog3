@@ -296,19 +296,30 @@ public class ClientModel {
             out.writeObject(user);
             if(serverResponse.equals("OK")) {
                 System.out.println("Risposta dal server: " + serverResponse);
-                @SuppressWarnings("unchecked")
-                List<Email> emails = (ArrayList<Email>) in.readObject();
-                Platform.runLater(() -> {
-                    int size = emailList.size();
-                    lock.lock();
-                    emailList.addAll(emails);
-                    lock.unlock();
-                    System.out.println(emailList.size());
-                    if (size != emailList.size()) {
-                        saveEmailsToLocal();
-                        MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
+                Object receivedObject = in.readObject();
+                if (receivedObject instanceof List<?> objectList) {
+                    List<Email> emails = new ArrayList<>();
+                    for (Object obj : objectList) {
+                        if (obj instanceof Email) {
+                            emails.add((Email) obj);
+                        } else {
+                            System.out.println("Il server ha inviato un oggetto non riconosciuto: " + obj);
+                        }
                     }
-                });
+                    Platform.runLater(() -> {
+                        int size = emailList.size();
+                        lock.lock();
+                        emailList.addAll(emails);
+                        lock.unlock();
+                        System.out.println(emailList.size());
+                        if (size != emailList.size()) {
+                            saveEmailsToLocal();
+                            MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
+                        }
+                    });
+                } else {
+                    System.out.println("Il server non ha inviato una lista.");
+                }
             }
             if(serverResponse.equals("Errore durante il recupero delle email")) {
                 System.out.println("Errore durante il recupero delle email");
