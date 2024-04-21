@@ -31,6 +31,7 @@ public class ServerApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        System.out.println("ServerApplication started");
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("UI/server-view.fxml")));
         primaryStage.setTitle("Server");
         primaryStage.setScene(new Scene(root, 900, 600));

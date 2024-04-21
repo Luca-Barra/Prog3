@@ -3,3 +3,20 @@ mario.rossi@gmail.com;mario.rossi@gmail.it;EMAIL TEST;E
 TEST;21/04/2024 15:13;e5b89a00-f541-4f79-a507-7f3353f16ef5
 mario.rossi@gmail.com;mario.rossi@gmail.com;saaaaaaaa;asssssss;21/04/2024 15:20;4b174681-02c2-4607-9d01-0b11e79bb9f4
 mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
+mario.rossi@gmail.com;mario.rossi@gmail.it;fffdd;
+fff
+c
+xx;21/04/2024 18:33;953363ad-1d2e-474d-b3cb-310428dff145
+mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it;R: fffdd;mario.rossi@gmail.com ha scritto:
+
+----------------------------------------
+
+fff
+c
+xx
+In data: 21/04/2024 18:33
+------------------------------------------
+
+cccccccccccccdddddddddd;21/04/2024 18:34;953363ad-1d2e-474d-b3cb-310428dff145
+mario.rossi@gmail.com;mario.rossi@gmail.it;sdsdssd;
+sdsdsds;21/04/2024 18:34;bde36b9b-f8c1-4463-ac38-1e3c8301ac81
