@@ -1,8 +1,8 @@
-package com.email.client.support;
+package com.email.client.controllers;
 
-import com.email.client.ClientApplication;
-import com.email.client.ClientController;
-import com.email.client.ClientModel;
+import com.email.client.application.ClientApplication;
+import com.email.client.models.ClientModel;
+import com.email.client.models.LoginModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,9 +29,9 @@ public class LoginController {
             stage.close();
             ClientModel clientModel = new ClientModel(user);
             FXMLLoader log = new FXMLLoader();
-            log.setLocation(ClientApplication.class.getResource("UI/client-view.fxml"));
+            log.setLocation(ClientApplication.class.getResource("/com/email/client/UI/view/client-view.fxml"));
             Scene logScene = new Scene(log.load(), 900, 600);
-            logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("UI/client.css")).toExternalForm());
+            logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("/com/email/client/UI/css/client.css")).toExternalForm());
             ClientController clientController = log.getController();
             clientController.initModel(clientModel);
             clientController.setLabelUsername(clientModel.getUser());

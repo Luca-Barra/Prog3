@@ -1,4 +1,4 @@
-package com.email.support;
+package com.email.utils;
 
 public class EmailParser {
 

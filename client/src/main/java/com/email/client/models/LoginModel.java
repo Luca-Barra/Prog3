@@ -1,4 +1,6 @@
-package com.email.client.support;
+package com.email.client.models;
+
+import com.email.client.utils.MyAlert;
 
 import java.io.*;
 import java.net.ConnectException;

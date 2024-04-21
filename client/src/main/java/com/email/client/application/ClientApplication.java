@@ -1,4 +1,4 @@
-package com.email.client;
+package com.email.client.application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,9 +31,9 @@ public class ClientApplication extends Application {
         System.out.println("ClientApplication started");
         stage = new Stage();
         FXMLLoader log = new FXMLLoader();
-        log.setLocation(ClientApplication.class.getResource("UI/login-view.fxml"));
+        log.setLocation(ClientApplication.class.getResource("/com/email/client/UI/view/login-view.fxml"));
         Scene logScene = new Scene(log.load(), 900, 600);
-        logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("UI/login.css")).toExternalForm());
+        logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("/com/email/client/UI/css/login.css")).toExternalForm());
         stage.setTitle("Login");
         stage.setScene(logScene);
         stage.show();

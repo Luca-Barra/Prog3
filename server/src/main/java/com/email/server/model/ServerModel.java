@@ -1,7 +1,7 @@
-package com.email.server;
+package com.email.server.model;
 
-import com.email.client.support.MyAlert;
-import com.email.server.support.LogEntry;
+import com.email.client.utils.MyAlert;
+import com.email.server.utils.LogEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -111,7 +111,7 @@ public class ServerModel {
     }
 
     public static void saveLogs() {
-        String filename = "server/src/main/resources/com/email/server/data/server-logs.txt";
+        String filename = "server/src/main/resources/com/email/server/logs/server-logs_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".txt";
         try {
             System.out.println("Salvataggio dei log in corso...");
             Path path = Paths.get(filename);
@@ -120,7 +120,7 @@ public class ServerModel {
             }
             BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             writer.write("\n-------------------------------------------------\n");
-            writer.write("| Logs salvato il " + LocalDateTime.now() + " |");
+            writer.write("| Logs salvato il " + LocalDateTime.now().format(formatter) + " |");
             writer.write("\n-------------------------------------------------\n");
             for (LogEntry logEntry : logEntries) {
                 writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
@@ -133,7 +133,7 @@ public class ServerModel {
     }
 
     public static void loadRegisteredUsers() {
-        try(InputStream inputStream = ServerModel.class.getClassLoader().getResourceAsStream("registeredUsers.txt")) {
+        try(InputStream inputStream = ServerModel.class.getResourceAsStream("/com/email/server/data/registeredUsers.txt")) {
             if (inputStream != null) {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                     String line;

@@ -1,7 +1,7 @@
-package com.email.client.support;
+package com.email.client.utils;
 
 import com.email.Email;
-import com.email.client.ClientModel;
+import com.email.client.models.ClientModel;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-import static com.email.support.EmailParser.parseDestinatari;
+import static com.email.utils.EmailParser.parseDestinatari;
 
 public class NewMailView {
 

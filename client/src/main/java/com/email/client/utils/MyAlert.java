@@ -1,4 +1,4 @@
-package com.email.client.support;
+package com.email.client.utils;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

@@ -1,5 +1,7 @@
-package com.email.server;
+package com.email.server.application;
 
+import com.email.server.handler.ClientHandler;
+import com.email.server.model.ServerModel;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -32,9 +34,12 @@ public class ServerApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("ServerApplication started");
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("UI/server-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/email/server/UI/view/server-view.fxml")));
+        Scene scene = new Scene(root, 900, 600);
+
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/email/server/UI/css/server.css")).toExternalForm());
         primaryStage.setTitle("Server");
-        primaryStage.setScene(new Scene(root, 900, 600));
+        primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> {
             try {

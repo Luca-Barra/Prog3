@@ -1,4 +1,4 @@
-package com.email.server.support;
+package com.email.server.utils;
 
 import com.email.Email;
 

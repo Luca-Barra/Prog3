@@ -1,0 +1,8 @@
+
+#emailTableView {
+    -fx-background-color: #f0f0f0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #0077cc;
+}

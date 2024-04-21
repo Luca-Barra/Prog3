@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.email.client.support.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.email.client.controllers.LoginController">
       <Label layoutX="159.0" layoutY="152.0" prefHeight="26.0" prefWidth="65.0" text="User:" />
       <Label layoutX="159.0" layoutY="182.0" text="Password:" />
       <PasswordField fx:id="PasswordField" layoutX="231.0" layoutY="178.0" />
@@ -13,7 +13,7 @@
       <font>
          <Font name="System Italic" size="13.0" />
       </font></TextField>
-    <Button id="ButtonLogin" layoutX="275.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="58.0" prefWidth="73.0" stylesheets="@login.css">
+    <Button id="ButtonLogin" layoutX="275.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="58.0" prefWidth="73.0" stylesheets="@../css/login.css">
         <graphic>
             <ImageView fitHeight="36.0" fitWidth="36.0">
                 <Image url="@../images/login-button.png" />

@@ -4,7 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="general refactor and bug correction">
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/css/server.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.module/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/.module/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/application/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/MyAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/MyAlert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/view/client-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/css/client.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/view/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/account-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/account-default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/login-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/login-button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-delete.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-forward.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-reply.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-reply.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-replyall.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-replyall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-send.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-send.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-update.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-update.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/src/main/java/com/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/src/main/java/com/email/support/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/utils/EmailParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/LogEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/view/server-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/data/server-logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/registeredUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/data/registeredUsers.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,11 +55,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
         <option value="package-info" />
         <option value="module-info" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -100,14 +142,16 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/email/client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server" />
       <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/data" />
-      <recent name="$PROJECT_DIR$/server/src/main/resources" />
-      <recent name="$PROJECT_DIR$/.module" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs" />
+      <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/css" />
+      <recent name="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/view" />
+      <recent name="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.email" />
       <recent name="com.email.client" />
+      <recent name="com.email.server" />
       <recent name="" />
       <recent name="com.example.projectprog3" />
     </key>
@@ -120,11 +164,11 @@
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
       </envs>
-      <option name="MAIN_CLASS_NAME" value="com.email.server.ServerApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.email.server.application.ServerApplication" />
       <module name="Project-Prog-3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.email.server.*" />
+          <option name="PATTERN" value="com.email.server.handler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,7 +180,7 @@
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
       </envs>
-      <option name="MAIN_CLASS_NAME" value="com.email.client.ClientApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.email.client.application.ClientApplication" />
       <module name="Project-Prog-3" />
       <option name="PROGRAM_PARAMETERS" value="NO_AT_BRIDGE=1" />
       <method v="2">
@@ -307,6 +351,10 @@
       <workItem from="1713465949860" duration="374000" />
       <workItem from="1713705108147" duration="2269000" />
       <workItem from="1713707383449" duration="1425000" />
+      <workItem from="1713735061642" duration="573000" />
+      <workItem from="1713735639963" duration="45000" />
+      <workItem from="1713735691433" duration="2765000" />
+      <workItem from="1713738464195" duration="2215000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -692,7 +740,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713718368278</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1713735096810</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1713735096811</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,7 +801,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="minor correction" />
     <MESSAGE value="add logs for server" />
     <MESSAGE value="add error for server down" />
     <MESSAGE value="add alert for login" />
@@ -770,7 +825,8 @@
     <MESSAGE value="change data format for the server" />
     <MESSAGE value="change data format for the client" />
     <MESSAGE value="minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
+    <MESSAGE value="general refactor and bug correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="general refactor and bug correction" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

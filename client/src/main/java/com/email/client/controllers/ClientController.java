@@ -1,7 +1,8 @@
-package com.email.client;
-import com.email.client.support.MyAlert;
+package com.email.client.controllers;
+import com.email.client.models.ClientModel;
+import com.email.client.utils.MyAlert;
 import com.email.Email;
-import com.email.client.support.NewMailView;
+import com.email.client.utils.NewMailView;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -9,7 +10,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.Optional;
 
-import static com.email.support.EmailParser.parseDestinatari;
+import static com.email.utils.EmailParser.parseDestinatari;
 
 public class ClientController {
 
