@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 
 import static com.email.server.support.MailSupport.*;
 
-
 public class ClientHandler implements Runnable {
 
     private static final Logger logger = Logger.getLogger(ClientHandler.class.getName());
@@ -45,6 +44,12 @@ public class ClientHandler implements Runnable {
                     else
                         out.writeObject("Errore durante l'invio dell'email");
                     break;
+                case "FORWARD_EMAIL":
+                    if (caseForwardEmail(in, out))
+                        out.writeObject("Email inoltrata con successo");
+                    else
+                        out.writeObject("Errore durante l'inoltro dell'email");
+                    break;
                 case "RETRIEVE_EMAILS":
                     caseRetrieveEmails(in, out);
                     break;
@@ -61,26 +66,6 @@ public class ClientHandler implements Runnable {
             ServerModel.addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().format(formatter));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    private static void caseRetrieveEmails(ObjectInputStream in, ObjectOutputStream out) {
-        try {
-            String username = (String) in.readObject();
-            String mailboxFileName = getMailboxSent(username);
-            String mailboxFileNameReceived = getMailboxReceived(username);
-            List<Email> emailList = getEmails(mailboxFileName);
-            saveNewEmails(mailboxFileNameReceived, emailList);
-
-            out.writeObject(emailList);
-            ServerModel.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().format(formatter));
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
-                writer.write("");
-            }
-
-        } catch (IOException | ClassNotFoundException e) {
-            logger.severe("Errore durante il recupero delle email: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().format(formatter));
         }
     }
 
@@ -110,6 +95,52 @@ public class ClientHandler implements Runnable {
             return false;
         }
         return true;
+    }
+
+    private boolean caseForwardEmail(ObjectInputStream in, ObjectOutputStream out) {
+        try {
+            Email email = (Email) in.readObject();
+            out.writeObject("A chi vuoi inoltrare l'email?");
+            String destinatario = (String) in.readObject();
+
+            for(String dest : destinatario.split(",")) {
+                if(!ServerModel.checkUser(dest.trim())) {
+                    ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " non inoltrata a " + dest.trim() + ": utente non esistente", LocalDateTime.now().format(formatter));
+                    return false;
+                } else {
+                    String mailboxFileName = getMailboxSent(dest.trim());
+                    writeMail(mailboxFileName, email);
+                    ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " inoltrata a " + dest.trim(), LocalDateTime.now().format(formatter));
+                }
+            }
+
+
+        } catch (IOException | ClassNotFoundException e) {
+            logger.severe("Errore durante l'inoltro dell'email: " + e.getMessage());
+            ServerModel.addLogEntry("Server", "Errore durante l'inoltro dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            return false;
+        }
+        return true;
+    }
+
+    private static void caseRetrieveEmails(ObjectInputStream in, ObjectOutputStream out) {
+        try {
+            String username = (String) in.readObject();
+            String mailboxFileName = getMailboxSent(username);
+            String mailboxFileNameReceived = getMailboxReceived(username);
+            List<Email> emailList = getEmails(mailboxFileName);
+            saveNewEmails(mailboxFileNameReceived, emailList);
+
+            out.writeObject(emailList);
+            ServerModel.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().format(formatter));
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
+                writer.write("");
+            }
+
+        } catch (IOException | ClassNotFoundException e) {
+            logger.severe("Errore durante il recupero delle email: " + e.getMessage());
+            ServerModel.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+        }
     }
 
     private static void caseDeleteEmail(ObjectInputStream in, ObjectOutputStream out) {

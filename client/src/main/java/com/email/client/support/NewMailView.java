@@ -16,7 +16,7 @@ import static com.email.support.EmailParser.parseDestinatari;
 
 public class NewMailView {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     public static void NuovaMail(ClientModel clientModel, Label LabelUsername){
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();

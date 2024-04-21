@@ -187,7 +187,7 @@ public class ClientController {
             Optional<String> result = dialog.showAndWait();
             result.ifPresent(destinatari -> {
                 if (parseDestinatari(destinatari)) {
-                    clientModel.forwardEmail(selectedEmail);
+                    clientModel.forwardEmail(selectedEmail, destinatari);
                 } else {
                     MyAlert.error("Errore nell'inoltro dell'email", "Uno o più indirizzi email inseriti non sono validi.", "");
                 }

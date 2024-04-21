@@ -1,0 +1,5 @@
+mario.rossi@gmail.com;mario.rossi@gmail.it;EMAIL TEST;E
+
+TEST;21/04/2024 15:13;e5b89a00-f541-4f79-a507-7f3353f16ef5
+mario.rossi@gmail.com;mario.rossi@gmail.com;saaaaaaaa;asssssss;21/04/2024 15:20;4b174681-02c2-4607-9d01-0b11e79bb9f4
+mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
