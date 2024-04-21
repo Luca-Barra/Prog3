@@ -56,7 +56,6 @@ public class NewMailView {
             return null;
         });
 
-
         Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
         result.ifPresent(destinatarioOggettoTesto -> {
             String destinatario = destinatarioOggettoTesto.getKey();
