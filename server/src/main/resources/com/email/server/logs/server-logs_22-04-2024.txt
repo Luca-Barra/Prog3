@@ -122,3 +122,59 @@ mario.rossi@gmail.it;Aggiornamento della casella di posta;22/04/2024 01:04:50
 Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 01:04:50
 Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=38382,localport=12345];22/04/2024 01:04:50
 Server;Server chiuso;22/04/2024 01:04:53
+
+-------------------------------------------------
+| Logs salvato il 22/04/2024 03:14:21 |
+-------------------------------------------------
+Server;Server avviato;22/04/2024 03:14:18
+Server;Server chiuso;22/04/2024 03:14:21
+
+-------------------------------------------------
+| Logs salvato il 22/04/2024 03:14:52 |
+-------------------------------------------------
+Server;Server avviato;22/04/2024 03:14:48
+Server;Server chiuso;22/04/2024 03:14:52
+
+-------------------------------------------------
+| Logs salvato il 22/04/2024 03:15:23 |
+-------------------------------------------------
+Server;Server avviato;22/04/2024 03:15:21
+Server;Server chiuso;22/04/2024 03:15:23
+
+-------------------------------------------------
+| Logs salvato il 22/04/2024 11:13:21 |
+-------------------------------------------------
+Server;Server avviato;22/04/2024 11:12:11
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55798,localport=12345];22/04/2024 11:12:28
+andrea.neri@gmail.com;Tentativo di login;22/04/2024 11:12:28
+Server;Comando LOGIN gestito con successo;22/04/2024 11:12:28
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55798,localport=12345];22/04/2024 11:12:28
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55802,localport=12345];22/04/2024 11:12:28
+andrea.neri@gmail.com;Aggiornamento della casella di posta;22/04/2024 11:12:28
+Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 11:12:28
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55802,localport=12345];22/04/2024 11:12:28
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=32872,localport=12345];22/04/2024 11:12:58
+andrea.neri@gmail.com;Aggiornamento della casella di posta;22/04/2024 11:12:58
+Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 11:12:58
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=32872,localport=12345];22/04/2024 11:12:58
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=32894,localport=12345];22/04/2024 11:13:01
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=32878,localport=12345];22/04/2024 11:13:01
+andrea.neri@gmail.com;Aggiornamento della casella di posta;22/04/2024 11:13:01
+Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 11:13:01
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=32878,localport=12345];22/04/2024 11:13:01
+mario.rossi@gmail.com;Email ecbd7694-0e3d-44a2-9dda-33bdddf48fd6 inoltrata a mario.rossi@gmail.com;22/04/2024 11:13:01
+Server;Comando FORWARD_EMAIL gestito con successo;22/04/2024 11:13:01
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=32894,localport=12345];22/04/2024 11:13:01
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=32900,localport=12345];22/04/2024 11:13:01
+andrea.neri@gmail.com;Aggiornamento della casella di posta;22/04/2024 11:13:01
+Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 11:13:01
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=32900,localport=12345];22/04/2024 11:13:01
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=49502,localport=12345];22/04/2024 11:13:10
+mario.rossi@gmail.com;Tentativo di login;22/04/2024 11:13:10
+Server;Comando LOGIN gestito con successo;22/04/2024 11:13:10
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=49502,localport=12345];22/04/2024 11:13:10
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=49510,localport=12345];22/04/2024 11:13:10
+mario.rossi@gmail.com;Aggiornamento della casella di posta;22/04/2024 11:13:10
+Server;Comando RETRIEVE_EMAILS gestito con successo;22/04/2024 11:13:10
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=49510,localport=12345];22/04/2024 11:13:10
+Server;Server chiuso;22/04/2024 11:13:21

@@ -45,6 +45,11 @@ public class ServerModel {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+    /**
+     * Metodo che inizializza la tabella dei log
+     */
+
+    @FXML
     public void initialize() {
 
         columnUtente.setCellValueFactory(new PropertyValueFactory<>("utente"));
@@ -106,9 +111,21 @@ public class ServerModel {
         );
     }
 
+    /**
+     * Metodo che aggiunge un log alla lista dei log
+     * <p>
+     * @param utente utente che ha inviato il messaggio
+     * @param messaggio messaggio inviato
+     * @param data data e ora dell'invio del messaggio
+     */
+
     public static synchronized void addLogEntry(String utente, String messaggio, String data) {
         logEntries.add(new LogEntry(utente, messaggio, data));
     }
+
+    /**
+     * Metodo che salva i log in un file .txt
+     */
 
     public static void saveLogs() {
         String filename = "server/src/main/resources/com/email/server/logs/server-logs_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".txt";
@@ -132,6 +149,10 @@ public class ServerModel {
         }
     }
 
+    /**
+     * Metodo che carica la lista degli utenti registrati
+     */
+
     public static void loadRegisteredUsers() {
         try(InputStream inputStream = ServerModel.class.getResourceAsStream("/com/email/server/data/registeredUsers.txt")) {
             if (inputStream != null) {
@@ -149,6 +170,13 @@ public class ServerModel {
         }
 
     }
+
+    /**
+     * Metodo che controlla se un utente è registrato
+     * <p>
+     * @param user utente da controllare
+     * @return true se l'utente è registrato, false altrimenti
+     */
 
     public static boolean checkUser(String user){
         System.out.println("User: " + user);

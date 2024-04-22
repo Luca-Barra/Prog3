@@ -5,47 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="general refactor and bug correction">
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/css/server.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.module/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/.module/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/MyAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/MyAlert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/support/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/view/client-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/client.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/css/client.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/view/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/account-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/account-default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/login-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/login-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-delete.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-reply.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-reply.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-replyall.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-replyall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-send.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-send.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/images/mail-update.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/UI/images/mail-update.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/src/main/java/com/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/src/main/java/com/email/support/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/utils/EmailParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/LogEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/support/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/view/server-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/data/server-logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/registeredUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/data/registeredUsers.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +96,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -159,7 +129,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -355,6 +325,8 @@
       <workItem from="1713735639963" duration="45000" />
       <workItem from="1713735691433" duration="2765000" />
       <workItem from="1713738464195" duration="2215000" />
+      <workItem from="1713748328099" duration="313000" />
+      <workItem from="1713776449855" duration="1007000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />

@@ -20,6 +20,13 @@ public class LoginController {
     public TextField UserField;
     public Label LabelError;
 
+    /**
+     * Metodo che gestisce il login dell'utente.
+     * <p>
+     * @param actionEvent evento che scaturisce l'azione (click sul pulsante di login)
+     * @throws IOException eccezione lanciata in caso di errore durante il caricamento della vista del client
+     */
+
     public void handleLogin(ActionEvent actionEvent) throws IOException {
         String user = UserField.getText();
         String password = PasswordField.getText();

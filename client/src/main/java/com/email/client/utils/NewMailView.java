@@ -18,6 +18,13 @@ public class NewMailView {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
+    /**
+     * Metodo per la creazione di una nuova email
+     * <p>
+     * @param clientModel modello del client
+     * @param LabelUsername label contenente l'username dell'utente
+     */
+
     public static void NuovaMail(ClientModel clientModel, Label LabelUsername){
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Nuova Email");
@@ -71,6 +78,14 @@ public class NewMailView {
         });
     }
 
+    /**
+     * Metodo per la risposta a una email
+     * <p>
+     * @param selectedEmail email selezionata
+     * @param clientModel modello del client
+     * @param LabelUsername label contenente l'username dell'utente
+     */
+
     public static void Risposta(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Rispondi");
@@ -114,6 +129,14 @@ public class NewMailView {
 
         dialogIfPresent(selectedEmail, clientModel, LabelUsername, dialog);
     }
+
+    /**
+     * Metodo per la risposta a tutti i destinatari di una email
+     * <p>
+     * @param selectedEmail email selezionata
+     * @param clientModel modello del client
+     * @param LabelUsername label contenente l'username dell'utente
+     */
 
     public static void RispostaATutti(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
@@ -167,6 +190,15 @@ public class NewMailView {
 
     }
 
+    /**
+     * Utility per la gestione del dialog
+     * <p>
+     * @param selectedEmail email selezionata
+     * @param clientModel modello del client
+     * @param LabelUsername label contenente l'username dell'utente
+     * @param dialog dialog
+     */
+
     private static void dialogIfPresent(Email selectedEmail, ClientModel clientModel, Label LabelUsername, Dialog<Pair<String, Pair<String, String>>> dialog) {
         dialog.showAndWait().ifPresent(response -> {
             if (!parseDestinatari(selectedEmail.getMittente())) {
@@ -177,6 +209,10 @@ public class NewMailView {
             }
         });
     }
+
+    /**
+     * Metodo per segnalare che il server è down
+     */
 
     public static void serverDown() {
         MyAlert.error("Errore", "Impossibile connettersi al server.", "Il server è down.");

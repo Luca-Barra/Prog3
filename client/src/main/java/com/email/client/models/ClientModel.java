@@ -27,6 +27,12 @@ public class ClientModel {
     private final String user;
     private final ReentrantLock lock = new ReentrantLock();
 
+    /**
+     * Costruttore della classe ClientModel
+     * <p>
+     * @param username Username dell'utente
+     */
+
     public ClientModel(String username) {
 
         emailList = FXCollections.observableArrayList();
@@ -35,39 +41,31 @@ public class ClientModel {
 
     }
 
-    public synchronized void loadEmailsFromLocal(String filePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            StringBuilder sb = new StringBuilder();
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-                String[] parts = sb.toString().split(";");
-                if (parts.length == 7) {
-                    String sender = parts[0].trim();
-                    String recipients = parts[1].trim();
-                    String subject = parts[2].trim();
-                    String body = parts[3].trim();
-                    String data = parts[4].trim();
-                    String read = parts[5].trim();
-                    String id = parts[6].trim();
-                    Email email = new Email(sender, recipients, subject, body, data, id);
-                    emailList.add(email);
-                    if(read.equals("READ")) {
-                        email.setRead(true);
-                    }
-                    sb = new StringBuilder();
-                } else {
-                    sb.append("\n");
-                }
-            }
-        } catch (IOException e) {
-            logger.severe("Errore durante il caricamento delle email dal file locale: " + e.getMessage());
-        }
+    /**
+     * Metodo per ottenere l'username dell'utente
+     * <p>
+     * @return user Username dell'utente
+     */
+
+    public String getUser() {
+        return user;
     }
+
+    /**
+     * Metodo per ottenere la lista delle email
+     * <p>
+     * @return emailList Lista delle email
+     */
 
     public ObservableList<Email> getEmailList() {
         return emailList;
     }
+
+    /**
+     * Metodo per inviare un'email
+     * <p>
+     * @param email Email da inviare
+     */
 
     public void sendEmail(Email email) {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -119,61 +117,13 @@ public class ClientModel {
 
         executor.execute(task);
     }
-    public String getUser() {
-        return user;
-    }
 
-    public void deleteEmail(Email selectedEmail) {
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-
-        Runnable task = () -> {
-            try {
-                Socket socket = new Socket();
-                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                out.writeObject("DELETE_EMAIL");
-                String serverResponse = in.readObject().toString();
-                out.writeObject(selectedEmail);
-                if(serverResponse.equals("OK")) {
-                    System.out.println("Risposta dal server: " + serverResponse);
-                    serverResponse = in.readObject().toString();
-                    if(serverResponse.equals("Identificarsi")) {
-                        out.flush();
-                        out.writeObject(user);
-                        Platform.runLater(() -> {
-                            lock.lock();
-                            emailList.remove(selectedEmail);
-                            lock.unlock();
-                            refreshEmails();
-                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
-                            saveEmailsToLocal();
-                        });
-                    }
-                }
-                if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
-                    System.out.println("Errore durante l'eliminazione dell'email");
-                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
-                }
-                in.close();
-                out.close();
-                socket.close();
-            } catch (ConnectException e) {
-                System.out.println("Impossibile connettersi al server.");
-                Platform.runLater(() ->
-                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
-            } catch (SocketTimeoutException e) {
-                System.out.println("Timeout di connessione al server.");
-                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
-            } catch (IOException e) {
-                logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        };
-
-        executor.execute(task);
-    }
+    /**
+     * Metodo per inoltrare un'email
+     * <p>
+     * @param email Email da inoltrare
+     * @param destinatari Destinatari dell'email
+     */
 
     public void forwardEmail(Email email, String destinatari) {
 
@@ -188,8 +138,15 @@ public class ClientModel {
                 }
             }
         }
-        
+
     }
+
+/**
+     * Utility per inoltrare un'email
+     * <p>
+     * @param emailForwarded Email da inviare
+     * @param destinatario Destinatario dell'email
+     */
 
     private void sendEmailV2(Email emailForwarded, String destinatario) {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -247,43 +204,9 @@ public class ClientModel {
         executor.execute(task);
     }
 
-    public void updateLocalMailboxPeriodically() {
-
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-
-        Runnable task = this::refreshEmails;
-
-        executor.scheduleAtFixedRate(task, 0, 30, TimeUnit.SECONDS);
-    }
-
-    public synchronized void saveEmailsToLocal() {
-        System.out.println("Salvataggio su file locale");
-        String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
-        try {
-            BufferedWriter bw = getBufferedWriter(filename);
-            bw.close();
-        } catch (IOException e) {
-            logger.severe("Errore durante il salvataggio delle email su file locale: " + e.getMessage());
-        }
-    }
-
-    private synchronized BufferedWriter getBufferedWriter(String filename) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
-        for (Email email : emailList) {
-            bw.write(email.getMittente() + ";");
-            bw.write(email.getDestinatario() + ";");
-            bw.write(email.getOggetto() + ";");
-            bw.write(email.getTesto() + ";");
-            bw.write(email.getData() + ";");
-            if(email.isRead()) {
-                bw.write("READ ;");
-            } else {
-                bw.write("UNREAD ;");
-            }
-            bw.write(email.getId() + "\n");
-        }
-        return bw;
-    }
+    /**
+     * Metodo per aggiornare la casella di posta
+     */
 
     public void refreshEmails() {
         try {
@@ -337,6 +260,157 @@ public class ClientModel {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Metodo per eseguire l'aggiornamento della casella di posta periodicamente
+     */
+
+    public void updateLocalMailboxPeriodically() {
+
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+        Runnable task = this::refreshEmails;
+
+        executor.scheduleAtFixedRate(task, 0, 30, TimeUnit.SECONDS);
+    }
+
+    /**
+     * Metodo per eliminare un'email
+     * <p>
+     * @param selectedEmail Email da eliminare
+     */
+
+    public void deleteEmail(Email selectedEmail) {
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+        Runnable task = () -> {
+            try {
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                out.writeObject("DELETE_EMAIL");
+                String serverResponse = in.readObject().toString();
+                out.writeObject(selectedEmail);
+                if(serverResponse.equals("OK")) {
+                    System.out.println("Risposta dal server: " + serverResponse);
+                    serverResponse = in.readObject().toString();
+                    if(serverResponse.equals("Identificarsi")) {
+                        out.flush();
+                        out.writeObject(user);
+                        Platform.runLater(() -> {
+                            lock.lock();
+                            emailList.remove(selectedEmail);
+                            lock.unlock();
+                            refreshEmails();
+                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
+                            saveEmailsToLocal();
+                        });
+                    }
+                }
+                if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
+                    System.out.println("Errore durante l'eliminazione dell'email");
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
+                }
+                in.close();
+                out.close();
+                socket.close();
+            } catch (ConnectException e) {
+                System.out.println("Impossibile connettersi al server.");
+                Platform.runLater(() ->
+                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
+            } catch (SocketTimeoutException e) {
+                System.out.println("Timeout di connessione al server.");
+                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
+            } catch (IOException e) {
+                logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        executor.execute(task);
+    }
+
+    /**
+     * Metodo per caricare le email dalla casella di posta locale
+     * <p>
+     * @param filePath Percorso del file
+     */
+
+    public synchronized void loadEmailsFromLocal(String filePath) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            StringBuilder sb = new StringBuilder();
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+                String[] parts = sb.toString().split(";");
+                if (parts.length == 7) {
+                    String sender = parts[0].trim();
+                    String recipients = parts[1].trim();
+                    String subject = parts[2].trim();
+                    String body = parts[3].trim();
+                    String data = parts[4].trim();
+                    String read = parts[5].trim();
+                    String id = parts[6].trim();
+                    Email email = new Email(sender, recipients, subject, body, data, id);
+                    emailList.add(email);
+                    if(read.equals("READ")) {
+                        email.setRead(true);
+                    }
+                    sb = new StringBuilder();
+                } else {
+                    sb.append("\n");
+                }
+            }
+        } catch (IOException e) {
+            logger.severe("Errore durante il caricamento delle email dal file locale: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Metodo per salvare le email nella casella di posta locale
+     */
+
+    public synchronized void saveEmailsToLocal() {
+        System.out.println("Salvataggio su file locale");
+        String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
+        try {
+            saving(filename);
+        } catch (IOException e) {
+            logger.severe("Errore durante il salvataggio delle email su file locale: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Utility per scrivere le email nel file locale
+     * <p>
+     * @param filename Nome del file
+     */
+
+    private synchronized void saving(String filename) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+        for (Email email : emailList) {
+            bw.write(email.getMittente() + ";");
+            bw.write(email.getDestinatario() + ";");
+            bw.write(email.getOggetto() + ";");
+            bw.write(email.getTesto() + ";");
+            bw.write(email.getData() + ";");
+            if(email.isRead()) {
+                bw.write("READ ;");
+            } else {
+                bw.write("UNREAD ;");
+            }
+            bw.write(email.getId() + "\n");
+        }
+        bw.close();
+    }
+
+    /**
+     * Metodo per segnare un'email come letta
+     * <p>
+     * @param email Email da segnare come letta
+     */
 
     public void markAsRead(Email email) {
         email.setRead(true);

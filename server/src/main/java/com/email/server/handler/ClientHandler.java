@@ -17,9 +17,21 @@ public class ClientHandler implements Runnable {
     private final Socket clientSocket;
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+    /**
+     * Costruttore della classe ClientHandler
+     * <p>
+     * @param clientSocket Socket del client
+     */
+
     public ClientHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
+
+    /**
+     * Metodo run
+     * <p>
+     * Gestisce la comunicazione con il client
+     */
 
     public void run() {
         try {
@@ -70,6 +82,15 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    /**
+     * Metodo caseSendEmail
+     * <p>
+     * Invia un'email
+     * <p>
+     * @param in Stream di input
+     * @return true se l'email è stata inviata con successo, false altrimenti
+     */
+
     private static synchronized boolean caseSendEmail(ObjectInputStream in) {
         try {
             Email email = (Email) in.readObject();
@@ -102,6 +123,16 @@ public class ClientHandler implements Runnable {
         return true;
     }
 
+    /**
+     * Metodo caseForwardEmail
+     * <p>
+     * Inoltra un'email
+     * <p>
+     * @param in Stream di input
+     * @param out Stream di output
+     * @return true se l'email è stata inoltrata con successo, false altrimenti
+     */
+
     private boolean caseForwardEmail(ObjectInputStream in, ObjectOutputStream out) {
         try {
             Email email = (Email) in.readObject();
@@ -128,6 +159,15 @@ public class ClientHandler implements Runnable {
         return true;
     }
 
+    /**
+     * Metodo caseRetrieveEmails
+     * <p>
+     * Recupera le email
+     * <p>
+     * @param in Stream di input
+     * @param out Stream di output
+     */
+
     private static void caseRetrieveEmails(ObjectInputStream in, ObjectOutputStream out) {
         try {
             String username = (String) in.readObject();
@@ -147,6 +187,15 @@ public class ClientHandler implements Runnable {
             ServerModel.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().format(formatter));
         }
     }
+
+    /**
+     * Metodo caseDeleteEmail
+     * <p>
+     * Elimina un'email
+     * <p>
+     * @param in Stream di input
+     * @param out Stream di output
+     */
 
     private static void caseDeleteEmail(ObjectInputStream in, ObjectOutputStream out) {
         try {

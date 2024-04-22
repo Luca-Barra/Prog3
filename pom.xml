@@ -41,6 +41,9 @@
     </dependencies>
 
     <build>
+        <directory>
+            ${project.basedir}/.out
+        </directory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
