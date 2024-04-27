@@ -49,9 +49,9 @@ public class ServerModel {
                 Files.createDirectories(path.getParent());
             }
             BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-            writer.write("\n-------------------------------------------------\n");
+            writer.write("\n---------------------------------------\n");
             writer.write("| Logs salvato il " + LocalDateTime.now().format(formatter) + " |");
-            writer.write("\n-------------------------------------------------\n");
+            writer.write("\n---------------------------------------\n");
             for (LogEntry logEntry : logEntries) {
                 writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
                 writer.newLine();

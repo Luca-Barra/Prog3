@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/com/email/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email/com/email/utils/EmailParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/com/email/utils/EmailParser.java" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_27-04-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_27-04-2024.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +120,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -330,15 +320,7 @@
       <workItem from="1713776449855" duration="2131000" />
       <workItem from="1714219846854" duration="1252000" />
       <workItem from="1714221107243" duration="802000" />
-      <workItem from="1714221916664" duration="2329000" />
-    </task>
-    <task id="LOCAL-00004" summary="minor change to client view, add newmail-view and server-view">
-      <option name="closed" value="true" />
-      <created>1704063849524</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1704063849524</updated>
+      <workItem from="1714221916664" duration="2820000" />
     </task>
     <task id="LOCAL-00005" summary="update">
       <option name="closed" value="true" />
@@ -724,7 +706,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714221927663</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1714224487775</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1714224487775</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +767,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add alert for login" />
     <MESSAGE value="local saving" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="add READ abd UNREAD" />
@@ -802,7 +791,8 @@
     <MESSAGE value="add comments" />
     <MESSAGE value="separate server controller and server model" />
     <MESSAGE value="minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
