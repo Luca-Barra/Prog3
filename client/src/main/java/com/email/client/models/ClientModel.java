@@ -222,13 +222,21 @@ public class ClientModel {
                 Object receivedObject = in.readObject();
                 if (receivedObject instanceof List<?> objectList) {
                     List<Email> emails = new ArrayList<>();
+                    boolean flag = true;
                     for (Object obj : objectList) {
                         if (obj instanceof Email) {
                             emails.add((Email) obj);
+                            if(!Objects.equals(((Email) obj).getMittente(), user)) {
+                                ((Email) obj).setRead(false);
+                                flag = false;
+                            } else {
+                                ((Email) obj).setRead(true);
+                            }
                         } else {
                             System.out.println("Il server ha inviato un oggetto non riconosciuto: " + obj);
                         }
                     }
+                    boolean finalFlag = flag;
                     Platform.runLater(() -> {
                         int size = emailList.size();
                         lock.lock();
@@ -237,7 +245,8 @@ public class ClientModel {
                         System.out.println(emailList.size());
                         if (size != emailList.size()) {
                             saveEmailsToLocal();
-                            MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
+                            if(!finalFlag)
+                                MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
                         }
                     });
                 } else {
@@ -284,6 +293,7 @@ public class ClientModel {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
         Runnable task = () -> {
+            for (int i = 0; i < 3; i++){
             try {
                 Socket socket = new Socket();
                 socket.connect(new InetSocketAddress("localhost", 12345), 30000);
@@ -327,6 +337,12 @@ public class ClientModel {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+        try {
+            TimeUnit.SECONDS.sleep(30);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        }
         };
 
         executor.execute(task);

@@ -34,14 +34,12 @@ public class LoginController {
         if(tryLogin.check && tryLogin.check()){
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.close();
-            ClientModel clientModel = new ClientModel(user);
-            FXMLLoader log = new FXMLLoader();
-            log.setLocation(ClientApplication.class.getResource("/com/email/client/UI/view/client-view.fxml"));
-            Scene logScene = new Scene(log.load(), 900, 600);
+            FXMLLoader client = new FXMLLoader();
+            client.setLocation(ClientApplication.class.getResource("/com/email/client/UI/view/client-view.fxml"));
+            Scene logScene = new Scene(client.load(), 900, 600);
             logScene.getStylesheets().add(Objects.requireNonNull(ClientApplication.class.getResource("/com/email/client/UI/css/client.css")).toExternalForm());
-            ClientController clientController = log.getController();
-            clientController.initModel(clientModel);
-            clientController.setLabelUsername(clientModel.getUser());
+            ClientController clientController = client.getController();
+            clientController.initModel(new ClientModel(user));
             stage.setOnCloseRequest(event -> System.exit(0));
             stage.setTitle("Client");
             stage.setScene(logScene);

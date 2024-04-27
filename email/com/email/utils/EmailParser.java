@@ -9,9 +9,7 @@ public class EmailParser {
      * @return true se l'email è valida, false altrimenti
      */
 
-    public static boolean parser(String email){
-        return email.matches("^[a-zA-Z0-9]+\\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");
-    }
+    private static boolean parser(String email){return email.matches("^[a-zA-Z0-9]+\\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$");}
 
     /**
      * Metodo per verificare se una stringa di destinatari è valida

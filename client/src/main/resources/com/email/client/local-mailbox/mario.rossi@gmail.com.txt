@@ -3,23 +3,10 @@ mario.rossi@gmail.com;mario.rossi@gmail.it;EMAIL TEST;E
 TEST;21/04/2024 15:13;READ ;e5b89a00-f541-4f79-a507-7f3353f16ef5
 mario.rossi@gmail.com;mario.rossi@gmail.com;saaaaaaaa;asssssss;21/04/2024 15:20;READ ;4b174681-02c2-4607-9d01-0b11e79bb9f4
 mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;READ ;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
-mario.rossi@gmail.com;mario.rossi@gmail.it;fffdd;fff
-c
-xx;21/04/2024 18:33;READ ;953363ad-1d2e-474d-b3cb-310428dff145
-mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it;R: fffdd;mario.rossi@gmail.com ha scritto:
-
-----------------------------------------
-
-fff
-c
-xx
-In data: 21/04/2024 18:33
-------------------------------------------
-
-cccccccccccccdddddddddd;21/04/2024 18:34;READ ;953363ad-1d2e-474d-b3cb-310428dff145
 mario.rossi@gmail.com;mario.rossi@gmail.it;sdsdssd;sdsdsds;21/04/2024 18:34;READ ;bde36b9b-f8c1-4463-ac38-1e3c8301ac81
 mario.rossi@gmail.com;mario.rossi@gmail.com;ssssss;ssssss;21/04/2024 23:35;READ ;0e27b9fa-62fa-4268-abaf-db96997a64c3
 mario.rossi@gmail.it;andrea.neri@gmail.com;PROVA;aaaa;22/04/2024 00:44;READ ;8b3b1bb5-7dc5-49dd-9abd-ddaf4a7ebb61
 mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;READ ;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
 mario.rossi@gmail.com;mario.rossi@gmail.it;wwewe;wewewewe;27/04/2024 14:29;READ ;664b4c49-f400-4638-85dc-f566b6954dfc
 mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;TEST;ssdsdsdsdsd;27/04/2024 14:30;READ ;36ba992d-d639-488d-94a7-f7f4ce6bee57
+mario.rossi@gmail.com;mario.rossi@gmail.it;wwwwww;wwwwwwww;27/04/2024 15:02;READ ;faabea54-98ab-42eb-965b-bcbedefb12a6

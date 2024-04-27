@@ -53,13 +53,34 @@ public class ClientController {
     @FXML
     public void initialize() {
 
+        initLabels();
+
+        initEmailListView();
+
+    }
+
+    /**
+     * Metodo che inizializza i campi di testo per la visualizzazione delle email.
+     * <p>
+     * Inizializza i campi di testo per la visualizzazione delle email.
+     */
+
+    private void initLabels() {
         LabelMittente.setEditable(false);
         LabelDestinatario.setEditable(false);
         LabelOggetto.setEditable(false);
         LabelData.setEditable(false);
         LabelTestoEmail.setEditable(false);
         LabelTestoEmail.setWrapText(true);
+    }
 
+    /**
+     * Metodo che inizializza la ListView delle email.
+     * <p>
+     * Inizializza la ListView delle email.
+     */
+
+    private void initEmailListView() {
         emailListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 displayEmailDetails(newValue);
@@ -224,32 +245,12 @@ public class ClientController {
      * Aggiorna la lista delle email.
      */
 
-    public void refresh() {
-        clientModel.refreshEmails();
-    }
-
-    /**
-     * Metodo che permette di impostare il nome utente.
-     * <p>
-     * Imposta il nome utente e carica le email locali.
-     * <p>
-     * Fa partire il thread per l'aggiornamento periodico della casella di posta.
-     * <p>
-     * @param username il nome utente
-     */
-
-    public void setLabelUsername(String username){
-        LabelUsername.setText(username);
-        clientModel.loadEmailsFromLocal("/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" +
-                LabelUsername.getText() + ".txt");
-        emailListView.setItems(clientModel.getEmailList());
-        clientModel.updateLocalMailboxPeriodically();
-    }
+    public void refresh() {clientModel.refreshEmails();}
 
     /**
      * Metodo che permette di inizializzare il controller.
      * <p>
-     * Inizializza il controller.
+     * Inizializza il controller e fa partire il thread per l'aggiornamento periodico della casella di posta.
      * <p>
      * @param clientModel il controller
      * @throws IllegalStateException se il controller è già stato inizializzato
@@ -260,6 +261,11 @@ public class ClientController {
             throw new IllegalStateException("Model can only be initialized once");
         }
         this.clientModel = clientModel;
+        LabelUsername.setText(this.clientModel.getUser());
+        clientModel.loadEmailsFromLocal("/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" +
+                LabelUsername.getText() + ".txt");
+        emailListView.setItems(clientModel.getEmailList());
+        clientModel.updateLocalMailboxPeriodically();
     }
 
 }

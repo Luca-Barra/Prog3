@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Email implements Serializable {
-    private final String id;
+    private String id;
     private final String mittente;
     private final String destinatario;
     private final String oggetto;
@@ -24,10 +24,7 @@ public class Email implements Serializable {
      */
 
     public Email(String mittente, String destinatario, String oggetto, String testo, String data, String id) {
-        if(!Objects.equals(id, "null"))
-            this.id = id;
-        else
-            this.id = UUID.randomUUID().toString();
+        generateId(id);
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.oggetto = oggetto;
@@ -41,9 +38,7 @@ public class Email implements Serializable {
      * @return id dell'email
      */
 
-    public String getId() {
-        return id;
-    }
+    public String getId() {return id;}
 
     /**
      * Metodo per ottenere il mittente dell'email
@@ -51,9 +46,7 @@ public class Email implements Serializable {
      * @return mittente dell'email
      */
 
-    public String getMittente() {
-        return mittente;
-    }
+    public String getMittente() {return mittente;}
 
     /**
      * Metodo per ottenere il destinatario dell'email
@@ -61,9 +54,7 @@ public class Email implements Serializable {
      * @return destinatario dell'email
      */
 
-    public String getDestinatario() {
-        return destinatario;
-    }
+    public String getDestinatario() {return destinatario;}
 
     /**
      * Metodo per ottenere l'oggetto dell'email
@@ -71,9 +62,7 @@ public class Email implements Serializable {
      * @return oggetto dell'email
      */
 
-    public String getOggetto() {
-        return oggetto;
-    }
+    public String getOggetto() {return oggetto;}
 
     /**
      * Metodo per ottenere il testo dell'email
@@ -91,9 +80,7 @@ public class Email implements Serializable {
      * @return data di invio dell'email
      */
 
-    public String getData() {
-        return data;
-    }
+    public String getData() {return data;}
 
     /**
      * Metodo per ottenere la rappresentazione testuale dell'email (coincide con il testo dell'email)
@@ -102,9 +89,7 @@ public class Email implements Serializable {
      */
 
     @Override
-    public String toString() {
-        return  testo;
-    }
+    public String toString() {return  testo;}
 
     /**
      * Metodo per sapere se una mail è stata letta o meno
@@ -112,9 +97,7 @@ public class Email implements Serializable {
      * @return true se la mail è stata letta, false altrimenti
      */
 
-    public boolean isRead() {
-        return isRead;
-    }
+    public boolean isRead() {return isRead;}
 
     /**
      * Metodo per impostare lo stato di lettura di una mail
@@ -122,7 +105,18 @@ public class Email implements Serializable {
      * @param read true se la mail è stata letta, false altrimenti
      */
 
-    public void setRead(boolean read) {
-        isRead = read;
+    public void setRead(boolean read) {isRead = read;}
+
+    /**
+     * Metodo per generare un id univoco per l'email (o utilizzare quello passato come parametro)
+     * <p>
+     * @param id id dell'email
+     */
+
+    private void generateId(String id) {
+        if (Objects.equals(id, "null"))
+            this.id = UUID.randomUUID().toString();
+        else
+            this.id = id;
     }
 }

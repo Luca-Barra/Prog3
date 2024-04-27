@@ -214,8 +214,6 @@ public class NewMailView {
      * Metodo per segnalare che il server è down
      */
 
-    public static void serverDown() {
-        MyAlert.error("Errore", "Impossibile connettersi al server.", "Il server è down.");
-    }
+    public static void serverDown() {MyAlert.error("Errore", "Impossibile connettersi al server.", "Il server è down.");}
 
 }
