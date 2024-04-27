@@ -1,6 +1,5 @@
 package com.email.server.handler;
 import com.email.Email;
-import com.email.server.model.ServerModel;
 
 import java.io.*;
 import java.net.Socket;
@@ -9,6 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Logger;
 
+import static com.email.server.model.ServerModel.addLogEntry;
+import static com.email.server.model.ServerModel.checkUser;
 import static com.email.server.utils.MailSupport.*;
 
 public class ClientHandler implements Runnable {
@@ -46,10 +47,10 @@ public class ClientHandler implements Runnable {
             switch (command) {
                 case "LOGIN":
                     String username = (String) in.readObject();
-                    if (ServerModel.checkUser(username))
-                        ServerModel.addLogEntry(username, "Tentativo di login", LocalDateTime.now().format(formatter));
+                    if (checkUser(username))
+                        addLogEntry(username, "Tentativo di login", LocalDateTime.now().format(formatter));
                     else
-                        ServerModel.addLogEntry("Sconosciuto", "Tentativo di login fallito: utente non esistente", LocalDateTime.now().format(formatter));
+                        addLogEntry("Sconosciuto", "Tentativo di login fallito: utente non esistente", LocalDateTime.now().format(formatter));
                     break;
                 case "SEND_EMAIL":
                     if (caseSendEmail(in))
@@ -72,11 +73,11 @@ public class ClientHandler implements Runnable {
                 default:
                     System.out.println("Comando non riconosciuto: " + command);
             }
-            ServerModel.addLogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().format(formatter));
-            ServerModel.addLogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().format(formatter));
         } catch (IOException e) {
             logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().format(formatter));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -94,30 +95,30 @@ public class ClientHandler implements Runnable {
     private static synchronized boolean caseSendEmail(ObjectInputStream in) {
         try {
             Email email = (Email) in.readObject();
-            String mailboxFileName = getMailboxSent(email.getMittente());
+            String mailboxFileName;
             boolean sent = false;
 
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
                 if(!destinatario.trim().equals(email.getMittente())) {
-                    if (ServerModel.checkUser(destinatario.trim())) {
+                    if (checkUser(destinatario.trim())) {
                         sent = true;
                         mailboxFileName = getMailboxSent(destinatario.trim());
                         writeMail(mailboxFileName, email);
-                        ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " inviata a " + destinatario.trim(), LocalDateTime.now().format(formatter));
+                        addLogEntry(email.getMittente(), "Email " + email.getId() + " inviata a " + destinatario.trim(), LocalDateTime.now().format(formatter));
                     } else {
-                        ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() +" non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().format(formatter));
+                        addLogEntry(email.getMittente(), "Email " + email.getId() +" non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().format(formatter));
                         return false;
                     }
                 }
             }
             if(sent)
-                writeMail(mailboxFileName, email);
+                writeMail(getMailboxSent(email.getMittente()), email);
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Errore durante l'invio dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
             return false;
         }
         return true;
@@ -140,20 +141,20 @@ public class ClientHandler implements Runnable {
             String destinatario = (String) in.readObject();
 
             for(String dest : destinatario.split(",")) {
-                if(!ServerModel.checkUser(dest.trim())) {
-                    ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " non inoltrata a " + dest.trim() + ": utente non esistente", LocalDateTime.now().format(formatter));
+                if(!checkUser(dest.trim())) {
+                    addLogEntry(email.getMittente(), "Email " + email.getId() + " non inoltrata a " + dest.trim() + ": utente non esistente", LocalDateTime.now().format(formatter));
                     return false;
                 } else {
                     String mailboxFileName = getMailboxSent(dest.trim());
                     writeMail(mailboxFileName, email);
-                    ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " inoltrata a " + dest.trim(), LocalDateTime.now().format(formatter));
+                    addLogEntry(email.getMittente(), "Email " + email.getId() + " inoltrata a " + dest.trim(), LocalDateTime.now().format(formatter));
                 }
             }
 
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'inoltro dell'email: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante l'inoltro dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Errore durante l'inoltro dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
             return false;
         }
         return true;
@@ -177,14 +178,14 @@ public class ClientHandler implements Runnable {
             saveNewEmails(mailboxFileNameReceived, emailList);
 
             out.writeObject(emailList);
-            ServerModel.addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().format(formatter));
+            addLogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().format(formatter));
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
                 writer.write("");
             }
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante il recupero delle email: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Errore durante il recupero delle email: " + e.getMessage(), LocalDateTime.now().format(formatter));
         }
     }
 
@@ -209,10 +210,10 @@ public class ClientHandler implements Runnable {
             String mailboxFileName = getMailboxReceived(username);
             deleteEmail(mailboxFileName, email);
 
-            ServerModel.addLogEntry(email.getMittente(), "Email " + email.getId() + " eliminata", LocalDateTime.now().format(formatter));
+            addLogEntry(email.getMittente(), "Email " + email.getId() + " eliminata", LocalDateTime.now().format(formatter));
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
-            ServerModel.addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
+            addLogEntry("Server", "Errore durante l'eliminazione dell'email: " + e.getMessage(), LocalDateTime.now().format(formatter));
         }
 
     }

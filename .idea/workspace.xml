@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="general refactor and bug correction">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add comments">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/controller/ServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_27-04-2024.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.module/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/.module/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_22-04-2024.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/view/server-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/UI/view/server-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +28,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="package-info" />
         <option value="module-info" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,7 +132,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -326,15 +329,9 @@
       <workItem from="1713735691433" duration="2765000" />
       <workItem from="1713738464195" duration="2215000" />
       <workItem from="1713748328099" duration="313000" />
-      <workItem from="1713776449855" duration="1007000" />
-    </task>
-    <task id="LOCAL-00001" summary="init">
-      <option name="closed" value="true" />
-      <created>1703420329099</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1703420329099</updated>
+      <workItem from="1713776449855" duration="2131000" />
+      <workItem from="1714219846854" duration="1252000" />
+      <workItem from="1714221107243" duration="385000" />
     </task>
     <task id="LOCAL-00002" summary="init">
       <option name="closed" value="true" />
@@ -720,7 +717,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713735096811</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="add comments">
+      <option name="closed" value="true" />
+      <created>1713777751459</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1713777751459</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -773,7 +778,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add logs for server" />
     <MESSAGE value="add error for server down" />
     <MESSAGE value="add alert for login" />
     <MESSAGE value="local saving" />
@@ -798,7 +802,8 @@
     <MESSAGE value="change data format for the client" />
     <MESSAGE value="minor change" />
     <MESSAGE value="general refactor and bug correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="general refactor and bug correction" />
+    <MESSAGE value="add comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

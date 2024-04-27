@@ -247,12 +247,12 @@ public class ClientController {
     }
 
     /**
-     * Metodo che permette di inizializzare il model.
+     * Metodo che permette di inizializzare il controller.
      * <p>
-     * Inizializza il model.
+     * Inizializza il controller.
      * <p>
-     * @param clientModel il model
-     * @throws IllegalStateException se il model è già stato inizializzato
+     * @param clientModel il controller
+     * @throws IllegalStateException se il controller è già stato inizializzato
      */
 
     public void initModel(ClientModel clientModel) {

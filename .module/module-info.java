@@ -19,8 +19,8 @@ module Project.Prog {
     opens com.email.client.controllers to javafx.fxml;
     exports com.email.client.models;
     opens com.email.client.models to javafx.fxml;
-    exports com.email.server.model;
-    opens com.email.server.model to javafx.fxml;
+    exports com.email.server.controller;
+    opens com.email.server.controller to javafx.fxml;
     exports com.email.client.application;
     opens com.email.client.application to javafx.fxml;
     exports com.email.server.application;

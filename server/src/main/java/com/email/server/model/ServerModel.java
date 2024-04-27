@@ -1,15 +1,9 @@
 package com.email.server.model;
 
-import com.email.client.utils.MyAlert;
+import com.email.server.controller.ServerController;
 import com.email.server.utils.LogEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -26,90 +20,9 @@ import java.util.logging.Logger;
 public class ServerModel {
 
     public static final ObservableList<LogEntry> logEntries = FXCollections.observableArrayList();
-
-    @FXML
-    private TableView<LogEntry> emailTableView;
-
-    @FXML
-    private TableColumn<LogEntry, String> columnUtente;
-
-    @FXML
-    private TableColumn<LogEntry, String> columnMessaggio;
-
-    @FXML
-    private TableColumn<LogEntry, String> data;
-
     private static final Logger logger = Logger.getLogger(ServerModel.class.getName());
-
-    private static ArrayList<String> registeredUsers;
-
+    private static final ArrayList<String> registeredUsers = new ArrayList<>();
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
-    /**
-     * Metodo che inizializza la tabella dei log
-     */
-
-    @FXML
-    public void initialize() {
-
-        columnUtente.setCellValueFactory(new PropertyValueFactory<>("utente"));
-        columnUtente.setCellFactory(column -> new TableCell<>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (item == null || empty) {
-                    setText(null);
-                    setStyle("");
-                } else {
-                    setText(item);
-                    setStyle("-fx-font-weight: bold;");
-                }
-            }
-        });
-        columnMessaggio.setCellValueFactory(new PropertyValueFactory<>("messaggio"));
-        data.setCellValueFactory(new PropertyValueFactory<>("data"));
-        data.setCellFactory(column -> new TableCell<>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (item == null || empty) {
-                    setText(null);
-                    setStyle("");
-                } else {
-                    setText(item);
-                    setStyle("-fx-font-style: italic;");
-                }
-            }
-        });
-
-        emailTableView.setRowFactory(tv -> {
-            TableRow<LogEntry> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    LogEntry rowData = row.getItem();
-                    MyAlert.info("Dettagli messaggio",
-                            "Messaggio di " + rowData.getUtente(),
-                            "Data: " + rowData.getData() +
-                            "\n\n------------------------------------------------------------------\n" +
-                            rowData.getMessaggio() +
-                                    "\n------------------------------------------------------------------\n\n");
-
-                }
-            });
-            return row;
-        });
-
-        registeredUsers = new ArrayList<>();
-        loadRegisteredUsers();
-
-        emailTableView.setItems(logEntries);
-
-        logEntries.addAll(
-                new LogEntry("Server", "Server avviato", LocalDateTime.now().format(formatter))
-        );
-    }
 
     /**
      * Metodo che aggiunge un log alla lista dei log
@@ -118,11 +31,11 @@ public class ServerModel {
      * @param messaggio messaggio inviato
      * @param data data e ora dell'invio del messaggio
      */
-
+    
     public static synchronized void addLogEntry(String utente, String messaggio, String data) {
         logEntries.add(new LogEntry(utente, messaggio, data));
     }
-
+    
     /**
      * Metodo che salva i log in un file .txt
      */
@@ -154,7 +67,7 @@ public class ServerModel {
      */
 
     public static void loadRegisteredUsers() {
-        try(InputStream inputStream = ServerModel.class.getResourceAsStream("/com/email/server/data/registeredUsers.txt")) {
+        try(InputStream inputStream = ServerController.class.getResourceAsStream("/com/email/server/data/registeredUsers.txt")) {
             if (inputStream != null) {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                     String line;
@@ -182,5 +95,5 @@ public class ServerModel {
         System.out.println("User: " + user);
         return registeredUsers.contains(user);
     }
-
+    
 }
