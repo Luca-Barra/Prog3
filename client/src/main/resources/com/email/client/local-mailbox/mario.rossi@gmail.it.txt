@@ -20,3 +20,11 @@ mario.rossi@gmail.com;mario.rossi@gmail.it;wwewe;wewewewe;27/04/2024 14:29;READ 
 mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;TEST;ssdsdsdsdsd;27/04/2024 14:30;READ ;36ba992d-d639-488d-94a7-f7f4ce6bee57
 mario.rossi@gmail.com;mario.rossi@gmail.it;wwwwww;wwwwwwww;27/04/2024 15:02;READ ;faabea54-98ab-42eb-965b-bcbedefb12a6
 mario.rossi@gmail.com;mario.rossi@gmail.it;sd;sd;27/04/2024 15:08;READ ;ed7bd18f-3ea0-4b30-be19-e6585b7cec4d
+mario.rossi@gmail.com;mario.rossi@gmail.it;fd;df;01/05/2024 00:53;READ ;166732c7-93b7-46e9-81b5-caef18b65689
+mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it;R: wwwwww;mario.rossi@gmail.com ha scritto:
+
+----------------------------------------
+wwwwwwww
+In data: 27/04/2024 15:02
+------------------------------------------;01/05/2024 00:54;READ ;faabea54-98ab-42eb-965b-bcbedefb12a6
+mario.rossi@gmail.com;mario.rossi@gmail.it;fd;df;01/05/2024 00:53;READ ;166732c7-93b7-46e9-81b5-caef18b65689

@@ -1,0 +1,229 @@
+
+---------------------------------------
+| Logs salvato il 01/05/2024 00:54:03 |
+---------------------------------------
+Server;Server avviato;01/05/2024 00:49:38
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=56278,localport=12345];01/05/2024 00:50:21
+mario.rossi@gmail.com;Tentativo di login;01/05/2024 00:50:21
+Server;Comando LOGIN gestito con successo;01/05/2024 00:50:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=56278,localport=12345];01/05/2024 00:50:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=56282,localport=12345];01/05/2024 00:50:21
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:50:21
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:50:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=56282,localport=12345];01/05/2024 00:50:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55106,localport=12345];01/05/2024 00:50:36
+mario.rossi@gmail.com;Email a93b557d-3581-4877-af87-bb5d3f4ff4f3 non inviata a mario.rossi@gmail.itww: utente non esistente;01/05/2024 00:50:36
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:50:36
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55106,localport=12345];01/05/2024 00:50:36
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=55202,localport=12345];01/05/2024 00:50:51
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:50:51
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:50:51
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=55202,localport=12345];01/05/2024 00:50:51
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=50320,localport=12345];01/05/2024 00:51:21
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:51:21
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:51:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=50320,localport=12345];01/05/2024 00:51:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=44066,localport=12345];01/05/2024 00:51:51
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:51:51
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:51:51
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=44066,localport=12345];01/05/2024 00:51:51
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=42962,localport=12345];01/05/2024 00:52:26
+mario.rossi@gmail.com;Tentativo di login;01/05/2024 00:52:26
+Server;Comando LOGIN gestito con successo;01/05/2024 00:52:26
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=42962,localport=12345];01/05/2024 00:52:26
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=42964,localport=12345];01/05/2024 00:52:26
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:52:26
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:52:26
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=42964,localport=12345];01/05/2024 00:52:26
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34274,localport=12345];01/05/2024 00:52:39
+mario.rossi@gmail.com;Email 2f1fb51f-bf87-4761-895c-b5048bdc3cb0 non inviata a mario.rossi@gmail.comsss: utente non esistente;01/05/2024 00:52:39
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:52:39
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34274,localport=12345];01/05/2024 00:52:39
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=36278,localport=12345];01/05/2024 00:52:56
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:52:56
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:52:56
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=36278,localport=12345];01/05/2024 00:52:56
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=53960,localport=12345];01/05/2024 00:53:14
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:53:14
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=53960,localport=12345];01/05/2024 00:53:14
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=53976,localport=12345];01/05/2024 00:53:14
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:53:14
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:53:14
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=53976,localport=12345];01/05/2024 00:53:14
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=53982,localport=12345];01/05/2024 00:53:20
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:53:20
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:53:20
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=53982,localport=12345];01/05/2024 00:53:20
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=40550,localport=12345];01/05/2024 00:53:26
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:53:26
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:53:26
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=40550,localport=12345];01/05/2024 00:53:26
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51024,localport=12345];01/05/2024 00:53:36
+mario.rossi@gmail.com;Email 166732c7-93b7-46e9-81b5-caef18b65689 inviata a mario.rossi@gmail.it;01/05/2024 00:53:36
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:53:36
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51024,localport=12345];01/05/2024 00:53:36
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51038,localport=12345];01/05/2024 00:53:36
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:53:36
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:53:36
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51038,localport=12345];01/05/2024 00:53:36
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=45902,localport=12345];01/05/2024 00:53:56
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:53:56
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:53:56
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=45902,localport=12345];01/05/2024 00:53:56
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=45910,localport=12345];01/05/2024 00:53:57
+mario.rossi@gmail.com;Email 53408c27-3a3b-40be-b949-f4d7aa5ab6b7 non inviata a mario.rossi@gmail.comq: utente non esistente;01/05/2024 00:53:57
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:53:57
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=45910,localport=12345];01/05/2024 00:53:57
+Server;Server chiuso;01/05/2024 00:54:03
+
+---------------------------------------
+| Logs salvato il 01/05/2024 00:55:12 |
+---------------------------------------
+Server;Server avviato;01/05/2024 00:54:09
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=42280,localport=12345];01/05/2024 00:54:22
+mario.rossi@gmail.it;Tentativo di login;01/05/2024 00:54:22
+Server;Comando LOGIN gestito con successo;01/05/2024 00:54:22
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=42280,localport=12345];01/05/2024 00:54:22
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=42290,localport=12345];01/05/2024 00:54:22
+mario.rossi@gmail.it;Aggiornamento della casella di posta;01/05/2024 00:54:22
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:54:22
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=42290,localport=12345];01/05/2024 00:54:22
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=60242,localport=12345];01/05/2024 00:54:39
+mario.rossi@gmail.it;Email d15c9b48-c231-4fb5-bd20-8c5a9ddb7ad9 non inviata a mario.rossi@gmail.coma: utente non esistente;01/05/2024 00:54:39
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:54:39
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=60242,localport=12345];01/05/2024 00:54:39
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=46778,localport=12345];01/05/2024 00:54:52
+mario.rossi@gmail.it;Aggiornamento della casella di posta;01/05/2024 00:54:52
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:54:52
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=46778,localport=12345];01/05/2024 00:54:52
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=33766,localport=12345];01/05/2024 00:54:52
+mario.rossi@gmail.it;Email faabea54-98ab-42eb-965b-bcbedefb12a6 inviata a mario.rossi@gmail.com;01/05/2024 00:54:53
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:54:53
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=33766,localport=12345];01/05/2024 00:54:53
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=33782,localport=12345];01/05/2024 00:54:53
+mario.rossi@gmail.it;Aggiornamento della casella di posta;01/05/2024 00:54:53
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:54:53
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=33782,localport=12345];01/05/2024 00:54:53
+Server;Server chiuso;01/05/2024 00:55:12
+
+---------------------------------------
+| Logs salvato il 01/05/2024 00:57:38 |
+---------------------------------------
+Server;Server avviato;01/05/2024 00:55:51
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48036,localport=12345];01/05/2024 00:55:55
+mario.rossi@gmail.com;Tentativo di login;01/05/2024 00:55:55
+Server;Comando LOGIN gestito con successo;01/05/2024 00:55:55
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48036,localport=12345];01/05/2024 00:55:55
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48048,localport=12345];01/05/2024 00:55:55
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:55:55
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:55:55
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48048,localport=12345];01/05/2024 00:55:55
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=44510,localport=12345];01/05/2024 00:56:11
+mario.rossi@gmail.com;Email 6d06b3ff-d9c2-45ad-bc32-725529bc4195 non inviata a mario.rossi@gmail.comds: utente non esistente;01/05/2024 00:56:11
+Server;Comando SEND_EMAIL gestito con successo;01/05/2024 00:56:11
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=44510,localport=12345];01/05/2024 00:56:11
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34724,localport=12345];01/05/2024 00:56:25
+mario.rossi@gmail.it;Email faabea54-98ab-42eb-965b-bcbedefb12a6 eliminata;01/05/2024 00:56:25
+Server;Comando DELETE_EMAIL gestito con successo;01/05/2024 00:56:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34724,localport=12345];01/05/2024 00:56:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34738,localport=12345];01/05/2024 00:56:25
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:25
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34738,localport=12345];01/05/2024 00:56:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=34752,localport=12345];01/05/2024 00:56:25
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:25
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=34752,localport=12345];01/05/2024 00:56:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=50990,localport=12345];01/05/2024 00:56:42
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=50992,localport=12345];01/05/2024 00:56:42
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:42
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:42
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=50990,localport=12345];01/05/2024 00:56:42
+mario.rossi@gmail.com;Email 166732c7-93b7-46e9-81b5-caef18b65689 inoltrata a mario.rossi@gmail.it;01/05/2024 00:56:42
+Server;Comando FORWARD_EMAIL gestito con successo;01/05/2024 00:56:42
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=50992,localport=12345];01/05/2024 00:56:42
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51008,localport=12345];01/05/2024 00:56:42
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:42
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:42
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51008,localport=12345];01/05/2024 00:56:42
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48296,localport=12345];01/05/2024 00:56:48
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:48
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:48
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48296,localport=12345];01/05/2024 00:56:48
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57620,localport=12345];01/05/2024 00:56:55
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57628,localport=12345];01/05/2024 00:56:55
+mario.rossi@gmail.it;Email faabea54-98ab-42eb-965b-bcbedefb12a6 eliminata;01/05/2024 00:56:55
+Server;Comando DELETE_EMAIL gestito con successo;01/05/2024 00:56:55
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57620,localport=12345];01/05/2024 00:56:55
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:55
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:55
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57628,localport=12345];01/05/2024 00:56:55
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57644,localport=12345];01/05/2024 00:56:55
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:56:55
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:56:55
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57644,localport=12345];01/05/2024 00:56:55
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48136,localport=12345];01/05/2024 00:57:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48138,localport=12345];01/05/2024 00:57:25
+mario.rossi@gmail.it;Email faabea54-98ab-42eb-965b-bcbedefb12a6 eliminata;01/05/2024 00:57:25
+Server;Comando DELETE_EMAIL gestito con successo;01/05/2024 00:57:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48136,localport=12345];01/05/2024 00:57:25
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:57:25
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:57:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48138,localport=12345];01/05/2024 00:57:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=48148,localport=12345];01/05/2024 00:57:25
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 00:57:25
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:57:25
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=48148,localport=12345];01/05/2024 00:57:25
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57142,localport=12345];01/05/2024 00:57:33
+mario.rossi@gmail.it;Tentativo di login;01/05/2024 00:57:33
+Server;Comando LOGIN gestito con successo;01/05/2024 00:57:33
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57142,localport=12345];01/05/2024 00:57:33
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57152,localport=12345];01/05/2024 00:57:33
+mario.rossi@gmail.it;Aggiornamento della casella di posta;01/05/2024 00:57:33
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 00:57:33
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57152,localport=12345];01/05/2024 00:57:33
+Server;Server chiuso;01/05/2024 00:57:38
+
+---------------------------------------
+| Logs salvato il 01/05/2024 01:01:08 |
+---------------------------------------
+Server;Server avviato;01/05/2024 01:00:15
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54026,localport=12345];01/05/2024 01:00:27
+mario.rossi@gmail.com;Tentativo di login;01/05/2024 01:00:27
+Server;Comando LOGIN gestito con successo;01/05/2024 01:00:27
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54026,localport=12345];01/05/2024 01:00:27
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54040,localport=12345];01/05/2024 01:00:27
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 01:00:27
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 01:00:27
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54040,localport=12345];01/05/2024 01:00:27
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54044,localport=12345];01/05/2024 01:00:31
+mario.rossi@gmail.com;Email 166732c7-93b7-46e9-81b5-caef18b65689 eliminata;01/05/2024 01:00:31
+Server;Comando DELETE_EMAIL gestito con successo;01/05/2024 01:00:31
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54044,localport=12345];01/05/2024 01:00:31
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54046,localport=12345];01/05/2024 01:00:31
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 01:00:31
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 01:00:31
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54046,localport=12345];01/05/2024 01:00:31
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=47348,localport=12345];01/05/2024 01:00:57
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 01:00:57
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 01:00:57
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=47348,localport=12345];01/05/2024 01:00:57
+Server;Server chiuso;01/05/2024 01:01:08
+
+---------------------------------------
+| Logs salvato il 01/05/2024 01:01:56 |
+---------------------------------------
+Server;Server avviato;01/05/2024 01:01:17
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=59458,localport=12345];01/05/2024 01:01:27
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 01:01:27
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 01:01:27
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=59458,localport=12345];01/05/2024 01:01:27
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57632,localport=12345];01/05/2024 01:01:42
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=57642,localport=12345];01/05/2024 01:01:42
+mario.rossi@gmail.com;Email faabea54-98ab-42eb-965b-bcbedefb12a6 eliminata;01/05/2024 01:01:42
+Server;Comando DELETE_EMAIL gestito con successo;01/05/2024 01:01:42
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57632,localport=12345];01/05/2024 01:01:42
+mario.rossi@gmail.com;Aggiornamento della casella di posta;01/05/2024 01:01:42
+Server;Comando RETRIEVE_EMAILS gestito con successo;01/05/2024 01:01:42
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=57642,localport=12345];01/05/2024 01:01:42
+Server;Server chiuso;01/05/2024 01:01:56

@@ -87,7 +87,7 @@ public class ClientModel {
                     serverResponse = in.readObject().toString();
                     System.out.println(serverResponse);
                     if(serverResponse.equals("Errore durante l'invio dell'email")) {
-                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
+                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
                     } else {
                         Platform.runLater(() -> {
                             saveEmailsToLocal();
@@ -173,7 +173,7 @@ public class ClientModel {
                     }
                     serverResponse = in.readObject().toString();
                     if(serverResponse.equals("Errore durante l'invio dell'email")) {
-                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Email non valida", "Inserire un indirizzo email valido."));
+                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
                     } else {
                         Platform.runLater(() -> {
                             saveEmailsToLocal();
@@ -294,55 +294,56 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++){
-            try {
-                Socket socket = new Socket();
-                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                out.writeObject("DELETE_EMAIL");
-                String serverResponse = in.readObject().toString();
-                out.writeObject(selectedEmail);
-                if(serverResponse.equals("OK")) {
-                    System.out.println("Risposta dal server: " + serverResponse);
-                    serverResponse = in.readObject().toString();
-                    if(serverResponse.equals("Identificarsi")) {
-                        out.flush();
-                        out.writeObject(user);
-                        Platform.runLater(() -> {
-                            lock.lock();
-                            emailList.remove(selectedEmail);
-                            lock.unlock();
-                            refreshEmails();
-                            MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
-                            saveEmailsToLocal();
-                        });
+                try {
+                    Socket socket = new Socket();
+                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
+                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out.writeObject("DELETE_EMAIL");
+                    String serverResponse = in.readObject().toString();
+                    out.writeObject(selectedEmail);
+                    if(serverResponse.equals("OK")) {
+                        System.out.println("Risposta dal server: " + serverResponse);
+                        serverResponse = in.readObject().toString();
+                        if(serverResponse.equals("Identificarsi")) {
+                            out.flush();
+                            out.writeObject(user);
+                            Platform.runLater(() -> {
+                                lock.lock();
+                                emailList.remove(selectedEmail);
+                                lock.unlock();
+                                refreshEmails();
+                                MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
+                                saveEmailsToLocal();
+                            });
+                        }
                     }
+                    if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
+                        System.out.println("Errore durante l'eliminazione dell'email");
+                        MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
+                    }
+                    in.close();
+                    out.close();
+                    socket.close();
+                    break;
+                } catch (ConnectException e) {
+                    System.out.println("Impossibile connettersi al server.");
+                    Platform.runLater(() ->
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
+                } catch (SocketTimeoutException e) {
+                    System.out.println("Timeout di connessione al server.");
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
+                } catch (IOException e) {
+                    logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
-                if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
-                    System.out.println("Errore durante l'eliminazione dell'email");
-                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
+                try {
+                    TimeUnit.SECONDS.sleep(30);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
                 }
-                in.close();
-                out.close();
-                socket.close();
-            } catch (ConnectException e) {
-                System.out.println("Impossibile connettersi al server.");
-                Platform.runLater(() ->
-                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
-            } catch (SocketTimeoutException e) {
-                System.out.println("Timeout di connessione al server.");
-                MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
-            } catch (IOException e) {
-                logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
             }
-        try {
-            TimeUnit.SECONDS.sleep(30);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        }
         };
 
         executor.execute(task);
