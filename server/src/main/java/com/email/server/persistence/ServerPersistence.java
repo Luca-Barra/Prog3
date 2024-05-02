@@ -1,4 +1,4 @@
-package com.email.server.database;
+package com.email.server.persistence;
 
 import com.email.server.controller.ServerController;
 import com.email.server.model.ServerModel;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ServerDatabase {
+public class ServerPersistence {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     private static final Logger logger = Logger.getLogger(ServerModel.class.getName());

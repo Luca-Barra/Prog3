@@ -1,6 +1,6 @@
 package com.email.server.model;
 
-import com.email.server.database.ServerDatabase;
+import com.email.server.persistence.ServerPersistence;
 import com.email.server.utils.LogEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,13 +29,14 @@ public class ServerModel {
      * Metodo che salva i log in un file .txt
      */
 
-    public static void saveLogs() {ServerDatabase.saveLogs(logEntries);}
+    public static void saveLogs() {
+        ServerPersistence.saveLogs(logEntries);}
 
     /**
      * Metodo che carica la lista degli utenti registrati
      */
 
-    public static void loadRegisteredUsers() {registeredUsers = (ArrayList<String>) ServerDatabase.loadRegisteredUsers();}
+    public static void loadRegisteredUsers() {registeredUsers = (ArrayList<String>) ServerPersistence.loadRegisteredUsers();}
 
     /**
      * Metodo che controlla se un utente è registrato

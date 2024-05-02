@@ -9,7 +9,7 @@
    <top>
       <HBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <ImageView fitHeight="47.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/account-default.png" />
+                  <Image url="@../icons/account-default.png" />
             </ImageView>
             <Label fx:id="LabelUsername" prefHeight="48.0" prefWidth="381.0">
             <font>
@@ -19,7 +19,7 @@
           <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="32.0">
               <graphic>
                   <ImageView fitHeight="33.0" fitWidth="36.0">
-                      <Image url="@../images/mail-update.png" />
+                      <Image url="@../icons/mail-update.png" />
                   </ImageView>
               </graphic>
               <tooltip>
@@ -65,7 +65,7 @@
                          <Button mnemonicParsing="false" onAction="#rispondiATutti" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31" fitWidth="31.0">
-                                     <Image url="@../images/mail-replyall.png" />
+                                     <Image url="@../icons/mail-replyall.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -75,7 +75,7 @@
                          <Button minWidth="79.0" mnemonicParsing="false" onAction="#rispondi" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31.0" fitWidth="31.0">
-                                     <Image url="@../images/mail-reply.png" />
+                                     <Image url="@../icons/mail-reply.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -85,7 +85,7 @@
                          <Button minWidth="25.0" mnemonicParsing="false" onAction="#elimina" prefHeight="32.0">
                              <graphic>
                                  <ImageView fitHeight="31" fitWidth="31">
-                                     <Image url="@../images/mail-delete.png" />
+                                     <Image url="@../icons/mail-delete.png" />
                                  </ImageView>
                              </graphic>
                              <tooltip>
@@ -104,7 +104,7 @@
             <Button mnemonicParsing="false" onAction="#nuovaMail" prefHeight="39.0" prefWidth="82.0" ButtonBar.buttonData="RIGHT">
                 <graphic>
                     <ImageView fitHeight="31.0" fitWidth="39.0">
-                        <Image url="@../images/mail-send.png" />
+                        <Image url="@../icons/mail-send.png" />
                     </ImageView>
                 </graphic>
                 <tooltip>
@@ -114,7 +114,7 @@
             <Button minWidth="0.0" mnemonicParsing="false" onAction="#inoltra" prefHeight="32.0" ButtonBar.buttonData="LEFT">
                 <graphic>
                     <ImageView fitHeight="31.0" fitWidth="31.0">
-                        <Image url="@../images/mail-forward.png" />
+                        <Image url="@../icons/mail-forward.png" />
                     </ImageView>
                 </graphic>
                 <tooltip>

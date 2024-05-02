@@ -16,7 +16,7 @@
     <Button id="ButtonLogin" layoutX="275.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="58.0" prefWidth="73.0" stylesheets="@../css/login.css">
         <graphic>
             <ImageView fitHeight="36.0" fitWidth="36.0">
-                <Image url="@../images/login-button.png" />
+                <Image url="@../icons/login-button.png" />
             </ImageView>
         </graphic>
         <tooltip>

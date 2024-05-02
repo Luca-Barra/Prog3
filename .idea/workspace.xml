@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/database/ServerDatabase.java" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="separation between server model and server database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +119,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.client">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -329,15 +327,8 @@
       <workItem from="1714518301438" duration="8000" />
       <workItem from="1714571944669" duration="296000" />
       <workItem from="1714652353211" duration="153000" />
-      <workItem from="1714656920588" duration="696000" />
-    </task>
-    <task id="LOCAL-00008" summary="username visible">
-      <option name="closed" value="true" />
-      <created>1708385374757</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1708385374757</updated>
+      <workItem from="1714656920588" duration="1008000" />
+      <workItem from="1714676363137" duration="25000" />
     </task>
     <task id="LOCAL-00009" summary="update server">
       <option name="closed" value="true" />
@@ -723,7 +714,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714572153224</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="separation between server model and server database">
+      <option name="closed" value="true" />
+      <created>1714657923005</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1714657923005</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -776,7 +775,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add images" />
     <MESSAGE value="add css" />
     <MESSAGE value="change to support multi line input and new reply style" />
     <MESSAGE value="add double click to visualize mail" />
@@ -801,7 +799,8 @@
     <MESSAGE value="better logs" />
     <MESSAGE value="solve minor bugs" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="separation between server model and server database" />
+    <option name="LAST_COMMIT_MESSAGE" value="separation between server model and server database" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
