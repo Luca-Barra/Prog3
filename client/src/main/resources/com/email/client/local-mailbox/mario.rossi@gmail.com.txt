@@ -9,3 +9,16 @@ mario.rossi@gmail.it;andrea.neri@gmail.com;PROVA;aaaa;22/04/2024 00:44;READ ;8b3
 mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;READ ;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
 mario.rossi@gmail.com;mario.rossi@gmail.it;wwewe;wewewewe;27/04/2024 14:29;READ ;664b4c49-f400-4638-85dc-f566b6954dfc
 mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;TEST;ssdsdsdsdsd;27/04/2024 14:30;READ ;36ba992d-d639-488d-94a7-f7f4ce6bee57
+mario.rossi@gmail.com;mario.rossi@gmail.it;TEST;CIAO
+
+TEST;02/05/2024 15:47;READ ;f6fde10c-1a69-48ce-8398-2051ae4ee5d5
+mario.rossi@gmail.it;mario.rossi@gmail.com,mario.rossi@gmail.it;R: TEST;mario.rossi@gmail.com ha scritto:
+
+----------------------------------------
+CIAO
+
+TEST
+In data: 02/05/2024 15:47
+------------------------------------------
+
+Risposta;02/05/2024 15:48;READ ;f6fde10c-1a69-48ce-8398-2051ae4ee5d5

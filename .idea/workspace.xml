@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="solve minor bugs">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor changes">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/database/ServerDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/model/ServerModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -160,8 +162,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -325,14 +327,9 @@
       <workItem from="1714414525290" duration="73000" />
       <workItem from="1714517375183" duration="887000" />
       <workItem from="1714518301438" duration="8000" />
-    </task>
-    <task id="LOCAL-00007" summary="update">
-      <option name="closed" value="true" />
-      <created>1708356525846</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1708356525846</updated>
+      <workItem from="1714571944669" duration="296000" />
+      <workItem from="1714652353211" duration="153000" />
+      <workItem from="1714656920588" duration="696000" />
     </task>
     <task id="LOCAL-00008" summary="username visible">
       <option name="closed" value="true" />
@@ -718,7 +715,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714518214047</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1714572153224</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1714572153224</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,7 +776,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add READ abd UNREAD" />
     <MESSAGE value="add images" />
     <MESSAGE value="add css" />
     <MESSAGE value="change to support multi line input and new reply style" />
@@ -796,7 +800,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="better logs" />
     <MESSAGE value="solve minor bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="solve minor bugs" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
