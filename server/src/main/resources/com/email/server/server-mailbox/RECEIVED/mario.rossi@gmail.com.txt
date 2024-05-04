@@ -1,59 +1,9 @@
-mario.rossi@gmail.com;mario.rossi@gmail.com;saaaaaaaa;asssssss;21/04/2024 15:20;4b174681-02c2-4607-9d01-0b11e79bb9f4
-mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
-mario.rossi@gmail.com;mario.rossi@gmail.com;ssssss;ssssss;21/04/2024 23:35;0e27b9fa-62fa-4268-abaf-db96997a64c3
-mario.rossi@gmail.it;andrea.neri@gmail.com;PROVA;aaaa;22/04/2024 00:44;8b3b1bb5-7dc5-49dd-9abd-ddaf4a7ebb61
-mario.rossi@gmail.com;mario.rossi@gmail.it;saassaas;asssssss;21/04/2024 15:41;ecbd7694-0e3d-44a2-9dda-33bdddf48fd6
-mario.rossi@gmail.com;mario.rossi@gmail.it;wwewe;wewewewe;27/04/2024 14:29;664b4c49-f400-4638-85dc-f566b6954dfc
-mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;TEST;ssdsdsdsdsd;27/04/2024 14:30;36ba992d-d639-488d-94a7-f7f4ce6bee57
-mario.rossi@gmail.com;mario.rossi@gmail.it;sd;sd;27/04/2024 15:08;ed7bd18f-3ea0-4b30-be19-e6585b7cec4d
-mario.rossi@gmail.com;mario.rossi@gmail.it;aasasas;sa;04/05/2024 13:32;5463cb94-f690-45d4-97b6-702c2c1362bf
-mario.rossi@gmail.com;mario.rossi@gmail.com, mario.rossi@gmail.it;sss;ss;04/05/2024 14:02;76ea2b13-21c0-4e51-bd17-60a50c64d526
-mario.rossi@gmail.com;mario.rossi@gmail.com, mario.rossi@gmail.it;sss;ss;04/05/2024 14:02;76ea2b13-21c0-4e51-bd17-60a50c64d526
-mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;ssss;ssss;04/05/2024 14:07;1fad6a26-892c-4ad5-9089-702d6c6c33b6
-andrea.neri@gmail.com;mario.rossi@gmail.com;TEST;ssss;04/05/2024 14:26;75188e89-5be7-4041-956f-123c4c72a092
-andrea.neri@gmail.com;mario.rossi@gmail.com, mario.rossi@gmail.it;eee;eeee;04/05/2024 14:26;d45caf2d-1e2c-4252-8abe-7da2da729f9e
-mario.rossi@gmail.com;mario.rossi@gmail.it;sss;sss;2024-05-04 14:59:51;15bc6301-29c2-4d2a-a901-86febb3c4d72
-mario.rossi@gmail.com;andrea.neri@gmail.com;R: TEST;andrea.neri@gmail.com ha scritto:
+mario.rossi@gmail.it;andrea.neri@gmail.com, mario.rossi@gmail.com;TEST INVIO MULTIPLO;TEST;04/05/2024 20:16;c226ecc8-8473-4169-b9b7-7004aad29bae
+mario.rossi@gmail.com;mario.rossi@gmail.it, andrea.neri@gmail.com;R: TEST INVIO MULTIPLO;mario.rossi@gmail.it ha scritto:
 
 ----------------------------------------
-ssss
-In data: 04/05/2024 14:26
+TEST
+In data: 04/05/2024 20:16
 ------------------------------------------
 
-risposta;04/05/2024 15:13;75188e89-5be7-4041-956f-123c4c72a092
-mario.rossi@gmail.com;mario.rossi@gmail.it;TEST;sss;2024-05-04 15:18:34;61be3e99-68f5-4903-a670-455f5845bc2f
-mario.rossi@gmail.com;mario.rossi@gmail.it;qqq;qqq;04/05/2024 15:46;82a5cb19-f02d-43bb-869d-a947fe21fbc4
-mario.rossi@gmail.com;andrea.neri@gmail.com;z;z;04/05/2024 15:49;084fa933-5c8d-4fdd-8234-454662d1ac83
-mario.rossi@gmail.com;andrea.neri@gmail.com;Rispondi;andrea.neri@gmail.com ha scritto:
-
-----------------------------------------
-cccccc
-hnnh
-In data: 04/05/2024 13:42
-------------------------------------------
-
-sss;04/05/2024 16:03;084fa933-5c8d-4fdd-8234-454662d1ac83
-mario.rossi@gmail.com;mario.rossi@gmail.com, mario.rossi@gmail.it;R: eee;andrea.neri@gmail.com ha scritto:
-
-----------------------------------------
-eeee
-In data: 04/05/2024 14:26
-------------------------------------------
-
-RISPOSTA;04/05/2024 16:16;d45caf2d-1e2c-4252-8abe-7da2da729f9e
-mario.rossi@gmail.it;mario.rossi@gmail.com;R: eee;andrea.neri@gmail.com ha scritto:
-
-----------------------------------------
-eeee
-In data: 04/05/2024 14:26
-------------------------------------------
-
-SIISIS;04/05/2024 16:18;d45caf2d-1e2c-4252-8abe-7da2da729f9e
-mario.rossi@gmail.com;andrea.neri@gmail.com, mario.rossi@gmail.it;R: eee;andrea.neri@gmail.com ha scritto:
-
-----------------------------------------
-eeee
-In data: 04/05/2024 14:26
-------------------------------------------
-
-edfddfd;04/05/2024 16:19;d45caf2d-1e2c-4252-8abe-7da2da729f9e
+TEST RISPOSTA A TUTTI;04/05/2024 20:17;c226ecc8-8473-4169-b9b7-7004aad29bae
