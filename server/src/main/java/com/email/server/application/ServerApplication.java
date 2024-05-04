@@ -2,6 +2,7 @@ package com.email.server.application;
 
 import com.email.server.handler.ClientHandler;
 import com.email.server.model.ServerModel;
+import com.email.server.utils.LogEntry;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,7 @@ public class ServerApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("ServerApplication started");
+        ServerModel.initializeLogs();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/email/server/UI/view/server-view.fxml")));
         Scene scene = new Scene(root, 900, 600);
 
@@ -58,11 +60,14 @@ public class ServerApplication extends Application {
 
     private void startServer() {
         try {
+            LogEntry logEntry = new LogEntry("Server", "Server aperto", LocalDateTime.now().format(formatter));
+            ServerModel.addLogEntry(logEntry);
             serverSocket = new ServerSocket(PORT);
             System.out.println("Server avviato sulla porta " + PORT);
             while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept();
-                ServerModel.addLogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().format(formatter));
+                logEntry = new LogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().format(formatter));
+                ServerModel.addLogEntry(logEntry);
                 System.out.println("Connessione accettata da " + clientSocket);
 
                 ClientHandler clientHandler = new ClientHandler(clientSocket);
@@ -101,13 +106,13 @@ public class ServerApplication extends Application {
 
     private void stopServer() {
         if (serverSocket != null && !serverSocket.isClosed()) {
+            LogEntry logEntry = new LogEntry("Server", "Server chiuso", LocalDateTime.now().format(formatter));
             try {
                 serverSocket.close();
-                ServerModel.addLogEntry("Server", "Server chiuso", LocalDateTime.now().format(formatter));
-                ServerModel.saveLogs();
+                ServerModel.addLogEntry(logEntry);
             } catch (IOException e) {
                 logger.severe("Errore durante la chiusura del server: " + e.getMessage());
-                ServerModel.addLogEntry("Server", "Errore durante la chiusura del server: " + e.getMessage(), LocalDateTime.now().format(formatter));
+                ServerModel.addLogEntry(logEntry);
             }
         }
     }

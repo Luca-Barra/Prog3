@@ -19,3 +19,6 @@ In data: 02/05/2024 15:47
 ------------------------------------------
 
 Risposta;02/05/2024 15:48;f6fde10c-1a69-48ce-8398-2051ae4ee5d5
+mario.rossi@gmail.com;mario.rossi@gmail.it;aasasas;sa;04/05/2024 13:32;5463cb94-f690-45d4-97b6-702c2c1362bf
+andrea.neri@gmail.com;mario.rossi@gmail.com;Ciao;cccccc
+hnnh;04/05/2024 13:42;084fa933-5c8d-4fdd-8234-454662d1ac83

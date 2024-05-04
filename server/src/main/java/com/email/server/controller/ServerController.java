@@ -10,9 +10,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class ServerController {
 
     @FXML
@@ -27,7 +24,6 @@ public class ServerController {
     @FXML
     private TableColumn<LogEntry, String> data;
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     /**
      * Metodo che inizializza la tabella dei log
@@ -118,9 +114,6 @@ public class ServerController {
         });
         logTableView.setItems(ServerModel.logEntries);
 
-        ServerModel.logEntries.addAll(
-                new LogEntry("Server", "Server avviato", LocalDateTime.now().format(formatter))
-        );
     }
 
     /**

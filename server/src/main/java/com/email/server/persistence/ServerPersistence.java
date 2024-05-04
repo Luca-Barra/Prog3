@@ -23,15 +23,13 @@ public class ServerPersistence {
     private static final Logger logger = Logger.getLogger(ServerModel.class.getName());
 
     /**
-     * Metodo che salva i log in un file .txt
-     * <p>
-     * @param logEntries La lista di LogEntry nel Server
+     * Metodo che inizializza il file di log.
      */
 
-    public static void saveLogs(List<LogEntry> logEntries) {
+    public static void initializeLogs() {
         String filename = "server/src/main/resources/com/email/server/logs/server-logs_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".txt";
         try {
-            System.out.println("Salvataggio dei log in corso...");
+            System.out.println("Inizializzazione del file di log in corso...");
             Path path = Paths.get(filename);
             if (!Files.exists(path.getParent())) {
                 Files.createDirectories(path.getParent());
@@ -40,10 +38,26 @@ public class ServerPersistence {
             writer.write("\n---------------------------------------\n");
             writer.write("| Logs salvato il " + LocalDateTime.now().format(formatter) + " |");
             writer.write("\n---------------------------------------\n");
-            for (LogEntry logEntry : logEntries) {
-                writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
-                writer.newLine();
-            }
+            writer.close();
+        } catch (IOException e) {
+            logger.severe("Errore durante il salvataggio dei log: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Metodo che salva sul file di log un log. Non è synchronized perché il metodo per aggiungere un log è già synchronized.
+     * <p>
+     * @param logEntry Il log da salvare.
+     */
+
+    public static void saveLogs(LogEntry logEntry){
+        String filename = "server/src/main/resources/com/email/server/logs/server-logs_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".txt";
+        try {
+            System.out.println("Salvataggio dei log in corso...");
+            Path path = Paths.get(filename);
+            BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
+            writer.newLine();
             writer.close();
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio dei log: " + e.getMessage());

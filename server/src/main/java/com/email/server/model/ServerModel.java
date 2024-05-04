@@ -16,21 +16,27 @@ public class ServerModel {
     /**
      * Metodo che aggiunge un log alla lista dei log
      * <p>
-     * @param utente utente che ha inviato il messaggio
-     * @param messaggio messaggio inviato
-     * @param data data e ora dell'invio del messaggio
+     * @param logEntry Il log da aggiungere
      */
     
-    public static synchronized void addLogEntry(String utente, String messaggio, String data) {
-        logEntries.add(new LogEntry(utente, messaggio, data));
+    public static synchronized void addLogEntry(LogEntry logEntry) {
+        logEntries.add(logEntry);
+        saveLogs(logEntry);
     }
     
     /**
-     * Metodo che salva i log in un file .txt
+     * Metodo che inizializza il file di log.
      */
 
-    public static void saveLogs() {
-        ServerPersistence.saveLogs(logEntries);}
+    public static void initializeLogs() {ServerPersistence.initializeLogs();}
+
+    /**
+     * Metodo che salva sul file di log un log.
+     * <p>
+     * @param logEntry il log da salvare
+     */
+
+    public static void saveLogs(LogEntry logEntry) {ServerPersistence.saveLogs(logEntry);}
 
     /**
      * Metodo che carica la lista degli utenti registrati
