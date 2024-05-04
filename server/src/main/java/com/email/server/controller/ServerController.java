@@ -93,6 +93,8 @@ public class ServerController {
 
     /**
      * Metodo che inizializza la tabella email
+     * <p>
+     * Utilizza il campo logEntries del model che è un ObservableList<LogEntry>.
      */
 
     private void initLogTable() {
@@ -113,7 +115,6 @@ public class ServerController {
             return row;
         });
         logTableView.setItems(ServerModel.logEntries);
-
     }
 
     /**
