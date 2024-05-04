@@ -7,4 +7,3 @@ In data: 04/05/2024 20:16
 ------------------------------------------
 
 TEST RISPOSTA A TUTTI;04/05/2024 20:17;READ ;c226ecc8-8473-4169-b9b7-7004aad29bae
-mario.rossi@gmail.it;andrea.neri@gmail.com;TEST SERVER SPENTO;;04/05/2024 20:19;READ ;76a600f4-468a-46ef-bd12-23c18e3c7cf1

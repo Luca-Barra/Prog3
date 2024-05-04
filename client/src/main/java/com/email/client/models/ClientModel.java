@@ -132,7 +132,8 @@ public class ClientModel {
         } else {
             for(String destinatario : destinatari.split(",")) {
                 if(!Objects.equals(destinatario, user)) {
-                    Email emailForwarded = new Email(email.getMittente(), email.getDestinatario(), email.getOggetto(), email.getTesto(), email.getData(), email.getId());
+                    Email emailForwarded = new Email(email.getMittente(), email.getDestinatario(), "I: " + email.getOggetto(),
+                            "*Questa email ti è stata inoltrata da: " + user + "*\n" + email.getTesto(), email.getData(), email.getId());
                     sendEmailV2(emailForwarded, destinatario);
                     refreshEmails();
                 }
@@ -355,7 +356,7 @@ public class ClientModel {
      * @param filePath Percorso del file
      */
 
-    public synchronized void loadEmailsFromLocal(String filePath) {
+    public void loadEmailsFromLocal(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             StringBuilder sb = new StringBuilder();
@@ -389,7 +390,7 @@ public class ClientModel {
      * Metodo per salvare le email nella casella di posta locale
      */
 
-    public synchronized void saveEmailsToLocal() {
+    public void saveEmailsToLocal() {
         System.out.println("Salvataggio su file locale");
         String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
         try {

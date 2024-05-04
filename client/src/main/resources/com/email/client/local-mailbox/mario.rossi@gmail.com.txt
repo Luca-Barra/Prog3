@@ -7,3 +7,6 @@ In data: 04/05/2024 20:16
 ------------------------------------------
 
 TEST RISPOSTA A TUTTI;04/05/2024 20:17;READ ;c226ecc8-8473-4169-b9b7-7004aad29bae
+mario.rossi@gmail.it;andrea.neri@gmail.com, mario.rossi@gmail.com;I: TEST INVIO MULTIPLO;
+*Questa email ti è stata inoltrata da: andrea.neri@gmail.com*
+TEST;04/05/2024 20:16;READ ;c226ecc8-8473-4169-b9b7-7004aad29bae

@@ -1,0 +1,54 @@
+
+---------------------------------------
+| Logs salvato il 05/05/2024 00:54:48 |
+---------------------------------------
+Server;Server aperto;05/05/2024 00:54:48
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54828,localport=12345];05/05/2024 00:54:56
+andrea.neri@gmail.com;Tentativo di login;05/05/2024 00:54:56
+Server;Comando LOGIN gestito con successo;05/05/2024 00:54:56
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54828,localport=12345];05/05/2024 00:54:56
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=54840,localport=12345];05/05/2024 00:54:56
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:54:56
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:54:56
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=54840,localport=12345];05/05/2024 00:54:56
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=36360,localport=12345];05/05/2024 00:55:02
+mario.rossi@gmail.it;Email 76a600f4-468a-46ef-bd12-23c18e3c7cf1 eliminata;05/05/2024 00:55:02
+Server;Comando DELETE_EMAIL gestito con successo;05/05/2024 00:55:02
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=36360,localport=12345];05/05/2024 00:55:02
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=36368,localport=12345];05/05/2024 00:55:02
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:02
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:02
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=36368,localport=12345];05/05/2024 00:55:02
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=58938,localport=12345];05/05/2024 00:55:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=58940,localport=12345];05/05/2024 00:55:21
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:21
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=58938,localport=12345];05/05/2024 00:55:21
+mario.rossi@gmail.it;Email c226ecc8-8473-4169-b9b7-7004aad29bae inoltrata a mario.rossi@gmail.com;05/05/2024 00:55:21
+Server;Comando FORWARD_EMAIL gestito con successo;05/05/2024 00:55:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=58940,localport=12345];05/05/2024 00:55:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=58948,localport=12345];05/05/2024 00:55:21
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:21
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:21
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=58948,localport=12345];05/05/2024 00:55:21
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=59732,localport=12345];05/05/2024 00:55:26
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:26
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:26
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=59732,localport=12345];05/05/2024 00:55:26
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=59738,localport=12345];05/05/2024 00:55:28
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:28
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:28
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=59738,localport=12345];05/05/2024 00:55:28
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51920,localport=12345];05/05/2024 00:55:45
+mario.rossi@gmail.com;Tentativo di login;05/05/2024 00:55:45
+Server;Comando LOGIN gestito con successo;05/05/2024 00:55:45
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51920,localport=12345];05/05/2024 00:55:45
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=51936,localport=12345];05/05/2024 00:55:45
+mario.rossi@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:45
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:45
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=51936,localport=12345];05/05/2024 00:55:45
+Server;Connessione accettata da Socket[addr=/127.0.0.1,port=56446,localport=12345];05/05/2024 00:55:56
+andrea.neri@gmail.com;Aggiornamento della casella di posta;05/05/2024 00:55:56
+Server;Comando RETRIEVE_EMAILS gestito con successo;05/05/2024 00:55:56
+Server;Chiusura della connessione con Socket[addr=/127.0.0.1,port=56446,localport=12345];05/05/2024 00:55:56
+Server;Server chiuso;05/05/2024 00:56:06
