@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change log" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor changes">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/NewMailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/utils/NewMailView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_04-05-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_04-05-2024.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.it.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -329,14 +345,8 @@
       <workItem from="1714676363137" duration="25000" />
       <workItem from="1714676495094" duration="403000" />
       <workItem from="1714821076982" duration="1931000" />
-    </task>
-    <task id="LOCAL-00011" summary="update project">
-      <option name="closed" value="true" />
-      <created>1709656601144</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1709656601145</updated>
+      <workItem from="1714823316262" duration="410000" />
+      <workItem from="1714823758944" duration="9476000" />
     </task>
     <task id="LOCAL-00012" summary="add synchronized to send email">
       <option name="closed" value="true" />
@@ -722,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714822998472</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1714823717164</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1714823717164</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,9 +816,9 @@
     <MESSAGE value="better logs" />
     <MESSAGE value="solve minor bugs" />
     <MESSAGE value="separation between server model and server database" />
-    <MESSAGE value="minor changes" />
     <MESSAGE value="change log" />
-    <option name="LAST_COMMIT_MESSAGE" value="change log" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

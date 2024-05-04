@@ -98,24 +98,30 @@ public class ClientHandler implements Runnable {
             Email email = (Email) in.readObject();
             String mailboxFileName;
             boolean sent = false;
+            boolean allValid = true;
 
             String[] destinatari = email.getDestinatario().split(",");
 
             for (String destinatario : destinatari) {
-                if(!destinatario.trim().equals(email.getMittente())) {
-                    if (checkUser(destinatario.trim())) {
-                        sent = true;
+                    if (!checkUser(destinatario.trim())) {
+                        allValid = false;
+                    }
+            }
+
+            for (String destinatario : destinatari) {
+                if(allValid) {
+                    sent = true;
+                    if (!destinatario.trim().equals(email.getMittente())) {
                         mailboxFileName = getMailboxSent(destinatario.trim());
                         writeMail(mailboxFileName, email);
                         addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " inviata a " + destinatario.trim(), LocalDateTime.now().format(formatter)));
-                    } else {
-                        addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() +" non inviata a " + destinatario.trim() + ": utente non esistente", LocalDateTime.now().format(formatter)));
-                        return false;
                     }
                 }
             }
             if(sent)
                 writeMail(getMailboxSent(email.getMittente()), email);
+            else
+                return false;
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'invio dell'email: " + e.getMessage());

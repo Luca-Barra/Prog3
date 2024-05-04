@@ -154,7 +154,8 @@ public class ClientController {
 
     @FXML
     public void nuovaMail() {
-        NewMailView.NuovaMail(clientModel, LabelUsername);
+        NewMailController controller = new NewMailController(clientModel);
+        controller.nuovaMail();
     }
 
     /**
@@ -166,7 +167,8 @@ public class ClientController {
     public void rispondi() {
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
         if (selectedEmail != null) {
-            NewMailView.Risposta(selectedEmail, clientModel, LabelUsername);
+            NewMailController controller = new NewMailController(clientModel);
+            controller.risposta(selectedEmail);
         } else {
             MyAlert.warning("Nessuna email selezionata", "Seleziona un'email a cui rispondere.", "");
         }
@@ -180,10 +182,10 @@ public class ClientController {
 
     @FXML
     public void rispondiATutti() {
-
         Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
         if (selectedEmail != null) {
-            NewMailView.RispostaATutti(selectedEmail, clientModel, LabelUsername);
+            NewMailController controller = new NewMailController(clientModel);
+            controller.rispostaATutti(selectedEmail, clientModel.getUser(), NewMailView.excludeCurrentUser(clientModel.getUser(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario()));
         } else {
             MyAlert.warning("Nessuna email selezionata", "Seleziona un'email a cui rispondere.", "");
         }

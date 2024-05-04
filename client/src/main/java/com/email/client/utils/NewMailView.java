@@ -1,31 +1,21 @@
 package com.email.client.utils;
 
 import com.email.Email;
-import com.email.client.models.ClientModel;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Optional;
-
-import static com.email.utils.EmailParser.parseDestinatari;
-
 public class NewMailView {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
     /**
-     * Metodo per la creazione di una nuova email
+     * Metodo che crea una finestra per una nuova mail.
      * <p>
-     * @param clientModel modello del client
-     * @param LabelUsername label contenente l'username dell'utente
+     * @return La finestra di dialogo.
      */
 
-    public static void NuovaMail(ClientModel clientModel, Label LabelUsername){
+    public static Dialog<Pair<String, Pair<String, String>>> nuovaMail() {
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Nuova Email");
         dialog.setHeaderText("Nuova email");
@@ -54,7 +44,7 @@ public class NewMailView {
 
         dialog.getDialogPane().setContent(grid);
 
-        Platform.runLater(destinatarioField::requestFocus);
+        dialog.setOnShown(event -> destinatarioField.requestFocus());
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
@@ -63,30 +53,18 @@ public class NewMailView {
             return null;
         });
 
-        Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
-        result.ifPresent(destinatarioOggettoTesto -> {
-            String destinatario = destinatarioOggettoTesto.getKey();
-            String oggetto = destinatarioOggettoTesto.getValue().getKey();
-            String testo = destinatarioOggettoTesto.getValue().getValue();
-            if (!parseDestinatari(destinatarioField.getText())) {
-                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
-            } else {
-                Email email = new Email(LabelUsername.getText(), destinatario, oggetto, testo, LocalDateTime.now().format(formatter), "null");
-                System.out.println(email.getMittente() + " " + email.getDestinatario() + " " + email.getOggetto() + " " + email.getTesto() + " " + email.getData() + " ");
-                clientModel.sendEmail(email);
-            }
-        });
+        return dialog;
     }
 
     /**
-     * Metodo per la risposta a una email
+     * Metodo che crea una finestra per rispondere a una mail.
      * <p>
-     * @param selectedEmail email selezionata
-     * @param clientModel modello del client
-     * @param LabelUsername label contenente l'username dell'utente
+     * @param selectedEmail La mail a cui rispondere.
+     * <p>
+     * @return La finestra di dialogo.
      */
 
-    public static void Risposta(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
+    public static Dialog<Pair<String, Pair<String, String>>> risposta(Email selectedEmail) {
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Rispondi");
         dialog.setHeaderText("Rispondi all'email selezionata");
@@ -100,11 +78,13 @@ public class NewMailView {
         grid.setPadding(new Insets(20, 150, 10, 10));
 
         TextField destinatarioField = new TextField(selectedEmail.getMittente());
+        destinatarioField.setEditable(false);
         TextField oggettoField = new TextField("R: " + selectedEmail.getOggetto());
+        oggettoField.setEditable(false);
         TextArea testoArea = new TextArea();
         testoArea.setPromptText("Rispondi all'email qui...");
 
-        grid.add(new Label("Destinatario:"), 0, 0);
+        grid.add(new Label("Destinatari:"), 0, 0);
         grid.add(destinatarioField, 1, 0);
         grid.add(new Label("Oggetto:"), 0, 1);
         grid.add(oggettoField, 1, 1);
@@ -113,35 +93,38 @@ public class NewMailView {
 
         dialog.getDialogPane().setContent(grid);
 
-        Platform.runLater(testoArea::requestFocus);
+        dialog.setOnShown(event -> testoArea.requestFocus());
 
         String reply = selectedEmail.getMittente() + " ha scritto:" +
                 "\n\n----------------------------------------\n"
-                        + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
+                + selectedEmail.getTesto() + "\nIn data: " + selectedEmail.getData() +
                 "\n------------------------------------------\n\n";
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == confermaButton) {
-                return new Pair<>(selectedEmail.getMittente(), new Pair<>(oggettoField.getText(), reply + testoArea.getText()));
+                return new Pair<>(selectedEmail.getMittente(), new Pair<>(dialog.getTitle(), reply + testoArea.getText()));
             }
             return null;
         });
 
-        dialogIfPresent(selectedEmail, clientModel, LabelUsername, dialog);
+        return dialog;
+
     }
 
     /**
-     * Metodo per la risposta a tutti i destinatari di una email
+     * Metodo che crea una finestra per rispondere a tutti.
      * <p>
-     * @param selectedEmail email selezionata
-     * @param clientModel modello del client
-     * @param LabelUsername label contenente l'username dell'utente
+     * @param selectedEmail La mail a cui rispondere.
+     * @param user L'utente che sta utilizzando il servizio
+     * <p>
+     * @return La finestra di dialogo.
      */
 
-    public static void RispostaATutti(Email selectedEmail, ClientModel clientModel, Label LabelUsername) {
+    public static Dialog<Pair<String, Pair<String, String>>> rispostaATutti(Email selectedEmail, String user){
         Dialog<Pair<String, Pair<String, String>>> dialog = new Dialog<>();
         dialog.setTitle("Rispondi a tutti");
         dialog.setHeaderText("Rispondi a tutti i destinatari");
+        String exclude = excludeCurrentUser(user, selectedEmail.getMittente() + "," + selectedEmail.getDestinatario());
 
         ButtonType confermaButton = new ButtonType("Conferma", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(confermaButton, ButtonType.CANCEL);
@@ -151,12 +134,14 @@ public class NewMailView {
         grid.setVgap(10);
         grid.setPadding(new Insets(20, 150, 10, 10));
 
-        TextField destinatarioField = new TextField(selectedEmail.getMittente() + "," + selectedEmail.getDestinatario());
+        TextField destinatarioField = new TextField(exclude);
+        destinatarioField.setEditable(false);
         TextField oggettoField = new TextField("R: " + selectedEmail.getOggetto());
+        oggettoField.setEditable(false);
         TextArea testoArea = new TextArea();
         testoArea.setPromptText("Rispondi all'email qui...");
 
-        grid.add(new Label("Destinatario:"), 0, 0);
+        grid.add(new Label("Destinatari:"), 0, 0);
         grid.add(destinatarioField, 1, 0);
         grid.add(new Label("Oggetto:"), 0, 1);
         grid.add(oggettoField, 1, 1);
@@ -179,36 +164,33 @@ public class NewMailView {
             return null;
         });
 
-        dialog.showAndWait().ifPresent(response -> {
-            if (!parseDestinatari(selectedEmail.getMittente())) {
-                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
-            } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente() + "," + selectedEmail.getDestinatario(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().format(formatter), selectedEmail.getId());
-                clientModel.sendEmail(email);
-            }
-        });
-
+        return dialog;
     }
 
     /**
-     * Utility per la gestione del dialog
+     * Metodo per evitare di rispondere a sé stessi quando si risponde a tutti.
      * <p>
-     * @param selectedEmail email selezionata
-     * @param clientModel modello del client
-     * @param LabelUsername label contenente l'username dell'utente
-     * @param dialog dialog
+     * @param userEmail L'email del mittente.
+     * @param recipients Le email dei destinatari.
+     * <p>
+     * @return La stringa con i nuovi destinatari.
      */
 
-    private static void dialogIfPresent(Email selectedEmail, ClientModel clientModel, Label LabelUsername, Dialog<Pair<String, Pair<String, String>>> dialog) {
-        dialog.showAndWait().ifPresent(response -> {
-            if (!parseDestinatari(selectedEmail.getMittente())) {
-                MyAlert.error("Errore", "Email non valida", "Inserire un indirizzo email valido.");
-            } else {
-                Email email = new Email(LabelUsername.getText(), selectedEmail.getMittente(), response.getValue().getKey(), response.getValue().getValue(), LocalDateTime.now().format(formatter), selectedEmail.getId());
-                clientModel.sendEmail(email);
+    public static String excludeCurrentUser(String userEmail, String recipients) {
+        StringBuilder excludedRecipients = new StringBuilder();
+        String[] recipientList = recipients.split(",");
+        for (String recipient : recipientList) {
+            String trimmedRecipient = recipient.trim();
+            if (!trimmedRecipient.equalsIgnoreCase(userEmail.trim())) {
+                if (!excludedRecipients.isEmpty()) {
+                    excludedRecipients.append(", ");
+                }
+                excludedRecipients.append(trimmedRecipient);
             }
-        });
+        }
+        return excludedRecipients.toString();
     }
+
 
     /**
      * Metodo per segnalare che il server è down
