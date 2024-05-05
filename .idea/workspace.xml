@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="change synchronized with lock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_05-05-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_05-05-2024.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/mario.rossi@gmail.com.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,15 +340,7 @@
       <workItem from="1714823316262" duration="410000" />
       <workItem from="1714823758944" duration="9476000" />
       <workItem from="1714863019848" duration="481000" />
-      <workItem from="1714864020590" duration="1680000" />
-    </task>
-    <task id="LOCAL-00014" summary="division view">
-      <option name="closed" value="true" />
-      <created>1712935392601</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1712935392601</updated>
+      <workItem from="1714864020590" duration="3776000" />
     </task>
     <task id="LOCAL-00015" summary="change to error management and server entry">
       <option name="closed" value="true" />
@@ -734,7 +726,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714863483322</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="change synchronized with lock">
+      <option name="closed" value="true" />
+      <created>1714865742794</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1714865742794</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +787,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add double click to visualize mail" />
     <MESSAGE value="general refactor" />
     <MESSAGE value="refactor, add interaction for the server, remove default hello world project" />
     <MESSAGE value="total refactoring for management and order purposes" />
@@ -812,7 +811,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="some test" />
     <MESSAGE value="minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
+    <MESSAGE value="change synchronized with lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="change synchronized with lock" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

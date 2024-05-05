@@ -1,11 +1,5 @@
 mario.rossi@gmail.it;andrea.neri@gmail.com, mario.rossi@gmail.com;TEST INVIO MULTIPLO;TEST;04/05/2024 20:16;c226ecc8-8473-4169-b9b7-7004aad29bae
-mario.rossi@gmail.com;mario.rossi@gmail.it, andrea.neri@gmail.com;R: TEST INVIO MULTIPLO;mario.rossi@gmail.it ha scritto:
-
-----------------------------------------
-TEST
-In data: 04/05/2024 20:16
-------------------------------------------
-
-TEST RISPOSTA A TUTTI;04/05/2024 20:17;c226ecc8-8473-4169-b9b7-7004aad29bae
 mario.rossi@gmail.it;andrea.neri@gmail.com;TEST SERVER SPENTO;;04/05/2024 20:19;76a600f4-468a-46ef-bd12-23c18e3c7cf1
 mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;TESTO DI TEST;05/05/2024 01:13;5d2d8967-57a8-48ae-a486-7d1f3ef52eb7
+mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;TEST;05/05/2024 02:02;953db387-b666-4e60-9c6e-cb5e41285e69
+mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;TEST;05/05/2024 02:07;705893b9-296f-42de-a0ca-b0c98daa7daa

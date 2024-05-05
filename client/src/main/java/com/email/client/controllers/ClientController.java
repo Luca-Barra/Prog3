@@ -264,7 +264,7 @@ public class ClientController {
         }
         this.clientModel = clientModel;
         LabelUsername.setText(this.clientModel.getUser());
-        clientModel.loadEmailsFromLocal("/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" +
+        clientModel.loadEmailsFromLocal("com/email/client/local-mailbox/" +
                 LabelUsername.getText() + ".txt");
         emailListView.setItems(clientModel.getEmailList());
         clientModel.updateLocalMailboxPeriodically();

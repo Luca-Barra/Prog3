@@ -357,7 +357,7 @@ public class ClientModel {
      */
 
     public void loadEmailsFromLocal(String filePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(filePath))))) {
             String line;
             StringBuilder sb = new StringBuilder();
             while ((line = br.readLine()) != null) {
