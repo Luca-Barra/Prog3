@@ -61,7 +61,7 @@ public class MailSupport {
      */
 
     public static String getMailboxSent(String user) {
-        return "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/com/email/server/server-mailbox/SENT/" + user + ".txt";
+        return "server/src/main/resources/com/email/server/server-mailbox/SENT/" + user + ".txt";
     }
 
     /**
@@ -73,7 +73,7 @@ public class MailSupport {
      */
 
     public static String getMailboxReceived(String user){
-        return "/home/luna/IdeaProjects/Project-Prog-3/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/" + user + ".txt";
+        return "server/src/main/resources/com/email/server/server-mailbox/RECEIVED/" + user + ".txt";
     }
 
     /**

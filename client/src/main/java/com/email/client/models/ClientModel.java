@@ -392,7 +392,7 @@ public class ClientModel {
 
     public void saveEmailsToLocal() {
         System.out.println("Salvataggio su file locale");
-        String filename = "/home/luna/IdeaProjects/Project-Prog-3/client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
+        String filename = "client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
         try {
             saving(filename);
         } catch (IOException e) {

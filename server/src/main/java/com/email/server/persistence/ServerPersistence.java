@@ -56,7 +56,7 @@ public class ServerPersistence {
             System.out.println("Salvataggio dei log in corso...");
             Path path = Paths.get(filename);
             BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-            writer.write(logEntry.getUtente() + ";" + logEntry.getMessaggio() + ";" + logEntry.getData());
+            writer.write(logEntry.getUtente() + " - " + logEntry.getMessaggio() + " - " + logEntry.getData());
             writer.newLine();
             writer.close();
         } catch (IOException e) {
