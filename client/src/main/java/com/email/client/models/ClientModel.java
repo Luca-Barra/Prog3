@@ -72,21 +72,24 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++) {
+                Socket socket = null;
+                ObjectOutputStream out = null;
+                ObjectInputStream in = null;
                 try {
-                    Socket socket = new Socket();
+                    socket = new Socket();
                     socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out = new ObjectOutputStream(socket.getOutputStream());
+                    in = new ObjectInputStream(socket.getInputStream());
                     out.writeObject("SEND_EMAIL");
                     String serverResponse = in.readObject().toString();
                     out.flush();
-                    if(serverResponse.equals("OK")) {
+                    if (serverResponse.equals("OK")) {
                         System.out.println("Risposta dal server: " + serverResponse);
                         out.writeObject(email);
                     }
                     serverResponse = in.readObject().toString();
                     System.out.println(serverResponse);
-                    if(serverResponse.equals("Errore durante l'invio dell'email")) {
+                    if (serverResponse.equals("Errore durante l'invio dell'email")) {
                         Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
                     } else {
                         Platform.runLater(() -> {
@@ -95,9 +98,6 @@ public class ClientModel {
                             MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
                         });
                     }
-                    in.close();
-                    out.close();
-                    socket.close();
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
@@ -106,6 +106,8 @@ public class ClientModel {
                     logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
+                } finally {
+                    closeSocket(socket, out, in);
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -142,7 +144,7 @@ public class ClientModel {
 
     }
 
-/**
+    /**
      * Utility per inoltrare un'email
      * <p>
      * @param emailForwarded Email da inviare
@@ -154,11 +156,14 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++) {
+                Socket socket = null;
+                ObjectOutputStream out = null;
+                ObjectInputStream in = null;
                 try {
-                    Socket socket = new Socket();
+                    socket = new Socket();
                     socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out = new ObjectOutputStream(socket.getOutputStream());
+                    in = new ObjectInputStream(socket.getInputStream());
                     out.writeObject("FORWARD_EMAIL");
                     String serverResponse = in.readObject().toString();
                     out.flush();
@@ -173,7 +178,7 @@ public class ClientModel {
                         }
                     }
                     serverResponse = in.readObject().toString();
-                    if(serverResponse.equals("Errore durante l'invio dell'email")) {
+                    if(serverResponse.equals("Errore durante l'inoltro dell'email")) {
                         Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
                     } else {
                         Platform.runLater(() -> {
@@ -182,9 +187,6 @@ public class ClientModel {
                             MyAlert.info("Email inoltrata", "Email inoltrata con successo", "L'email è stata inoltrata con successo.");
                         });
                     }
-                    in.close();
-                    out.close();
-                    socket.close();
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
@@ -193,6 +195,8 @@ public class ClientModel {
                     logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
+                } finally {
+                    closeSocket(socket, out, in);
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -205,20 +209,24 @@ public class ClientModel {
         executor.execute(task);
     }
 
+
     /**
      * Metodo per aggiornare la casella di posta
      */
 
     public void refreshEmails() {
+        Socket socket = null;
+        ObjectOutputStream out = null;
+        ObjectInputStream in = null;
         try {
-            Socket socket = new Socket();
+            socket = new Socket();
             socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            out = new ObjectOutputStream(socket.getOutputStream());
+            in = new ObjectInputStream(socket.getInputStream());
             out.writeObject("RETRIEVE_EMAILS");
             String serverResponse = in.readObject().toString();
             out.writeObject(user);
-            if(serverResponse.equals("OK")) {
+            if (serverResponse.equals("OK")) {
                 System.out.println("Risposta dal server: " + serverResponse);
                 Object receivedObject = in.readObject();
                 if (receivedObject instanceof List<?> objectList) {
@@ -227,7 +235,7 @@ public class ClientModel {
                     for (Object obj : objectList) {
                         if (obj instanceof Email) {
                             emails.add((Email) obj);
-                            if(!Objects.equals(((Email) obj).getMittente(), user)) {
+                            if (!Objects.equals(((Email) obj).getMittente(), user)) {
                                 ((Email) obj).setRead(false);
                                 flag = false;
                             } else {
@@ -246,7 +254,7 @@ public class ClientModel {
                         System.out.println(emailList.size());
                         if (size != emailList.size()) {
                             saveEmailsToLocal();
-                            if(!finalFlag)
+                            if (!finalFlag)
                                 MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
                         }
                     });
@@ -254,12 +262,9 @@ public class ClientModel {
                     System.out.println("Il server non ha inviato una lista.");
                 }
             }
-            if(serverResponse.equals("Errore durante il recupero delle email")) {
+            if (serverResponse.equals("Errore durante il recupero delle email")) {
                 System.out.println("Errore durante il recupero delle email");
             }
-            in.close();
-            out.close();
-            socket.close();
         } catch (ConnectException e) {
             System.out.println("Impossibile connettersi al server.");
         } catch (SocketTimeoutException e) {
@@ -268,6 +273,8 @@ public class ClientModel {
             logger.severe("Errore durante il recupero delle email: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        } finally {
+            closeSocket(socket, out, in);
         }
     }
 
@@ -295,11 +302,14 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++){
+                Socket socket = null;
+                ObjectOutputStream out = null;
+                ObjectInputStream in = null;
                 try {
-                    Socket socket = new Socket();
+                    socket = new Socket();
                     socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+                    out = new ObjectOutputStream(socket.getOutputStream());
+                    in = new ObjectInputStream(socket.getInputStream());
                     out.writeObject("DELETE_EMAIL");
                     String serverResponse = in.readObject().toString();
                     out.writeObject(selectedEmail);
@@ -323,14 +333,11 @@ public class ClientModel {
                         System.out.println("Errore durante l'eliminazione dell'email");
                         MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
                     }
-                    in.close();
-                    out.close();
-                    socket.close();
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
                     Platform.runLater(() ->
-                    MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
+                            MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
                 } catch (SocketTimeoutException e) {
                     System.out.println("Timeout di connessione al server.");
                     MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");
@@ -338,6 +345,8 @@ public class ClientModel {
                     logger.severe("Errore durante l'eliminazione dell'email: " + e.getMessage());
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
+                } finally {
+                    closeSocket(socket, out, in);
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -433,6 +442,27 @@ public class ClientModel {
     public void markAsRead(Email email) {
         email.setRead(true);
         saveEmailsToLocal();
+    }
+
+    /**
+     * Metodo per chiudere la connessione
+     * <p>
+     * @param socket Socket
+     * @param out ObjectOutputStream
+     * @param in ObjectInputStream
+     */
+
+    private void closeSocket(Socket socket, ObjectOutputStream out, ObjectInputStream in) {
+        try {
+            if (in != null)
+                in.close();
+            if (out != null)
+                out.close();
+            if (socket != null)
+                socket.close();
+        } catch (IOException e) {
+            logger.severe("Errore durante la chiusura degli stream: " + e.getMessage());
+        }
     }
 
 }

@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="minor change">
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_06-05-2024.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_07-05-2024.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/utils/MailSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_05-05-2024.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_05-05-2024.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/andrea.neri@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/SENT/andrea.neri@gmail.com.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +82,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -96,7 +97,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -126,7 +127,7 @@
       <recent name="com.example.projectprog3" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.client">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="NO_AT_BRIDGE" value="1" />
@@ -345,6 +346,11 @@
       <workItem from="1714906273488" duration="1341000" />
       <workItem from="1714927649080" duration="413000" />
       <workItem from="1715007496005" duration="300000" />
+      <workItem from="1715029990893" duration="9000" />
+      <workItem from="1715030058739" duration="846000" />
+      <workItem from="1715079018709" duration="279000" />
+      <workItem from="1715079379586" duration="2379000" />
+      <workItem from="1715116093078" duration="881000" />
     </task>
     <task id="LOCAL-00016" summary="change to error management and server entry">
       <option name="closed" value="true" />

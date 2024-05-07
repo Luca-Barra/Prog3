@@ -51,14 +51,20 @@ public class ServerApplication extends Application {
                 logger.severe("Errore durante la chiusura del server: " + e.getMessage());
             }
         });
-        new Thread(this::startServer).start();
+        new Thread(() -> {
+            try {
+                startServer();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 
     /**
      * Metodo per avviare il server
      */
 
-    private void startServer() {
+    private void startServer() throws Exception {
         try {
             LogEntry logEntry = new LogEntry("Server", "Server aperto", LocalDateTime.now().format(formatter));
             ServerModel.addLogEntry(logEntry);
@@ -81,6 +87,8 @@ public class ServerApplication extends Application {
             } else {
                 logger.severe("Errore durante l'avvio del server: " + e.getMessage());
             }
+        } finally {
+            stop();
         }
     }
 

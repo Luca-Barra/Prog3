@@ -5,3 +5,21 @@ mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;TEST;05/05/2024 02:02;953db387-b
 mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;TEST;05/05/2024 02:07;705893b9-296f-42de-a0ca-b0c98daa7daa
 mario.rossi@gmail.it;mario.rossi@gmail.it;ss;sss;05/05/2024 18:51;3059f2a4-e37f-4f16-9293-9758f6566434
 mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;UN ALTRO TEST;06/05/2024 17:03;090f6fc3-1927-4b7f-b456-518515c5b225
+andrea.neri@gmail.com;mario.rossi@gmail.it;NUOVO TEST;NEW;07/05/2024 23:25;036d58c2-6d53-4061-8f70-ab929a256da4
+mario.rossi@gmail.it;andrea.neri@gmail.com;Rispondi;andrea.neri@gmail.com ha scritto:
+
+----------------------------------------
+NEW
+In data: 07/05/2024 23:25
+------------------------------------------
+
+RISPOSTA;07/05/2024 23:28;036d58c2-6d53-4061-8f70-ab929a256da4
+mario.rossi@gmail.it;mario.rossi@gmail.com, andrea.neri@gmail.com;MULTIPLI DESTINATARI;TESTO;07/05/2024 23:29;b9efc490-4f4f-409f-89e4-669c382963d3
+andrea.neri@gmail.com;mario.rossi@gmail.it, mario.rossi@gmail.com;R: MULTIPLI DESTINATARI;mario.rossi@gmail.it ha scritto:
+
+----------------------------------------
+TESTO
+In data: 07/05/2024 23:29
+------------------------------------------
+
+RISPOSTA A TUTTI;07/05/2024 23:30;b9efc490-4f4f-409f-89e4-669c382963d3

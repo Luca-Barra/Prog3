@@ -1,0 +1,24 @@
+
+---------------------------------------
+| Logs salvato il 06/05/2024 22:59:15 |
+---------------------------------------
+Server - Server aperto - 06/05/2024 22:59:16
+Server - Connessione accettata da Socket[addr=/127.0.0.1,port=47136,localport=12345] - 06/05/2024 22:59:44
+andrea.neri@gmail.com - Tentativo di login - 06/05/2024 22:59:44
+Server - Comando LOGIN gestito con successo - 06/05/2024 22:59:44
+Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=47136,localport=12345] - 06/05/2024 22:59:44
+Server - Connessione accettata da Socket[addr=/127.0.0.1,port=47150,localport=12345] - 06/05/2024 22:59:44
+andrea.neri@gmail.com - Aggiornamento della casella di posta - 06/05/2024 22:59:44
+Server - Comando RETRIEVE_EMAILS gestito con successo - 06/05/2024 22:59:44
+Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=47150,localport=12345] - 06/05/2024 22:59:44
+Server - Connessione accettata da Socket[addr=/127.0.0.1,port=39124,localport=12345] - 06/05/2024 23:00:14
+andrea.neri@gmail.com - Aggiornamento della casella di posta - 06/05/2024 23:00:14
+Server - Comando RETRIEVE_EMAILS gestito con successo - 06/05/2024 23:00:14
+Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=39124,localport=12345] - 06/05/2024 23:00:14
+Server - Connessione accettata da Socket[addr=/127.0.0.1,port=44088,localport=12345] - 06/05/2024 23:00:44
+andrea.neri@gmail.com - Aggiornamento della casella di posta - 06/05/2024 23:00:44
+Server - Comando RETRIEVE_EMAILS gestito con successo - 06/05/2024 23:00:44
+Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=44088,localport=12345] - 06/05/2024 23:00:44
+Server - Connessione accettata da Socket[addr=/127.0.0.1,port=51090,localport=12345] - 06/05/2024 23:00:52
+Server - Comando SEND_EMAIL gestito con successo - 06/05/2024 23:00:52
+Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=51090,localport=12345] - 06/05/2024 23:00:52

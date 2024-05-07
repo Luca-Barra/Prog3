@@ -36,9 +36,11 @@ public class ClientHandler implements Runnable {
      */
 
     public void run() {
+        ObjectInputStream in = null;
+        ObjectOutputStream out = null;
         try {
-            ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
-            ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+            in = new ObjectInputStream(clientSocket.getInputStream());
+            out = new ObjectOutputStream(clientSocket.getOutputStream());
             String command = in.readObject().toString();
 
             System.out.println("Comando ricevuto: " + command);
@@ -81,8 +83,21 @@ public class ClientHandler implements Runnable {
             addLogEntry(new LogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().format(formatter)));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                if (in != null)
+                    in.close();
+                if (out != null)
+                    out.close();
+                if(clientSocket != null)
+                    clientSocket.close();
+            } catch (IOException e) {
+                logger.severe("Errore durante la chiusura degli stream: " + e.getMessage());
+                addLogEntry(new LogEntry("Server", "Errore durante la chiusura degli stream: " + e.getMessage(), LocalDateTime.now().format(formatter)));
+            }
         }
     }
+
 
     /**
      * Metodo caseSendEmail
@@ -147,6 +162,7 @@ public class ClientHandler implements Runnable {
             out.writeObject("A chi vuoi inoltrare l'email?");
             String destinatario = (String) in.readObject();
 
+
             for(String dest : destinatario.split(",")) {
                 if(!checkUser(dest.trim())) {
                     addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " non inoltrata a " + dest.trim() + ": utente non esistente", LocalDateTime.now().format(formatter)));
@@ -157,7 +173,6 @@ public class ClientHandler implements Runnable {
                     addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " inoltrata a " + dest.trim(), LocalDateTime.now().format(formatter)));
                 }
             }
-
 
         } catch (IOException | ClassNotFoundException e) {
             logger.severe("Errore durante l'inoltro dell'email: " + e.getMessage());
