@@ -2,11 +2,11 @@ package com.email.client.models;
 import com.email.client.connection.ClientConnection;
 import com.email.client.utils.MyAlert;
 import com.email.Email;
-import com.email.client.utils.NewMailView;
-import javafx.application.Platform;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.beans.PropertyChangeSupport;
 import java.io.*;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
 
@@ -24,7 +23,7 @@ public class ClientModel {
     private final ObservableList<Email> emailList;
     private static final Logger logger = Logger.getLogger(ClientModel.class.getName());
     private final String user;
-    private final ReentrantLock lock = new ReentrantLock();
+    private final PropertyChangeSupport alert;
 
     /**
      * Costruttore della classe ClientModel
@@ -37,6 +36,8 @@ public class ClientModel {
         emailList = FXCollections.observableArrayList();
 
         user = username;
+
+        alert = new PropertyChangeSupport(this);
 
     }
 
@@ -58,6 +59,16 @@ public class ClientModel {
 
     public ObservableList<Email> getEmailList() {
         return emailList;
+    }
+
+    /**
+     * Metodo per aggiungere un PropertyChangeListener
+     * <p>
+     * @param listener PropertyChangeListener da aggiungere
+     */
+
+    public void addPropertyChangeListener(java.beans.PropertyChangeListener listener) {
+        alert.addPropertyChangeListener(listener);
     }
 
     /**
@@ -83,18 +94,17 @@ public class ClientModel {
                     serverResponse = connection.receiveFromServer().toString();
                     System.out.println(serverResponse);
                     if (serverResponse.equals("Errore durante l'invio dell'email")) {
-                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
+                        alert.firePropertyChange("Errore nell'invio dell'email", null, null);
                     } else {
-                        Platform.runLater(() -> {
-                            saveEmailsToLocal();
-                            refreshEmails();
-                            MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
-                        });
+                        saveEmailsToLocal();
+                        refreshEmails();
+                        alert.firePropertyChange("Email inviata", null, null);
+
                     }
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
-                    Platform.runLater(NewMailView::serverDown);
+                    alert.firePropertyChange("Errore nell'invio dell'email - Socket", null, null);
                 } catch (IOException e) {
                     logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
                 } catch (ClassNotFoundException e) {
@@ -171,18 +181,16 @@ public class ClientModel {
                     }
                     serverResponse = connection.receiveFromServer().toString();
                     if(serverResponse.equals("Errore durante l'inoltro dell'email")) {
-                        Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
+                        alert.firePropertyChange("Errore nell'inoltro dell'email", null, null);
                     } else {
-                        Platform.runLater(() -> {
-                            saveEmailsToLocal();
-                            refreshEmails();
-                            MyAlert.info("Email inoltrata", "Email inoltrata con successo", "L'email è stata inoltrata con successo.");
-                        });
+                        saveEmailsToLocal();
+                        refreshEmails();
+                        alert.firePropertyChange("Email inoltrata", null, null);
                     }
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
-                    Platform.runLater(NewMailView::serverDown);
+                    alert.firePropertyChange("Errore nell'inoltro dell'email - Socket", null, null);
                 } catch (IOException e) {
                     logger.severe("Errore durante l'invio dell'email: " + e.getMessage());
                 } catch (ClassNotFoundException e) {
@@ -206,7 +214,6 @@ public class ClientModel {
 
         executor.execute(task);
     }
-
 
     /**
      * Metodo per aggiornare la casella di posta
@@ -239,18 +246,14 @@ public class ClientModel {
                         }
                     }
                     boolean finalFlag = flag;
-                    Platform.runLater(() -> {
-                        int size = emailList.size();
-                        lock.lock();
-                        emailList.addAll(emails);
-                        lock.unlock();
-                        System.out.println(emailList.size());
-                        if (size != emailList.size()) {
-                            saveEmailsToLocal();
-                            if (!finalFlag)
-                                MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
-                        }
-                    });
+                    int size = emailList.size();
+                    emailList.addAll(emails);
+                    System.out.println(emailList.size());
+                    if (size != emailList.size()) {
+                        saveEmailsToLocal();
+                        if (!finalFlag)
+                            alert.firePropertyChange("Email ricevute", null, null);
+                    }
                 } else {
                     System.out.println("Il server non ha inviato una lista.");
                 }
@@ -307,30 +310,26 @@ public class ClientModel {
                     connection.sendToServer("DELETE_EMAIL");
                     String serverResponse = connection.receiveFromServer().toString();
                     if(serverResponse.equals("OK")) {
-                        connection.sendToServer(selectedEmail.getId());
+                        connection.sendToServer(selectedEmail);
                         System.out.println("Risposta dal server: " + serverResponse);
                         serverResponse = connection.receiveFromServer().toString();
                         if(serverResponse.equals("Identificarsi")) {
                             connection.sendToServer(user);
-                            Platform.runLater(() -> {
-                                lock.lock();
-                                emailList.remove(selectedEmail);
-                                lock.unlock();
-                                refreshEmails();
-                                MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
-                                saveEmailsToLocal();
-                            });
+                            emailList.remove(selectedEmail);
+                            System.out.println("Email eliminata");
+                            refreshEmails();
+                            saveEmailsToLocal();
+                            alert.firePropertyChange("Email eliminata", null, null);
                         }
                     }
                     if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
                         System.out.println("Errore durante l'eliminazione dell'email");
-                        MyAlert.error("Errore nell'eliminazione dell'email", "Errore durante l'eliminazione dell'email", "Errore durante l'eliminazione dell'email.");
+                        alert.firePropertyChange("Errore nell'eliminazione dell'email", null, null);
                     }
                     break;
                 } catch (ConnectException e) {
                     System.out.println("Impossibile connettersi al server.");
-                    Platform.runLater(() ->
-                            MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down."));
+                    alert.firePropertyChange("Errore nell'eliminazione dell'email - Socket", null, null);
                 } catch (SocketTimeoutException e) {
                     System.out.println("Timeout di connessione al server.");
                     MyAlert.error("Errore nell'eliminazione dell'email", "Impossibile connettersi al server", "Il server è down.");

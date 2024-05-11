@@ -3,6 +3,10 @@ import com.email.client.models.ClientModel;
 import com.email.client.utils.MyAlert;
 import com.email.Email;
 import com.email.client.utils.NewMailView;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -254,20 +258,85 @@ public class ClientController {
      * <p>
      * Inizializza il controller e fa partire il thread per l'aggiornamento periodico della casella di posta.
      * <p>
-     * @param clientModel il controller
+     * @param cm il client model
      * @throws IllegalStateException se il controller è già stato inizializzato
      */
 
-    public void initModel(ClientModel clientModel) {
+    public void initModel(ClientModel cm) {
         if(this.clientModel == null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        this.clientModel = clientModel;
+        this.clientModel = cm;
         LabelUsername.setText(this.clientModel.getUser());
-        clientModel.loadEmailsFromLocal("com/email/client/local-mailbox/" +
+
+        ObservableList<Email> items = FXCollections.observableArrayList();
+        this.clientModel.getEmailList().addListener((ListChangeListener<Email>) c -> {
+
+            while (c.next()) {
+                if (c.wasAdded()) {
+                    Platform.runLater(() ->
+                            items.addAll(c.getAddedSubList()));
+                }
+                if (c.wasRemoved()) {
+                    Platform.runLater(() ->
+                            items.removeAll(c.getRemoved()));
+                }
+            }
+        });
+
+        emailListView.setItems(items);
+
+        this.clientModel.loadEmailsFromLocal("com/email/client/local-mailbox/" +
                 LabelUsername.getText() + ".txt");
-        emailListView.setItems(clientModel.getEmailList());
-        clientModel.updateLocalMailboxPeriodically();
+
+        this.clientModel.updateLocalMailboxPeriodically();
+
+        addAlerts();
+
     }
+
+    /**
+     * Metodo che permette di aggiungere gli alert.
+     * <p>
+     * Aggiunge gli alert per la gestione degli errori e delle notifiche.
+     */
+
+    private void addAlerts() {
+        clientModel.addPropertyChangeListener(evt -> Platform.runLater(() -> {
+            switch (evt.getPropertyName()) {
+                case "Errore nell'invio dell'email":
+                    MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato.");
+                    break;
+                case "Email inviata":
+                    MyAlert.info("Email inviata", "Email inviata con successo", "L'email è stata inviata con successo.");
+                    break;
+                case "Errore nell'invio dell'email - Socket":
+                    MyAlert.error("Errore nell'invio dell'email", "Errore di connessione", "Controllare la connessione e riprovare.");
+                    break;
+                case "Errore nell'inoltro dell'email":
+                    MyAlert.error("Errore nell'inoltro dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato.");
+                    break;
+                case "Email inoltrata":
+                    MyAlert.info("Email inoltrata", "Email inoltrata con successo", "L'email è stata inoltrata con successo.");
+                    break;
+                case "Errore nell'inoltro dell'email - Socket":
+                    MyAlert.error("Errore nell'inoltro dell'email", "Errore di connessione", "Controllare la connessione e riprovare.");
+                    break;
+                case "Email eliminata":
+                    MyAlert.info("Email eliminata", "Email eliminata con successo", "L'email è stata eliminata con successo.");
+                    break;
+                case "Errore nell'eliminazione dell'email":
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore nell'eliminazione dell'email", "Riprova.");
+                    break;
+                case "Errore nell'eliminazione dell'email - Socket":
+                    MyAlert.error("Errore nell'eliminazione dell'email", "Errore di connessione", "Controllare la connessione e riprovare.");
+                    break;
+                case "Email ricevute":
+                    MyAlert.info("Aggiornamento casella di posta", "Casella di posta aggiornata", "La casella di posta è stata aggiornata con successo.");
+                    break;
+            }
+        }));
+    }
+
 
 }

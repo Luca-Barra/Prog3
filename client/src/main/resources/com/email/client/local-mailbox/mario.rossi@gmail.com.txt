@@ -25,5 +25,8 @@ In data: 07/05/2024 23:29
 RISPOSTA A TUTTI;07/05/2024 23:30;READ ;b9efc490-4f4f-409f-89e4-669c382963d3
 mario.rossi@gmail.com;mario.rossi@gmail.it;sasasasa;sasasasas;11/05/2024 17:50;READ ;a13e258e-38b7-4a8f-b771-fe312d92b083
 mario.rossi@gmail.com;mario.rossi@gmail.it;qssa;asasasasas;11/05/2024 17:53;READ ;8e543708-d315-4a83-b754-e62ebff2241c
-mario.rossi@gmail.com;mario.rossi@gmail.it;TEST;sss;11/05/2024 17:58;READ ;4982eb84-5680-408f-a3f1-b9b7349b0807
 mario.rossi@gmail.com;mario.rossi@gmail.it;1;111;11/05/2024 18:24;READ ;ccf0fc77-2a52-4493-ba20-0aa34515dcd1
+mario.rossi@gmail.com;mario.rossi@gmail.it;TEST;TEST;11/05/2024 21:31;READ ;e39cb06f-ce1b-457e-8e50-f141b37a08f2
+mario.rossi@gmail.com;mario.rossi@gmail.it;Mail;ssss;11/05/2024 21:43;READ ;c31c0698-fef7-4ccf-bcbf-a837864e92ff
+mario.rossi@gmail.com;mario.rossi@gmail.it;wss;sss;11/05/2024 21:43;READ ;408b8674-d9dc-4baa-a015-04d653e61c4f
+mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;SSS;11/05/2024 21:50;READ ;94da9d0d-dcf3-49f7-95b3-50ec87dada72

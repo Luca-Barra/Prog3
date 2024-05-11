@@ -12,6 +12,12 @@ public class ClientConnection {
     ObjectInputStream objectInputStream;
     ObjectOutputStream objectOutputStream;
 
+    /**
+     * Costruttore della classe ClientConnection.
+     * <p>
+     * @throws IOException se si verificano errori di I/O
+     */
+
     public ClientConnection() throws IOException {
         clientSocket = new Socket();
         clientSocket.connect(new InetSocketAddress("localhost", 12345), 30000);
@@ -19,14 +25,35 @@ public class ClientConnection {
         objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
     }
 
+    /**
+     * Metodo per inviare un oggetto al server.
+     * <p>
+     * @param object oggetto da inviare al server
+     * @throws IOException se si verificano errori di I/O
+     */
+
     public void sendToServer(Object object) throws IOException {
         objectOutputStream.writeObject(object);
         objectOutputStream.flush();
     }
 
+    /**
+     * Metodo per ricevere un oggetto dal server.
+     * <p>
+     * @return oggetto ricevuto dal server
+     * @throws IOException se si verificano errori di I/O
+     * @throws ClassNotFoundException se la classe dell'oggetto ricevuto non è stata trovata
+     */
+
     public Object receiveFromServer() throws IOException, ClassNotFoundException {
         return objectInputStream.readObject();
     }
+
+    /**
+     * Metodo per chiudere la connessione con il server.
+     * <p>
+     * @throws IOException se si verificano errori di I/O
+     */
 
     public void close() throws IOException {
         objectInputStream.close();
