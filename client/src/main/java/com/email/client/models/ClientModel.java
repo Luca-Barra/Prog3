@@ -87,20 +87,21 @@ public class ClientModel {
                 try {
                     connection = new ClientConnection();
                     connection.sendToServer("SEND_EMAIL");
+                    System.out.println("SEND_EMAIL");
                     String serverResponse = connection.receiveFromServer().toString();
+                    System.out.println("Risposta dal Server: " + serverResponse);
                     if (serverResponse.equals("OK")) {
-                        System.out.println("Risposta dal server: " + serverResponse);
                         connection.sendToServer(email);
-                    }
-                    serverResponse = connection.receiveFromServer().toString();
-                    System.out.println(serverResponse);
-                    if (serverResponse.equals("Errore durante l'invio dell'email")) {
-                        alert.firePropertyChange("Errore nell'invio dell'email", null, null);
-                    } else {
-                        saveEmailsToLocal();
-                        refreshEmails();
-                        alert.firePropertyChange("Email inviata", null, null);
-
+                        System.out.println("Email " + email.getId() + " inviata");
+                        serverResponse = connection.receiveFromServer().toString();
+                        System.out.println("Risposta dal Server: " + serverResponse);
+                        if (serverResponse.equals("Errore durante l'invio dell'email")) {
+                            alert.firePropertyChange("Errore nell'invio dell'email", null, null);
+                        } else {
+                            saveEmailsToLocal();
+                            refreshEmails();
+                            alert.firePropertyChange("Email inviata", null, null);
+                        }
                     }
                     break;
                 } catch (ConnectException e) {
@@ -140,6 +141,7 @@ public class ClientModel {
     public void forwardEmail(Email email, String destinatari) {
 
         if(email.getDestinatario().isEmpty()) {
+            System.out.println("Errore nell'inoltro dell'email");
             MyAlert.error("Errore nell'inoltro dell'email", "Uno o più indirizzi email inseriti non sono validi.", "Inserire uno o più indirizzi email validi.");
         } else {
             for(String destinatario : destinatari.split(",")) {
@@ -170,23 +172,27 @@ public class ClientModel {
                 try {
                     connection = new ClientConnection();
                     connection.sendToServer("FORWARD_EMAIL");
+                    System.out.println("FORWARD_EMAIL");
                     String serverResponse = connection.receiveFromServer().toString();
+                    System.out.println("Risposta dal Server: " + serverResponse);
                     if(serverResponse.equals("OK")) {
-                        System.out.println("Risposta dal server: " + serverResponse);
                         connection.sendToServer(emailForwarded);
+                        System.out.println("Email " + emailForwarded.getId() + " inoltrata");
                         serverResponse = connection.receiveFromServer().toString();
-                        System.out.println(serverResponse);
-                        if(serverResponse.equals("A chi vuoi inoltrare l'email?")) {
+                        System.out.println("Risposta dal Server: " + serverResponse);
+                        if (serverResponse.equals("A chi vuoi inoltrare l'email?")) {
                             connection.sendToServer(destinatario);
+                            System.out.println("Vorrei inoltrarla a: " + destinatario);
+                            serverResponse = connection.receiveFromServer().toString();
+                            System.out.println("Risposta dal Server: " + serverResponse);
+                            if (serverResponse.equals("Errore durante l'inoltro dell'email")) {
+                                alert.firePropertyChange("Errore nell'inoltro dell'email", null, null);
+                            } else {
+                                saveEmailsToLocal();
+                                refreshEmails();
+                                alert.firePropertyChange("Email inoltrata", null, null);
+                            }
                         }
-                    }
-                    serverResponse = connection.receiveFromServer().toString();
-                    if(serverResponse.equals("Errore durante l'inoltro dell'email")) {
-                        alert.firePropertyChange("Errore nell'inoltro dell'email", null, null);
-                    } else {
-                        saveEmailsToLocal();
-                        refreshEmails();
-                        alert.firePropertyChange("Email inoltrata", null, null);
                     }
                     break;
                 } catch (ConnectException e) {
@@ -225,10 +231,12 @@ public class ClientModel {
         try {
             connection = new ClientConnection();
             connection.sendToServer("RETRIEVE_EMAILS");
+            System.out.println("RETRIEVE_EMAILS");
             String serverResponse = connection.receiveFromServer().toString();
+            System.out.println("Risposta dal server: " + serverResponse);
             if (serverResponse.equals("OK")) {
                 connection.sendToServer(user);
-                System.out.println("Risposta dal server: " + serverResponse);
+                System.out.println(user + " ha richiesto le email");
                 Object receivedObject = connection.receiveFromServer();
                 if (receivedObject instanceof List<?> objectList) {
                     List<Email> emails = new ArrayList<>();
@@ -236,6 +244,7 @@ public class ClientModel {
                     for (Object obj : objectList) {
                         if (obj instanceof Email) {
                             emails.add((Email) obj);
+                            System.out.println("Email ricevuta: " + ((Email) obj).getId());
                             if (!Objects.equals(((Email) obj).getMittente(), user)) {
                                 ((Email) obj).setRead(false);
                                 flag = false;
@@ -249,7 +258,6 @@ public class ClientModel {
                     boolean finalFlag = flag;
                     int size = emailList.size();
                     emailList.addAll(emails);
-                    System.out.println(emailList.size());
                     if (size != emailList.size()) {
                         saveEmailsToLocal();
                         if (!finalFlag)
@@ -258,8 +266,7 @@ public class ClientModel {
                 } else {
                     System.out.println("Il server non ha inviato una lista.");
                 }
-            }
-            if (serverResponse.equals("Errore durante il recupero delle email")) {
+            } else {
                 System.out.println("Errore durante il recupero delle email");
             }
         } catch (ConnectException e) {
@@ -309,21 +316,24 @@ public class ClientModel {
                 try {
                     connection = new ClientConnection();
                     connection.sendToServer("DELETE_EMAIL");
+                    System.out.println("DELETE_EMAIL");
                     String serverResponse = connection.receiveFromServer().toString();
+                    System.out.println("Risposta dal server: " + serverResponse);
                     if(serverResponse.equals("OK")) {
                         connection.sendToServer(selectedEmail);
-                        System.out.println("Risposta dal server: " + serverResponse);
+                        System.out.println("Richiesta di eliminazione dell'email: " + selectedEmail.getId());
                         serverResponse = connection.receiveFromServer().toString();
+                        System.out.println("Risposta dal server: " + serverResponse);
                         if(serverResponse.equals("Identificarsi")) {
                             connection.sendToServer(user);
+                            System.out.println("Sono " + user);
                             emailList.remove(selectedEmail);
                             System.out.println("Email eliminata");
                             refreshEmails();
                             saveEmailsToLocal();
                             alert.firePropertyChange("Email eliminata", null, null);
                         }
-                    }
-                    if(serverResponse.equals("Errore durante l'eliminazione dell'email")) {
+                    } else {
                         System.out.println("Errore durante l'eliminazione dell'email");
                         alert.firePropertyChange("Errore nell'eliminazione dell'email", null, null);
                     }
@@ -399,7 +409,6 @@ public class ClientModel {
      */
 
     public void saveEmailsToLocal() {
-        System.out.println("Salvataggio su file locale");
         String filename = "client/src/main/resources/com/email/client/local-mailbox/" + user + ".txt";
         try {
             saving(filename);

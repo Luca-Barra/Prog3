@@ -1,0 +1,34 @@
+
+---------------------------------------
+| Logs salvato il 12/05/2024 01:16:26 |
+---------------------------------------
+Server - Server aperto - 12/05/2024 01:16:26
+Server - Connessione accettata da 127.0.0.1:59984 - 12/05/2024 01:16:35
+mario.rossi@gmail.it - Tentativo di login - 12/05/2024 01:16:35
+Server - Comando LOGIN gestito con successo - 12/05/2024 01:16:35
+Server - Chiusura della connessione con 127.0.0.1:59984 - 12/05/2024 01:16:35
+Server - Connessione accettata da 127.0.0.1:59998 - 12/05/2024 01:16:35
+mario.rossi@gmail.it - Aggiornamento della casella di posta - 12/05/2024 01:16:35
+Server - Comando RETRIEVE_EMAILS gestito con successo - 12/05/2024 01:16:35
+Server - Chiusura della connessione con 127.0.0.1:59998 - 12/05/2024 01:16:35
+Server - Connessione accettata da 127.0.0.1:54152 - 12/05/2024 01:16:45
+Server - Connessione accettata da 127.0.0.1:54166 - 12/05/2024 01:16:45
+mario.rossi@gmail.it - Email 06dcf6b0-29cf-4155-8383-f56dec590914 eliminata - 12/05/2024 01:16:45
+mario.rossi@gmail.it - Aggiornamento della casella di posta - 12/05/2024 01:16:45
+Server - Comando DELETE_EMAIL gestito con successo - 12/05/2024 01:16:45
+Server - Comando RETRIEVE_EMAILS gestito con successo - 12/05/2024 01:16:45
+Server - Chiusura della connessione con 127.0.0.1:54152 - 12/05/2024 01:16:45
+Server - Chiusura della connessione con 127.0.0.1:54166 - 12/05/2024 01:16:45
+Server - Connessione accettata da 127.0.0.1:41486 - 12/05/2024 01:17:05
+mario.rossi@gmail.it - Aggiornamento della casella di posta - 12/05/2024 01:17:05
+Server - Comando RETRIEVE_EMAILS gestito con successo - 12/05/2024 01:17:05
+Server - Chiusura della connessione con 127.0.0.1:41486 - 12/05/2024 01:17:05
+Server - Connessione accettata da 127.0.0.1:40204 - 12/05/2024 01:17:09
+mario.rossi@gmail.it - Email 346fdb59-20d5-49e1-add0-24f80b9f8e09 inviata a mario.rossi@gmail.com - 12/05/2024 01:17:09
+Server - Comando SEND_EMAIL gestito con successo - 12/05/2024 01:17:09
+Server - Chiusura della connessione con 127.0.0.1:40204 - 12/05/2024 01:17:09
+Server - Connessione accettata da 127.0.0.1:40220 - 12/05/2024 01:17:09
+mario.rossi@gmail.it - Aggiornamento della casella di posta - 12/05/2024 01:17:09
+Server - Comando RETRIEVE_EMAILS gestito con successo - 12/05/2024 01:17:09
+Server - Chiusura della connessione con 127.0.0.1:40220 - 12/05/2024 01:17:09
+Server - Server chiuso - 12/05/2024 01:17:19
