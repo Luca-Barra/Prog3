@@ -74,8 +74,8 @@ public class ServerApplication extends Application {
             while (!serverSocket.isClosed()) {
                 ServerConnection connection = new ServerConnection(serverSocket.accept());
                 logEntry = new LogEntry("Server", "Connessione accettata da " + connection, LocalDateTime.now().format(formatter));
-                ServerModel.addLogEntry(logEntry);
                 System.out.println("Connessione accettata da " + connection);
+                ServerModel.addLogEntry(logEntry);
 
                 ClientHandler clientHandler = new ClientHandler(connection);
 
@@ -84,7 +84,7 @@ public class ServerApplication extends Application {
             }
         } catch (IOException e) {
             if(serverSocket.isClosed()) {
-                System.out.println("Server was closed successfully.");
+                System.out.println("Server chiuso.");
             } else {
                 logger.severe("Errore durante l'avvio del server: " + e.getMessage());
             }
@@ -103,10 +103,6 @@ public class ServerApplication extends Application {
     public void stop() throws Exception {
         super.stop();
         stopServer();
-        if (serverSocket != null && !serverSocket.isClosed()) {
-            serverSocket.close();
-            System.out.println("Server chiuso.");
-        }
     }
 
     /**
@@ -119,6 +115,7 @@ public class ServerApplication extends Application {
             try {
                 serverSocket.close();
                 ServerModel.addLogEntry(logEntry);
+                System.out.println("Server chiuso.");
             } catch (IOException e) {
                 logger.severe("Errore durante la chiusura del server: " + e.getMessage());
                 ServerModel.addLogEntry(logEntry);

@@ -53,7 +53,6 @@ public class ServerPersistence {
     public static void saveLogs(LogEntry logEntry){
         String filename = "server/src/main/resources/com/email/server/logs/server-logs_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".txt";
         try {
-            System.out.println("Salvataggio dei log in corso...");
             Path path = Paths.get(filename);
             BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             writer.write(logEntry.getUtente() + " - " + logEntry.getMessaggio() + " - " + logEntry.getData());

@@ -44,12 +44,13 @@ public class ClientHandler implements Runnable {
             String command = clientSocket.receiveFromClient().toString();
 
             System.out.println("Comando ricevuto: " + command);
-
             clientSocket.sendToClient("OK");
+            System.out.println("OK inviato");
 
             switch (command) {
                 case "LOGIN":
                     String username = clientSocket.receiveFromClient().toString();
+                    System.out.println("User: " + username + "sta tentando di accedere al sistema");
                     if (checkUser(username))
                         addLogEntry(new LogEntry(username, "Tentativo di login", LocalDateTime.now().format(formatter)));
                     else
@@ -77,7 +78,9 @@ public class ClientHandler implements Runnable {
                     System.out.println("Comando non riconosciuto: " + command);
             }
             addLogEntry(new LogEntry("Server", "Comando " + command + " gestito con successo", LocalDateTime.now().format(formatter)));
+            System.out.println("Comando " + command + " gestito con successo");
             addLogEntry(new LogEntry("Server", "Chiusura della connessione con " + clientSocket, LocalDateTime.now().format(formatter)));
+            System.out.println("Chiusura della connessione con " + clientSocket);
         } catch (IOException e) {
             logger.severe("Errore durante la comunicazione con il client: " + e.getMessage());
             addLogEntry(new LogEntry("Server", "Errore durante la comunicazione con il client: " + e.getMessage(), LocalDateTime.now().format(formatter)));
@@ -112,6 +115,8 @@ public class ClientHandler implements Runnable {
 
             String[] destinatari = email.getDestinatario().split(",");
 
+            System.out.println("Invio della mail: " + email.getId() + " a " + email.getDestinatario() + " in corso...");
+
             for (String destinatario : destinatari) {
                     if (!checkUser(destinatario.trim())) {
                         allValid = false;
@@ -125,6 +130,7 @@ public class ClientHandler implements Runnable {
                         mailboxFileName = getMailboxSent(destinatario.trim());
                         writeMail(mailboxFileName, email);
                         addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " inviata a " + destinatario.trim(), LocalDateTime.now().format(formatter)));
+                        System.out.println("Email: " + email.getId() + " inviata a " + destinatario.trim());
                     }
                 }
             }
@@ -152,15 +158,19 @@ public class ClientHandler implements Runnable {
     private boolean caseForwardEmail() {
         try {
             Email email = (Email) clientSocket.receiveFromClient();
+            System.out.println("Inoltro della mail: " + email.getId() + " in corso...");
             clientSocket.sendToClient("A chi vuoi inoltrare l'email?");
+            System.out.println("A chi vuoi inoltrare l'email?");
             String destinatario = (String) clientSocket.receiveFromClient();
-
+            System.out.println("Destinatario: " + destinatario);
 
             for(String dest : destinatario.split(",")) {
                 if(!checkUser(dest.trim())) {
+                    System.out.println("Utente non esistente");
                     addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " non inoltrata a " + dest.trim() + ": utente non esistente", LocalDateTime.now().format(formatter)));
                     return false;
                 } else {
+                    System.out.println("Utente esistente");
                     String mailboxFileName = getMailboxSent(dest.trim());
                     writeMail(mailboxFileName, email);
                     addLogEntry(new LogEntry(email.getMittente(), "Email " + email.getId() + " inoltrata a " + dest.trim(), LocalDateTime.now().format(formatter)));
@@ -185,12 +195,14 @@ public class ClientHandler implements Runnable {
     private void caseRetrieveEmails() {
         try {
             String username = (String) clientSocket.receiveFromClient();
+            System.out.println("User: " + username);
             String mailboxFileName = getMailboxSent(username);
             String mailboxFileNameReceived = getMailboxReceived(username);
             List<Email> emailList = getEmails(mailboxFileName);
             saveNewEmails(mailboxFileNameReceived, emailList);
             clientSocket.sendToClient(emailList);
             addLogEntry(new LogEntry(username, "Aggiornamento della casella di posta", LocalDateTime.now().format(formatter)));
+            System.out.println("Email inviate: " + emailList.size());
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(mailboxFileName))) {
                 writer.write("");
             }
@@ -211,11 +223,14 @@ public class ClientHandler implements Runnable {
     private void caseDeleteEmail() {
         try {
             Email email = (Email) clientSocket.receiveFromClient();
-            System.out.println("Email da eliminare: " + email);
+            System.out.println("Email da eliminare: " + email.getId());
 
             clientSocket.sendToClient("Identificarsi");
+            System.out.println("Identificazione richiesta");
 
             String username = (String) clientSocket.receiveFromClient();
+
+            System.out.println("User: " + username);
 
             String mailboxFileName = getMailboxReceived(username);
             deleteEmail(mailboxFileName, email);
