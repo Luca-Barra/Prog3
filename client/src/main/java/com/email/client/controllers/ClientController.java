@@ -4,9 +4,10 @@ import com.email.client.utils.MyAlert;
 import com.email.Email;
 import com.email.client.utils.NewMailView;
 import javafx.application.Platform;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -269,7 +270,7 @@ public class ClientController {
         this.clientModel = cm;
         LabelUsername.setText(this.clientModel.getUser());
 
-        ObservableList<Email> items = FXCollections.observableArrayList();
+        ListProperty<Email> items = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.clientModel.getEmailList().addListener((ListChangeListener<Email>) c -> {
 
             while (c.next()) {
@@ -284,7 +285,7 @@ public class ClientController {
             }
         });
 
-        emailListView.setItems(items);
+        emailListView.itemsProperty().bind(items);
 
         this.clientModel.loadEmailsFromLocal("com/email/client/local-mailbox/" +
                 LabelUsername.getText() + ".txt");

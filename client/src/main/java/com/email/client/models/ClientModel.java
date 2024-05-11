@@ -3,8 +3,9 @@ import com.email.client.connection.ClientConnection;
 import com.email.client.utils.MyAlert;
 import com.email.Email;
 
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.beans.PropertyChangeSupport;
 import java.io.*;
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
 
 
 public class ClientModel {
-    private final ObservableList<Email> emailList;
+    private final ListProperty<Email> emailList;
     private static final Logger logger = Logger.getLogger(ClientModel.class.getName());
     private final String user;
     private final PropertyChangeSupport alert;
@@ -33,7 +34,7 @@ public class ClientModel {
 
     public ClientModel(String username) {
 
-        emailList = FXCollections.observableArrayList();
+        emailList = new SimpleListProperty<>(FXCollections.observableArrayList());
 
         user = username;
 
@@ -57,7 +58,7 @@ public class ClientModel {
      * @return emailList Lista delle email
      */
 
-    public ObservableList<Email> getEmailList() {
+    public ListProperty<Email> getEmailList() {
         return emailList;
     }
 

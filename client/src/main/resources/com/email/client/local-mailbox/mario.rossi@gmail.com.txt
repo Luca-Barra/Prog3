@@ -30,3 +30,4 @@ mario.rossi@gmail.com;mario.rossi@gmail.it;TEST;TEST;11/05/2024 21:31;READ ;e39c
 mario.rossi@gmail.com;mario.rossi@gmail.it;Mail;ssss;11/05/2024 21:43;READ ;c31c0698-fef7-4ccf-bcbf-a837864e92ff
 mario.rossi@gmail.com;mario.rossi@gmail.it;wss;sss;11/05/2024 21:43;READ ;408b8674-d9dc-4baa-a015-04d653e61c4f
 mario.rossi@gmail.it;mario.rossi@gmail.com;TEST;SSS;11/05/2024 21:50;READ ;94da9d0d-dcf3-49f7-95b3-50ec87dada72
+mario.rossi@gmail.it;mario.rossi@gmail.com;ww;www;11/05/2024 22:44;READ ;06dcf6b0-29cf-4155-8383-f56dec590914
