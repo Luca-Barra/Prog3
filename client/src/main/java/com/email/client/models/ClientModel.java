@@ -1,4 +1,5 @@
 package com.email.client.models;
+import com.email.client.connection.ClientConnection;
 import com.email.client.utils.MyAlert;
 import com.email.Email;
 import com.email.client.utils.NewMailView;
@@ -8,8 +9,6 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 import java.net.ConnectException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,22 +71,16 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++) {
-                Socket socket = null;
-                ObjectOutputStream out = null;
-                ObjectInputStream in = null;
+                ClientConnection connection = null;
                 try {
-                    socket = new Socket();
-                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    out = new ObjectOutputStream(socket.getOutputStream());
-                    in = new ObjectInputStream(socket.getInputStream());
-                    out.writeObject("SEND_EMAIL");
-                    String serverResponse = in.readObject().toString();
-                    out.flush();
+                    connection = new ClientConnection();
+                    connection.sendToServer("SEND_EMAIL");
+                    String serverResponse = connection.receiveFromServer().toString();
                     if (serverResponse.equals("OK")) {
                         System.out.println("Risposta dal server: " + serverResponse);
-                        out.writeObject(email);
+                        connection.sendToServer(email);
                     }
-                    serverResponse = in.readObject().toString();
+                    serverResponse = connection.receiveFromServer().toString();
                     System.out.println(serverResponse);
                     if (serverResponse.equals("Errore durante l'invio dell'email")) {
                         Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
@@ -107,7 +100,13 @@ public class ClientModel {
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    closeSocket(socket, out, in);
+                    if (connection != null) {
+                        try {
+                            connection.close();
+                        } catch (IOException e) {
+                            logger.severe("Errore durante la chiusura della connessione: " + e.getMessage());
+                        }
+                    }
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -156,28 +155,21 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++) {
-                Socket socket = null;
-                ObjectOutputStream out = null;
-                ObjectInputStream in = null;
+                ClientConnection connection = null;
                 try {
-                    socket = new Socket();
-                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    out = new ObjectOutputStream(socket.getOutputStream());
-                    in = new ObjectInputStream(socket.getInputStream());
-                    out.writeObject("FORWARD_EMAIL");
-                    String serverResponse = in.readObject().toString();
-                    out.flush();
+                    connection = new ClientConnection();
+                    connection.sendToServer("FORWARD_EMAIL");
+                    String serverResponse = connection.receiveFromServer().toString();
                     if(serverResponse.equals("OK")) {
                         System.out.println("Risposta dal server: " + serverResponse);
-                        out.writeObject(emailForwarded);
-                        serverResponse = in.readObject().toString();
+                        connection.sendToServer(emailForwarded);
+                        serverResponse = connection.receiveFromServer().toString();
                         System.out.println(serverResponse);
                         if(serverResponse.equals("A chi vuoi inoltrare l'email?")) {
-                            out.flush();
-                            out.writeObject(destinatario);
+                            connection.sendToServer(destinatario);
                         }
                     }
-                    serverResponse = in.readObject().toString();
+                    serverResponse = connection.receiveFromServer().toString();
                     if(serverResponse.equals("Errore durante l'inoltro dell'email")) {
                         Platform.runLater(() -> MyAlert.error("Errore nell'invio dell'email", "Destinatario inesistente", "Inserire un indirizzo email registrato."));
                     } else {
@@ -196,7 +188,13 @@ public class ClientModel {
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    closeSocket(socket, out, in);
+                    if (connection != null) {
+                        try {
+                            connection.close();
+                        } catch (IOException e) {
+                            logger.severe("Errore durante la chiusura della connessione: " + e.getMessage());
+                        }
+                    }
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -215,20 +213,15 @@ public class ClientModel {
      */
 
     public void refreshEmails() {
-        Socket socket = null;
-        ObjectOutputStream out = null;
-        ObjectInputStream in = null;
+        ClientConnection connection = null;
         try {
-            socket = new Socket();
-            socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-            out = new ObjectOutputStream(socket.getOutputStream());
-            in = new ObjectInputStream(socket.getInputStream());
-            out.writeObject("RETRIEVE_EMAILS");
-            String serverResponse = in.readObject().toString();
-            out.writeObject(user);
+            connection = new ClientConnection();
+            connection.sendToServer("RETRIEVE_EMAILS");
+            String serverResponse = connection.receiveFromServer().toString();
             if (serverResponse.equals("OK")) {
+                connection.sendToServer(user);
                 System.out.println("Risposta dal server: " + serverResponse);
-                Object receivedObject = in.readObject();
+                Object receivedObject = connection.receiveFromServer();
                 if (receivedObject instanceof List<?> objectList) {
                     List<Email> emails = new ArrayList<>();
                     boolean flag = true;
@@ -274,7 +267,13 @@ public class ClientModel {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
-            closeSocket(socket, out, in);
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (IOException e) {
+                    logger.severe("Errore durante la chiusura della connessione: " + e.getMessage());
+                }
+            }
         }
     }
 
@@ -302,23 +301,17 @@ public class ClientModel {
 
         Runnable task = () -> {
             for (int i = 0; i < 3; i++){
-                Socket socket = null;
-                ObjectOutputStream out = null;
-                ObjectInputStream in = null;
+                ClientConnection connection = null;
                 try {
-                    socket = new Socket();
-                    socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                    out = new ObjectOutputStream(socket.getOutputStream());
-                    in = new ObjectInputStream(socket.getInputStream());
-                    out.writeObject("DELETE_EMAIL");
-                    String serverResponse = in.readObject().toString();
-                    out.writeObject(selectedEmail);
+                    connection = new ClientConnection();
+                    connection.sendToServer("DELETE_EMAIL");
+                    String serverResponse = connection.receiveFromServer().toString();
                     if(serverResponse.equals("OK")) {
+                        connection.sendToServer(selectedEmail.getId());
                         System.out.println("Risposta dal server: " + serverResponse);
-                        serverResponse = in.readObject().toString();
+                        serverResponse = connection.receiveFromServer().toString();
                         if(serverResponse.equals("Identificarsi")) {
-                            out.flush();
-                            out.writeObject(user);
+                            connection.sendToServer(user);
                             Platform.runLater(() -> {
                                 lock.lock();
                                 emailList.remove(selectedEmail);
@@ -346,7 +339,13 @@ public class ClientModel {
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    closeSocket(socket, out, in);
+                    if (connection != null) {
+                        try {
+                            connection.close();
+                        } catch (IOException e) {
+                            logger.severe("Errore durante la chiusura della connessione: " + e.getMessage());
+                        }
+                    }
                 }
                 try {
                     TimeUnit.SECONDS.sleep(30);
@@ -442,27 +441,6 @@ public class ClientModel {
     public void markAsRead(Email email) {
         email.setRead(true);
         saveEmailsToLocal();
-    }
-
-    /**
-     * Metodo per chiudere la connessione
-     * <p>
-     * @param socket Socket
-     * @param out ObjectOutputStream
-     * @param in ObjectInputStream
-     */
-
-    private void closeSocket(Socket socket, ObjectOutputStream out, ObjectInputStream in) {
-        try {
-            if (in != null)
-                in.close();
-            if (out != null)
-                out.close();
-            if (socket != null)
-                socket.close();
-        } catch (IOException e) {
-            logger.severe("Errore durante la chiusura degli stream: " + e.getMessage());
-        }
     }
 
 }
