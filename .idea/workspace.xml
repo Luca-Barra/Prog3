@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add connection class for client">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/connection/ServerConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.module/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/.module/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add connection class for server">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/LoginModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +17,9 @@
       <list>
         <option value="module-info" />
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="package-info" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -347,14 +344,6 @@
       <workItem from="1715079018709" duration="279000" />
       <workItem from="1715079379586" duration="2379000" />
       <workItem from="1715116093078" duration="881000" />
-    </task>
-    <task id="LOCAL-00017" summary="change to error management and server entry">
-      <option name="closed" value="true" />
-      <created>1713177179957</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1713177179957</updated>
     </task>
     <task id="LOCAL-00018" summary="minor correction">
       <option name="closed" value="true" />
@@ -740,7 +729,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715443523864</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="add connection class for server">
+      <option name="closed" value="true" />
+      <created>1715444698412</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1715444698412</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -793,7 +790,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor, add interaction for the server, remove default hello world project" />
     <MESSAGE value="total refactoring for management and order purposes" />
     <MESSAGE value="delete" />
     <MESSAGE value="add connection for login" />
@@ -818,7 +814,8 @@
     <MESSAGE value="change synchronized with lock" />
     <MESSAGE value="minor change" />
     <MESSAGE value="add connection class for client" />
-    <option name="LAST_COMMIT_MESSAGE" value="add connection class for client" />
+    <MESSAGE value="add connection class for server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add connection class for server" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

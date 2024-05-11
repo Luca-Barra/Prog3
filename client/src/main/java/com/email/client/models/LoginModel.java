@@ -1,11 +1,10 @@
 package com.email.client.models;
 
+import com.email.client.connection.ClientConnection;
 import com.email.client.utils.MyAlert;
 
 import java.io.*;
 import java.net.ConnectException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Objects;
@@ -27,7 +26,7 @@ public class LoginModel {
      * @param password password
      */
 
-    public LoginModel(String user, String password) {
+    public LoginModel(String user, String password) throws IOException {
         this.user = user;
         this.password = password;
         this.fill();
@@ -40,18 +39,15 @@ public class LoginModel {
      * Se la risposta del server è "OK" allora i dati vengono caricati correttamente.
      */
 
-    private void fill() {
+    private void fill() throws IOException {
+        ClientConnection connection = null;
             try {
-                Socket socket = new Socket();
-                socket.connect(new InetSocketAddress("localhost", 12345), 30000);
-                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-                out.writeObject("LOGIN");
-                String serverResponse = in.readObject().toString();
-                out.flush();
-                out.writeObject(user);
-                System.out.println(serverResponse);
+                connection = new ClientConnection();
+                connection.sendToServer("LOGIN");
+                String serverResponse = connection.receiveFromServer().toString();
+
                 if (serverResponse.equals("OK")) {
+                    connection.sendToServer(user);
                     check = true;
                     try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("login-info.txt")) {
                         if (inputStream != null) {
@@ -75,14 +71,16 @@ public class LoginModel {
                         logger.log(Level.SEVERE, "Error reading login-info.txt", e);
                     }
                 }
-                in.close();
-                out.close();
-                socket.close();
             } catch (ConnectException e) {
                 System.out.println("Impossibile connettersi al server.");
                 MyAlert.warning("Errore di connessione", "Impossibile connettersi al server", "Il server è down.");
             } catch (IOException | ClassNotFoundException e) {
                 logger.log(Level.SEVERE, "Error during login", e);
+            }
+            finally {
+                if (connection != null) {
+                    connection.close();
+                }
             }
     }
 
