@@ -114,3 +114,41 @@ mario.rossi@gmail.it - Aggiornamento della casella di posta - 11/05/2024 18:00:0
 Server - Comando RETRIEVE_EMAILS gestito con successo - 11/05/2024 18:00:06
 Server - Chiusura della connessione con Socket[addr=/127.0.0.1,port=56306,localport=12345] - 11/05/2024 18:00:06
 Server - Server chiuso - 11/05/2024 18:00:12
+
+---------------------------------------
+| Logs salvato il 11/05/2024 18:23:47 |
+---------------------------------------
+Server - Server aperto - 11/05/2024 18:23:48
+Server - Connessione accettata da com.email.server.connection.ServerConnection@25107406 - 11/05/2024 18:23:53
+mario.rossi@gmail.com - Tentativo di login - 11/05/2024 18:23:53
+Server - Comando LOGIN gestito con successo - 11/05/2024 18:23:53
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@25107406 - 11/05/2024 18:23:53
+Server - Connessione accettata da com.email.server.connection.ServerConnection@71eeaedd - 11/05/2024 18:24:04
+mario.rossi@gmail.com - Tentativo di login - 11/05/2024 18:24:04
+Server - Comando LOGIN gestito con successo - 11/05/2024 18:24:04
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@71eeaedd - 11/05/2024 18:24:04
+Server - Connessione accettata da com.email.server.connection.ServerConnection@70b685ac - 11/05/2024 18:24:04
+mario.rossi@gmail.com - Aggiornamento della casella di posta - 11/05/2024 18:24:04
+Server - Comando RETRIEVE_EMAILS gestito con successo - 11/05/2024 18:24:04
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@70b685ac - 11/05/2024 18:24:04
+Server - Connessione accettata da com.email.server.connection.ServerConnection@5b751c5 - 11/05/2024 18:24:19
+mario.rossi@gmail.com - Email ccf0fc77-2a52-4493-ba20-0aa34515dcd1 inviata a mario.rossi@gmail.it - 11/05/2024 18:24:19
+Server - Comando SEND_EMAIL gestito con successo - 11/05/2024 18:24:19
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@5b751c5 - 11/05/2024 18:24:19
+Server - Connessione accettata da com.email.server.connection.ServerConnection@94731d4 - 11/05/2024 18:24:19
+mario.rossi@gmail.com - Aggiornamento della casella di posta - 11/05/2024 18:24:19
+Server - Comando RETRIEVE_EMAILS gestito con successo - 11/05/2024 18:24:19
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@94731d4 - 11/05/2024 18:24:19
+Server - Connessione accettata da com.email.server.connection.ServerConnection@ddbfe67 - 11/05/2024 18:24:34
+mario.rossi@gmail.it - Tentativo di login - 11/05/2024 18:24:34
+Server - Comando LOGIN gestito con successo - 11/05/2024 18:24:34
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@ddbfe67 - 11/05/2024 18:24:34
+Server - Connessione accettata da com.email.server.connection.ServerConnection@49049195 - 11/05/2024 18:24:34
+mario.rossi@gmail.it - Aggiornamento della casella di posta - 11/05/2024 18:24:34
+Server - Comando RETRIEVE_EMAILS gestito con successo - 11/05/2024 18:24:34
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@49049195 - 11/05/2024 18:24:34
+Server - Connessione accettata da com.email.server.connection.ServerConnection@7602c809 - 11/05/2024 18:24:34
+mario.rossi@gmail.com - Aggiornamento della casella di posta - 11/05/2024 18:24:34
+Server - Comando RETRIEVE_EMAILS gestito con successo - 11/05/2024 18:24:34
+Server - Chiusura della connessione con com.email.server.connection.ServerConnection@7602c809 - 11/05/2024 18:24:34
+Server - Server chiuso - 11/05/2024 18:24:38

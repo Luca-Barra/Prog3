@@ -1,5 +1,6 @@
 package com.email.server.application;
 
+import com.email.server.connection.ServerConnection;
 import com.email.server.handler.ClientHandler;
 import com.email.server.model.ServerModel;
 import com.email.server.utils.LogEntry;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.ServerSocket;
-import java.net.Socket;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -71,12 +72,12 @@ public class ServerApplication extends Application {
             serverSocket = new ServerSocket(PORT);
             System.out.println("Server avviato sulla porta " + PORT);
             while (!serverSocket.isClosed()) {
-                Socket clientSocket = serverSocket.accept();
-                logEntry = new LogEntry("Server", "Connessione accettata da " + clientSocket, LocalDateTime.now().format(formatter));
+                ServerConnection connection = new ServerConnection(serverSocket.accept());
+                logEntry = new LogEntry("Server", "Connessione accettata da " + connection, LocalDateTime.now().format(formatter));
                 ServerModel.addLogEntry(logEntry);
-                System.out.println("Connessione accettata da " + clientSocket);
+                System.out.println("Connessione accettata da " + connection);
 
-                ClientHandler clientHandler = new ClientHandler(clientSocket);
+                ClientHandler clientHandler = new ClientHandler(connection);
 
                 Thread clientHandlerThread = new Thread(clientHandler);
                 clientHandlerThread.start();

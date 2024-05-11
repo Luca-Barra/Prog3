@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/connection/ClientConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/logs/server-logs_11-05-2024.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/email/client/models/ClientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/email/client/local-mailbox/mario.rossi@gmail.it.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/com/email/server/server-mailbox/RECEIVED/mario.rossi@gmail.it.txt" afterDir="false" />
+    <list default="true" id="5313afff-1349-4978-b24c-b387266d3a54" name="Changes" comment="add connection class for client">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/connection/ServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.module/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/.module/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/application/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/email/server/handler/ClientHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,14 +347,6 @@
       <workItem from="1715079018709" duration="279000" />
       <workItem from="1715079379586" duration="2379000" />
       <workItem from="1715116093078" duration="881000" />
-    </task>
-    <task id="LOCAL-00016" summary="change to error management and server entry">
-      <option name="closed" value="true" />
-      <created>1713135599558</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1713135599558</updated>
     </task>
     <task id="LOCAL-00017" summary="change to error management and server entry">
       <option name="closed" value="true" />
@@ -744,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714867929319</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="add connection class for client">
+      <option name="closed" value="true" />
+      <created>1715443523864</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1715443523864</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,7 +793,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="general refactor" />
     <MESSAGE value="refactor, add interaction for the server, remove default hello world project" />
     <MESSAGE value="total refactoring for management and order purposes" />
     <MESSAGE value="delete" />
@@ -822,7 +817,8 @@
     <MESSAGE value="some test" />
     <MESSAGE value="change synchronized with lock" />
     <MESSAGE value="minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
+    <MESSAGE value="add connection class for client" />
+    <option name="LAST_COMMIT_MESSAGE" value="add connection class for client" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
